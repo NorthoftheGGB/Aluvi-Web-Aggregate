@@ -66,7 +66,38 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYWx1dmltYXBzIiwiYSI6ImJlYjg2M2FmNjA4OGZhYjk2Z
 var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
     .setView([37.811, -122.369], 11);
     L.control.locate().addTo(map);
-L.marker([37.880238, -122.514744]).bindLabel('Glassdoor').addTo(map);
+
+var myLayer = L.mapbox.featureLayer().addTo(map);
+
+var geoJson = [{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-122.514733, 37.880298]
+    },
+    "properties": {
+        "title": "glassdoor",
+        "icon": {
+            "iconUrl": "resources/glassdoor_marker.png",
+            "iconSize": [70, 70], // size of the icon
+            "iconAnchor": [25, 70], // point of the icon which will correspond to marker's location
+            "popupAnchor": [0, -72], // point from which the popup should open relative to the iconAnchor
+            "className": "dot"
+        }
+    }
+}];
+
+// Set a custom icon on each marker based on feature properties.
+myLayer.on('layeradd', function(e) {
+    var marker = e.layer,
+        feature = marker.feature;
+
+    marker.setIcon(L.icon(feature.properties.icon));
+});
+
+// Add features to the map.
+myLayer.setGeoJSON(geoJson);
+
 </script>
 
 
