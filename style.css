@@ -50,6 +50,11 @@ margin:0 auto;
 padding:0;
 }
 
+.container2 a{
+color:#07A0A7;
+}
+
+
 
 #map{
 width:100%;
@@ -67,6 +72,7 @@ float:left;
 .resultsContainer{
 width:32%;
 height:97%;
+min-height:310px;
 margin:.5em 0;
 float:left;
 background-color:rgba(255,255,255, 0.8);
@@ -161,6 +167,7 @@ font-size:1em;
 .result p {
 color:#666;
 }
+
 
 
 @media only screen and (max-device-width: 480px) {
