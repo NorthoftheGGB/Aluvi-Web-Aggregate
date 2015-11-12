@@ -7,7 +7,10 @@ if (!$con) {
 $email = $_POST['email'];
 $name = $_POST['name'];
 $zip = $_POST['zip'];
-$driver = $_POST['driver'] == 'yes' ? 1 : 0;
+if ($_POST['driver'])
+    $driver = 1;
+else
+    $driver = 0;
 mysqli_query($con, $q = "insert into users values('$name', '$email', '$zip', $driver)");
 if ($e = mysqli_error($con)){
     echo "<!--$e:
