@@ -51,7 +51,7 @@ etc. </p>
 
 <div class="result">
                 <h2 class="resultType">Bike</h2>              
-  <p class="resultDescription">Bike to the ferry! Plan the details <a target="_blank" href="#">here.</a></p>
+  <p class="resultDescription">Bike to the ferry! Plan the details <a target="_blank" href="http://goldengateferry.org/schedules/Sausalito.php">here.</a></p>
 
                 </div>
 
@@ -91,7 +91,39 @@ var geoJson = [{
             "iconUrl": "resources/glassdoor_marker.png",
             "iconSize": [62, 60], // size of the icon
             "iconAnchor": [30, 62], // point of the icon which will correspond to marker's location
-            "popupAnchor": [0, -65], // point from which the popup should open relative to the iconAnchor
+            "popupAnchor": [-7, -65], // point from which the popup should open relative to the iconAnchor
+            "className": "dot"
+        }
+    }
+}, {
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-122.393326, 37.795748]
+    },
+    "properties": {
+        "title": "San Francisco Ferry Bldg.",
+        "icon": {
+            "iconUrl": "resources/ferry_marker.png",
+            "iconSize": [62, 60], // size of the icon
+            "iconAnchor": [30, 62], // point of the icon which will correspond to marker's location
+            "popupAnchor": [-7, -65], // point from which the popup should open relative to the iconAnchor
+            "className": "dot"
+        }
+    }
+},{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-122.478122, 37.856561]
+    },
+    "properties": {
+        "title": "Sausalito Ferry Landing",
+        "icon": {
+            "iconUrl": "resources/ferry_marker.png",
+            "iconSize": [62, 60], // size of the icon
+            "iconAnchor": [30, 62], // point of the icon which will correspond to marker's location
+            "popupAnchor": [-7, -65], // point from which the popup should open relative to the iconAnchor
             "className": "dot"
         }
     }
