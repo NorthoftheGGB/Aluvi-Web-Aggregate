@@ -50,7 +50,7 @@ etc. </p>
 
 
 <div class="result">
-                <h2 class="resultType">Bike</h2>              
+                <h2 class="resultType">Ferry</h2>              
   <p class="resultDescription">Bike to the ferry! Plan the details <a target="_blank" href="http://goldengateferry.org/schedules/Sausalito.php">here.</a></p>
 
                 </div>
@@ -69,8 +69,69 @@ etc. </p>
 </div>
 
 
+
+
 <script>
-// Provide your access token
+
+// TODO: add id's to trasportation options in htlm
+// fake testing polygon
+// show and hide id's 
+
+// Data Structure
+
+// 4 variables : zipcode1, transportModes1, zipcode2, transportModes2
+
+var zipcode1 = {
+	"geometry":{
+		"type": "Polygon",
+		"coordinates":[ [0,0 ], [0,0] ]  // need some coordinates
+	},
+	"title": "XXXXX"
+};
+
+
+var transportationModes1 = {
+	"carpool":{
+		"coordinates":[ [0,0], [1,1], [2,2] ]
+	},
+	"vanpool":{
+		"coordinates":[ [3,3], [4,4], [5,5] ]
+	}
+};
+
+</script>
+
+
+
+
+<script>
+// Dummy Logic
+ 
+var qs = (function(a) {
+    if (a == "") return {};
+    var b = {};
+    for (var i = 0; i < a.length; ++i)
+    {
+        var p=a[i].split('=', 2);
+        if (p.length == 1)
+            b[p[0]] = "";
+        else
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+    }
+    return b;
+})(window.location.search.substr(1).split('&'));
+
+if(qs.zip == '12345') {
+ var zipcode = zipcode1;
+ var transportModes = transportationModes1;
+}
+//else if
+
+</script>
+
+
+<script>
+// View Scrips
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWx1dmltYXBzIiwiYSI6ImJlYjg2M2FmNjA4OGZhYjk2ZDRhMGFiZjY1MDQ3ZGYwIn0.2bARToCtaZXue3KJm-WYPQ';
 // Create a map in the div #map
 var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
@@ -78,6 +139,28 @@ var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
     L.control.locate().addTo(map);
 
 var myLayer = L.mapbox.featureLayer().addTo(map);
+
+var zipcodeStyle = {
+        "type": "Feature",
+        "geometry": zipcode.geometry,
+        "properties": {
+                "title": zipcode.title
+        }
+};
+
+var keys = Object.keys(transportModes);
+keys.forEach(function(key){
+
+//geojson codes and styling for each maybe a loop or not
+// get element by id and set to visible
+
+});
+
+
+
+//myLayer.addPolygon or something
+// as in, add the polygon to the map
+
 
 var geoJson = [{
     "type": "Feature",
