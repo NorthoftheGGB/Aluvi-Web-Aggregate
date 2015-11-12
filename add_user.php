@@ -8,8 +8,10 @@ $email = $_POST['email'];
 $name = $_POST['name'];
 $zip = $_POST['zip'];
 $driver = 0 + $_POST['driver'];
-mysqli_query($con, "insert into users values('$name', '$email', '$zip', $driver");
+mysqli_query($con, $q = "insert into users values('$name', '$email', '$zip', $driver");
 if ($e = mysqli_error($con)){
-    echo "<!--$e--><h1>Sorry!</h1>";
+    echo "<!--$e:
+    $q-->
+    <h1>Sorry!</h1>";
 }
 else include "map.html";
