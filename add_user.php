@@ -3,7 +3,8 @@ $conn = mysql_connect("aluvi1.cr8zsnsf7jfy.us-west-2.rds.amazonaws.com", "master
 if (!$conn) {
 	echo "Could not establish connection to database";
 	exit;
-} 
+}
+else echo "Hey, I'm doing something";
 $email = $_POST['email'];
 $name = $_POST['name'];
 $zip = $_POST['zip'];
@@ -12,4 +13,4 @@ mysql_query("insert into users values('$name', '$email', '$zip', $driver");
 if ($e = mysql_error()){
     echo "<!--$e--><h1></h1>";
 }
-else include "map.html";
+//else include "map.html";
