@@ -84,7 +84,8 @@ var zipcode1 ={
 
 var transportationModes1 = {
 	"carpool":{
-		"coordinates":[ [0,0], [1,1], [2,2] ]
+		"coordinates":[ 
+			[37.752719, -122.442566] ]
 	},
 	"bus":{
 		"coordinates":[ 
@@ -109,8 +110,9 @@ var zipcode2 = {
 
 
 var transportationModes2 = {
-        "carpool":{
-                "coordinates":[ [0,0], [1,1], [2,2] ]
+        "carpool2":{
+                "coordinates":[ [37.935514, -122.380419],
+			[37.936597, -122.332697] ]
         },
         "vanpool":{
                 "coordinates":[ 
@@ -200,7 +202,7 @@ var glassdoorIcon = L.icon({
 
 
 var carpoolIcon = L.icon({
-        iconUrl: "resources/ferry_marker.png",
+        iconUrl: "resources/carpool_marker.png",
         iconSize: [62, 60],
         iconAnchor: [30, 62],
         popupAnchor: [-7, -65],
@@ -237,8 +239,14 @@ var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
 L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'glassdoor'}).addTo(map);
 
 if (transportModes.carpool != undefined) {
-        for(i = 0; i < 3; i++) {
-                L.marker(transportModes.carpool.coordinates[i] ,{icon: ferryIcon, title:'Aluvi Pickup Point'}).addTo(map);
+        for(i = 0; i < 1; i++) {
+                L.marker(transportModes.carpool.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).addTo(map);
+        };
+}
+
+if (transportModes.carpool2 != undefined) {
+        for(i = 0; i < 2; i++) {
+                L.marker(transportModes.carpool2.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).addTo(map);
         };
 }
 
