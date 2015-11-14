@@ -38,6 +38,10 @@ margin:0;
 padding:0;
 }
 
+.disable{
+display:none;
+}
+
 .container{
 width:945px;
 margin: 0 auto;
@@ -162,12 +166,29 @@ width:70%;
 min-width:271px;
 float:right;
 font-size:1em;
+display:block;
 }
+
+
+.result2{
+margin-top:40px;
+margin-right:10px;
+color:#666;
+width:70%;
+min-width:271px;
+float:right;
+font-size:1em;
+display:block;
+}
+
 
 .result p {
 color:#666;
 }
 
+.result2 p {
+color:#666;
+}
 
 
 @media only screen and (max-device-width: 480px) {
