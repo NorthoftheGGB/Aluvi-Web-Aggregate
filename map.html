@@ -113,7 +113,9 @@ var transportationModes2 = {
                 "coordinates":[ [0,0], [1,1], [2,2] ]
         },
         "vanpool":{
-                "coordinates":[ [3,3], [4,4], [5,5] ]
+                "coordinates":[ 
+			[37.945199, -122.347122],
+			[37.875334, -122.294011] ]
         }
 };
 </script>
@@ -197,6 +199,20 @@ var glassdoorIcon = L.icon({
 });
 
 
+var carpoolIcon = L.icon({
+        iconUrl: "resources/ferry_marker.png",
+        iconSize: [62, 60],
+        iconAnchor: [30, 62],
+        popupAnchor: [-7, -65],
+});
+
+
+var vanpoolIcon = L.icon({
+        iconUrl: "resources/vanpool_marker.png",
+        iconSize: [62, 60],
+        iconAnchor: [30, 62],
+        popupAnchor: [-7, -65],
+});
 
 var ferryIcon = L.icon({
 	iconUrl: "resources/ferry_marker.png",
@@ -224,8 +240,12 @@ L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'glassdoor'}).ad
                 L.marker(transportModes.carpool.coordinates[i] ,{icon: ferryIcon, title:'Aluvi Pickup Point'}).addTo(map);
         };
 
+ 	for(i = 0; i < 3; i++) {
+                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).addTo(map);
+        };
+
         for(i = 0; i < 3; i++) {
-                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Vanpool Pickup Point'}).addTo(map);
+                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).addTo(map);
         };
 
         for(i = 0; i < 2; i++) {
