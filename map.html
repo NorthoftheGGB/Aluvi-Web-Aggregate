@@ -74,13 +74,12 @@ etc. </p>
 
 // Data Structure
 
-var zipcode1 = [     [ 37.795036, -122.406574],
+var zipcode1 ={
+	"coordinates": [     [ 37.795036, -122.406574],
     [37.789746, -122.475120],
     [37.745236, -122.461387],
     [37.761523, -122.402336],
-     ] 
-	
-;
+     ]};
 
 
 var transportationModes1 = {
@@ -91,18 +90,19 @@ var transportationModes1 = {
 		"coordinates":[ [3,3], [4,4], [5,5] ]
 	},
 	"ferry":{
-		"coordinates":[[-122.393326, 37.795748],
-			       [-122.478122, 37.856561]]
+		"coordinates":[[37.795748, -122.393326],
+			       [37.856561, -122.478122]]
 }
 };
 
 var zipcode2 = {
-        "geometry":{
-                "type": "Polygon",
-                "coordinates":[ [0,0 ], [0,0] ]  // need some coordinates
-        },
-        "title": "XXXXX"
-};
+        "coordinates":[ 
+		[37.928529, -122.288353], 
+		[37.911195, -122.225181],
+		[37.861338, -122.275993],
+		[37.928529, -122.365257] 
+]};
+
 
 
 var transportationModes2 = {
@@ -161,14 +161,6 @@ var myLayer = L.mapbox.featureLayer().addTo(map);
 
 
 
-var zipcodeStyle = [{
-        "type": "Feature",
-        "geometry": zipcode.geometry,
-        "properties": {
-                "title": zipcode.title,
-}
-}];
-
 var keys = Object.keys(transportModes);
 keys.forEach(function(key){
 
@@ -183,73 +175,49 @@ keys.forEach(function(key){
 // as in, add the polygon to the map
 
 
-var geoJson = [{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [-122.514733, 37.880298]
-    },
-    "properties": {
-        "title": "glassdoor",
-        "icon": {
-            "iconUrl": "resources/glassdoor_marker.png",
-            "iconSize": [62, 60], // size of the icon
-            "iconAnchor": [30, 62], // point of the icon which will correspond to marker's location
-            "popupAnchor": [-7, -65], // point from which the popup should open relative to the iconAnchor
-            "className": "dot"
-        }
-    }
-}, {
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [-122.393326, 37.795748]
-    },
-    "properties": {
-        "title": "San Francisco Ferry Bldg.",
-        "icon": {
-            "iconUrl": "resources/ferry_marker.png",
-            "iconSize": [62, 60], // size of the icon
-            "iconAnchor": [30, 62], // point of the icon which will correspond to marker's location
-            "popupAnchor": [-7, -65], // point from which the popup should open relative to the iconAnchor
-            "className": "dot"
-        }
-    }
-},{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [-122.478122, 37.856561]
-    },
-    "properties": {
-        "title": "Sausalito Ferry Landing",
-        "icon": {
-            "iconUrl": "resources/ferry_marker.png",
-            "iconSize": [62, 60], // size of the icon
-            "iconAnchor": [30, 62], // point of the icon which will correspond to marker's location
-            "popupAnchor": [-7, -65], // point from which the popup should open relative to the iconAnchor
-            "className": "dot"
-        }
-    }
-}];
-
 var polygon_options = {
-    color: '#000'
+    color: '#FF7A00'
 };
 
 
-
-// Set a custom icon on each marker based on feature properties.
-myLayer.on('layeradd', function(e) {
-    var marker = e.layer,
-        feature = marker.feature;
-
-    marker.setIcon(L.icon(feature.properties.icon));
+var glassdoorIcon = L.icon({
+        iconUrl: "resources/glassdoor_marker.png",
+        iconSize: [62, 60],
+        iconAnchor: [30, 62],
+        popupAnchor: [-7, -65],
 });
 
-// Add features to the map.
-myLayer.setGeoJSON(geoJson);
-var polygon = L.polygon(zipcode, polygon_options).addTo(map);
+
+
+var ferryIcon = L.icon({
+	iconUrl: "resources/ferry_marker.png",
+	iconSize: [62, 60],
+	iconAnchor: [30, 62],
+	popupAnchor: [-7, -65],
+});
+
+
+
+
+//zip codes
+var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
+
+
+//markers
+L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon}).addTo(map);
+
+for(i = 0; i < 3; i++) {
+	L.marker(transportModes.carpool.coordinates[i] ,{icon: ferryIcon}).addTo(map);
+};
+
+for(i = 0; i < 3; i++) {
+        L.marker(transportModes.vanpool.coordinates[i] ,{icon: ferryIcon}).addTo(map);
+};
+
+for(i = 0; i < 2; i++) {
+        L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon}).addTo(map);
+};
+
 </script>
 
 
