@@ -141,6 +141,18 @@ if(qs.zip == '12345') {
 
  document.getElementById('67890').style.display = "none";
 
+for(i = 0; i < 3; i++) {
+        L.marker(transportModes.carpool.coordinates[i] ,{icon: ferryIcon, title:'Aluvi Pickup Point'}).addTo(map);
+};
+
+for(i = 0; i < 3; i++) {
+        L.marker(transportModes.vanpool.coordinates[i] ,{icon: ferryIcon, title:'Vanpool Pickup Point'}).addTo(map);
+};
+
+for(i = 0; i < 2; i++) {
+        L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).addTo(map);
+};
+
 }
 
 else if(qs.zip == '67890') {
@@ -211,18 +223,6 @@ var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
 
 //markers
 L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'glassdoor'}).addTo(map);
-
-for(i = 0; i < 3; i++) {
-	L.marker(transportModes.carpool.coordinates[i] ,{icon: ferryIcon, title:'Aluvi Pickup Point'}).addTo(map);
-};
-
-for(i = 0; i < 3; i++) {
-        L.marker(transportModes.vanpool.coordinates[i] ,{icon: ferryIcon, title:'Vanpool Pickup Point'}).addTo(map);
-};
-
-for(i = 0; i < 2; i++) {
-        L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).addTo(map);
-};
 
 </script>
 
