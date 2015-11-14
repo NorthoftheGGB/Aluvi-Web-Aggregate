@@ -86,8 +86,11 @@ var transportationModes1 = {
 	"carpool":{
 		"coordinates":[ [0,0], [1,1], [2,2] ]
 	},
-	"vanpool":{
-		"coordinates":[ [3,3], [4,4], [5,5] ]
+	"bus":{
+		"coordinates":[ 
+			[37.795664, -122.423406], 	
+			[37.785965, -122.421603], 
+			[37.782234, -122.447910] ]
 	},
 	"ferry":{
 		"coordinates":[[37.795748, -122.393326],
@@ -140,7 +143,6 @@ if(qs.zip == '12345') {
 	var transportModes = transportationModes1;
 
 	document.getElementById('67890').style.display = "none";
-console.log('got 12345');
 }
 
 else if(qs.zip == '67890') {
@@ -183,7 +185,7 @@ keys.forEach(function(key){
 
 
 var polygon_options = {
-    color: '#FF7A00'
+    color: '#7e1fda'
 };
 
 
@@ -203,7 +205,12 @@ var ferryIcon = L.icon({
 	popupAnchor: [-7, -65],
 });
 
-
+var busIcon = L.icon({
+        iconUrl: "resources/bus_marker.png",
+        iconSize: [62, 60],
+        iconAnchor: [30, 62],
+        popupAnchor: [-7, -65],
+});
 
 
 //zip codes
@@ -218,7 +225,7 @@ L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'glassdoor'}).ad
         };
 
         for(i = 0; i < 3; i++) {
-                L.marker(transportModes.vanpool.coordinates[i] ,{icon: ferryIcon, title:'Vanpool Pickup Point'}).addTo(map);
+                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Vanpool Pickup Point'}).addTo(map);
         };
 
         for(i = 0; i < 2; i++) {
