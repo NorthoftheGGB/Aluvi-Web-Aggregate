@@ -52,12 +52,8 @@ etc. </p>
 <div class="result">
                 <h2 class="resultType">Ferry</h2>              
   <p class="resultDescription">Bike to the ferry! Plan the details <a target="_blank" href="http://goldengateferry.org/schedules/Sausalito.php">here.</a></p>
-
                 </div>
-
-
 	</div>
-
 
 
 	<div class="mapContainer">
@@ -72,22 +68,19 @@ etc. </p>
 
 
 <script>
-
 // TODO: add id's to trasportation options in htlm
 // fake testing polygon
 // show and hide id's 
 
 // Data Structure
 
-// 4 variables : zipcode1, transportModes1, zipcode2, transportModes2
-
-var zipcode1 = {
-	"geometry":{
-		"type": "Polygon",
-		"coordinates":[ [0,0 ], [0,0] ]  // need some coordinates
-	},
-	"title": "XXXXX"
-};
+var zipcode1 = [     [ 37.795036, -122.406574],
+    [37.789746, -122.475120],
+    [37.745236, -122.461387],
+    [37.761523, -122.402336],
+     ] 
+	
+;
 
 
 var transportationModes1 = {
@@ -96,9 +89,30 @@ var transportationModes1 = {
 	},
 	"vanpool":{
 		"coordinates":[ [3,3], [4,4], [5,5] ]
-	}
+	},
+	"ferry":{
+		"coordinates":[[-122.393326, 37.795748],
+			       [-122.478122, 37.856561]]
+}
 };
 
+var zipcode2 = {
+        "geometry":{
+                "type": "Polygon",
+                "coordinates":[ [0,0 ], [0,0] ]  // need some coordinates
+        },
+        "title": "XXXXX"
+};
+
+
+var transportationModes2 = {
+        "carpool":{
+                "coordinates":[ [0,0], [1,1], [2,2] ]
+        },
+        "vanpool":{
+                "coordinates":[ [3,3], [4,4], [5,5] ]
+        }
+};
 </script>
 
 
@@ -125,8 +139,11 @@ if(qs.zip == '12345') {
  var zipcode = zipcode1;
  var transportModes = transportationModes1;
 }
-//else if
 
+else if(qs.zip == '67890') {
+ var zipcode = zipcode2;
+ var transportModes = transportationModes2;
+}
 </script>
 
 
@@ -138,15 +155,19 @@ var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
     .setView([37.863, -122.375], 11);
     L.control.locate().addTo(map);
 
+
+//add the custom markers to the map
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
-var zipcodeStyle = {
+
+
+var zipcodeStyle = [{
         "type": "Feature",
         "geometry": zipcode.geometry,
         "properties": {
-                "title": zipcode.title
-        }
-};
+                "title": zipcode.title,
+}
+}];
 
 var keys = Object.keys(transportModes);
 keys.forEach(function(key){
@@ -212,6 +233,12 @@ var geoJson = [{
     }
 }];
 
+var polygon_options = {
+    color: '#000'
+};
+
+
+
 // Set a custom icon on each marker based on feature properties.
 myLayer.on('layeradd', function(e) {
     var marker = e.layer,
@@ -222,7 +249,7 @@ myLayer.on('layeradd', function(e) {
 
 // Add features to the map.
 myLayer.setGeoJSON(geoJson);
-
+var polygon = L.polygon(zipcode, polygon_options).addTo(map);
 </script>
 
 

@@ -24,9 +24,12 @@
 <div class="formContainer">
 <div class"form">
 
+<form id="form" action="map.html" method="GET" accept-charset="UTF-8"
+enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+<!-- Chains code
 <form action="add_user.php" method="POST" target="_blank" accept-charset="UTF-8"
 enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
-
+-->
 
 <input type="text" name="name" placeholder="NAME">
 <br>
@@ -37,7 +40,9 @@ enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
 <input type="checkbox" id="checkbox" name="driver" value="Yes"> Interested in driving a carpool?
 <br>
 <br>
-<a href="javascript:document.forms[0].submit()" class="submit">Sign Up</a>
+
+<!--<a  href="javascript:document.forms[0].submit()" class="submit">--> 
+<a href="map.html" class="submit" onClick="document.getElementById('form').submit();">Sign Up</a>
 </form> 
 
 </div>
