@@ -29,4 +29,4 @@ while ($row = msqyli_fetch_array($bus_ferry_results, MYSQLI_ASSOC)){
 	
 }
 */
-//$transportationModes = json_encode($t_results); 
+$transportationModes = json_encode($t_results); 
