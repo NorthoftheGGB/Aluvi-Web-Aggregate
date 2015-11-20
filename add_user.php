@@ -4,10 +4,10 @@ if (!$con) {
 	echo "Could not establish connection to database";
 	exit;
 }
-$email = $_POST['email'];
-$name = $_POST['name'];
-$zip = $_POST['zip'];
-if ($_POST['driver'])
+$email = $_REQUEST['email'];
+$name = $_REQUEST['name'];
+$zip = $_REQUEST['zip'];
+if ($_REQUEST['driver'])
     $driver = 1;
 else
     $driver = 0;
