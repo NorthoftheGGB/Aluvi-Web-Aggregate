@@ -16,8 +16,8 @@ mysqli_select_db($con, "glassdoor");
 $t_results = array();
 $bus_results = mysqli_query($con, $q1 = "select * from bus b join zip_codes z on st_intersects(b.geo, z.geo) where zip_code = $zip");
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $q1 -->";
-/*
-while ($row = msqyli_fetch_array($bus_results, MYSQLI_ASSOC)){
+
+while ($row = mysqli_fetch_array($bus_results, MYSQLI_ASSOC)){
 	$t_results['bus']['coordinates'][] = array($row['stop_lat'], $row['stop_lng']);
 }
 /*
