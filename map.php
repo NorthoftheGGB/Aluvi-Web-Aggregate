@@ -1,3 +1,4 @@
+<?php include "add_user.php" ?>
 <html>
 <head>
 <title>Aluvi</title>
