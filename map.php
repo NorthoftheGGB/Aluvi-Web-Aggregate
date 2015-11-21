@@ -196,13 +196,13 @@ if (transportModes.carpool2 != undefined) {
                 L.marker(transportModes.carpool2.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).addTo(map);
         };
 }
-
+/*
 if (transportModes.bus != undefined) {
         for(i = 0; i < 3; i++) {
                 L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).addTo(map);
         };
 }
-
+*/
 
 if (transportModes.ferry != undefined) {
         for(i = 0; i < 2; i++) {
