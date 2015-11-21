@@ -77,7 +77,7 @@
 
 var zipcode =<?php echo $zip ?>;
 
-var transportationModes = <?php echo $transportationModes; ?>;
+var transportModes = <?php echo $transportationModes; ?>;
 
 
 
@@ -103,21 +103,7 @@ var qs = (function(a) {
     return b;
 })(window.location.search.substr(1).split('&'));
 
-if(qs.zip == '12345') {
-	var zipcode = zipcode1;
-	var transportModes = transportationModes1;
 
-	document.getElementById('67890').style.display = "none";
-}
-
-else if(qs.zip == '67890') {
- var zipcode = zipcode2;
- var transportModes = transportationModes2;
-
- document.getElementById('12345').style.display = "none";
- document.getElementById('123451').style.display = "none";
-
-}
 </script>
 
 
