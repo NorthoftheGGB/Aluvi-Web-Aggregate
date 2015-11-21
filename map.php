@@ -179,7 +179,7 @@ var busIcon = L.icon({
 
 
 //zip codes
-if (zipcode != undefined && zipcode != null)
+if (zipcode.coordinates != undefined && zipcode.coordinates != null)
 var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
 
 
