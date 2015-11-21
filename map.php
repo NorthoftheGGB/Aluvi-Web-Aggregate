@@ -177,10 +177,10 @@ var busIcon = L.icon({
         popupAnchor: [-7, -65],
 });
 
-
+/*
 //zip codes
 var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
-
+*/
 
 //markers
 L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'glassdoor'}).addTo(map);
