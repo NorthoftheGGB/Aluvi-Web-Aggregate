@@ -75,17 +75,10 @@ etc. </p>
 
 // Data Structure
 
-var zipcode1 ={
-	"coordinates": [     [ 37.795036, -122.406574],
-    [37.789746, -122.475120],
-    [37.745236, -122.461387],
-    [37.761523, -122.402336],
-     ]};
+var zipcode =<?php echo $zip ?>;
 
+var transportationModes = <?php echo $transportationModes ?>;
 
-var transportationModes = {
-<?php echo $transportationModes; ?>
-};
 
 
 </script>
