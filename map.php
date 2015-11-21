@@ -198,7 +198,7 @@ if (transportModes.carpool2 != undefined) {
 }
 
 if (transportModes.bus != undefined) {
-        for(i = 0; i < 3; i++) {
+        for(i = 0; i < transportModes.bus.coordinates.length; i++) {
                 L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).addTo(map);
         };
 }
