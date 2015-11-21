@@ -41,12 +41,12 @@
 <div class="result" id="12345">
                 <h2 class="resultType">Public Transport</h2>               
  <p class="resultDescription"> Walk or ride your bike to these bus stops: 
-<br>
-This stop
-<br>
-This next stop
-<br>
-etc. </p>
+	<?php
+		foreach ($stop_info as $stop){
+			echo "<br />$stop";
+		}
+	?>
+</p>
                </div>
 
 

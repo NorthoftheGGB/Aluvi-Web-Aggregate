@@ -19,6 +19,7 @@ if ($e = mysqli_error($con)) echo "<!-- $e FROM $q1 -->";
 
 while ($row = mysqli_fetch_array($bus_results, MYSQLI_ASSOC)){
 	$t_results['bus']['coordinates'][] = array($row['stop_lat'], $row['stop_lon']);
+	$stop_info[] = $row['stop_name'];
 }
 /*
 $bart_ferry_results = mysqli_query($con, $q1 = "select * from bart_ferry f join zip_codes z on st_intersects(f.geo, z.geo) where zip_code = $zip");
@@ -37,7 +38,7 @@ while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){
 	$zip_points = array();
 	foreach(explode(",", $raw_coordinates) as $point){
 		$sphinx = explode(' ', $point);
-		$zip_points[] = array($sphinx[0], $sphinx[1]);
+		$zip_points[] = array($sphinx[1], $sphinx[0]);
 	}
 }
 $zip = json_encode(array("coordinates" => $zip_points));
