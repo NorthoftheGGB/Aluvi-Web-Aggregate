@@ -13,7 +13,7 @@ else
     $driver = 0;
 mysqli_query($con, $q = "insert into users values('$name', '$email', '$zip', $driver)");
 mysqli_select_db($con, "glassdoor");
-$t_results = array();
+$t_results = array('bus' => array('coordinates' => array()));
 $bus_results = mysqli_query($con, $q1 = "select * from bus b join zip_codes z on st_intersects(b.geo, z.geo) where zip_code = $zip");
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $q1 -->";
 
@@ -40,5 +40,5 @@ while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){
 		$zip_points[] = array($sphinx[0], $sphinx[1]);
 	}
 }
-$zip = json_encode(array("coordinates" => array($zip_points)));
+$zip = json_encode(array("coordinates" => $zip_points));
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $qx -->";

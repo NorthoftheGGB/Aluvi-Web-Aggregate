@@ -77,7 +77,7 @@ etc. </p>
 
 var zipcode =<?php echo $zip ?>;
 
-var transportationModes = <?php echo $transportationModes ?>;
+var transportationModes = <?php echo $transportationModes; ?>;
 
 
 
