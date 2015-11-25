@@ -37,7 +37,7 @@
                 <h2 class="resultType">Vanpool</h2>               
  <p class="resultDescription"> Meet your co-workers at one of the vanpool pickup spots. There is one near your house, get in on the planning <a target="_blank" href="#">here.</a></p>
                 </div>
-
+<?php if (count($stop_info) > 0) { ?>
 <div class="result" id="12345">
                 <h2 class="resultType">Public Transport</h2>               
  <p class="resultDescription"> Walk or ride your bike to these bus stops: 
@@ -48,7 +48,7 @@
 	?>
 </p>
                </div>
-
+<? } ?>
 
 <div class="result" id="123451">
                 <h2 class="resultType">Ferry</h2>              
