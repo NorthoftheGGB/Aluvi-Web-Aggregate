@@ -48,7 +48,7 @@
 	?>
 </p>
                </div>
-<? } ?>
+<?php } ?>
 
 <div class="result" id="123451">
                 <h2 class="resultType">Ferry</h2>              
