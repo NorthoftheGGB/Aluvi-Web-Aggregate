@@ -37,9 +37,9 @@ while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){
 	$raw_coordinates = str_replace('MULTIPOLYGON', '', str_replace('(', '', str_replace(')', '', $row['geotext'])));
 	$zip_points = array();
 	$arr = explode(",", $raw_coordinates);
-	for ($x =0; $x < count($raw_coordinates); $x += count($raw_coordinates) / 5)
+	for ($x =0; $x < count($arr); $x += count($arr) / 5)
 	{
-		$sphinx = explode(' ', $point);
+		$sphinx = explode(' ', $arr[$x]);
 		$zip_points[] = array($sphinx[1], $sphinx[0]);
 	}
 }
