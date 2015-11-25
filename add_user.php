@@ -41,5 +41,5 @@ while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){
 		$zip_points[] = array($sphinx[1], $sphinx[0]);
 	}
 }
-$zip = json_encode(array("coordinates" => $zip_points));
+$zip = str_replace('"', '', json_encode(array("coordinates" => $zip_points)));
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $qx -->";
