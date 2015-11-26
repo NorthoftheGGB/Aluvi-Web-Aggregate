@@ -21,13 +21,13 @@ while ($row = mysqli_fetch_array($bus_results, MYSQLI_ASSOC)){
 	$t_results['bus']['coordinates'][] = array($row['stop_lat'], $row['stop_lon']);
 	$stop_info[] = "<a href='#'>$row[stop_name]</a>";
 }
-/*
+
 $bart_ferry_results = mysqli_query($con, $q1 = "select * from bart_ferry f join zip_codes z on st_intersects(f.geo, z.geo) where zip_code = $zip");
 if ($row = mysqli_fetch_array($bart_ferry_results, MYSQLI_ASSOC)){
 	$t_results['ferry']['coordinates'][] = array(37.795748, -122.393326);
 	$ferry_results = true;
 }
-*/
+
 $bike_ferry_results = mysqli_query($con, $q1 = "select * from bike_ferry f join zip_codes z on st_intersects(f.geo, z.geo) where zip_code = $zip");
 if ($row = mysqli_fetch_array($bus_ferry_results, MYSQLI_ASSOC)){
 	$t_results['ferry']['coordinates'][] = array(37.856561, -122.478122);
