@@ -26,18 +26,18 @@
 <div class="container2">
 	
 	<div class="resultsContainer">
-
+<?php if ($car_results) { ?>
 		<div class="result">
 		<h2 class="resultType">Carpool</h2>
 		<p class="resultDescription"> Make extra cash doing what you already do! Pick up coworkers on your drive to work by downlading the Aluvi app for <a target="_blank" href="https://itunes.apple.com/us/app/aluvi/id914223284?mt=8">iOS</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aluvi.android">Android</a></p>
 		</div>
-
-
+<?php }
+if ($van_results) { ?>
 <div class="result" id="67890">
                 <h2 class="resultType">Vanpool</h2>               
  <p class="resultDescription"> Meet your co-workers at one of the vanpool pickup spots. There is one near your house, get in on the planning <a target="_blank" href="#">here.</a></p>
                 </div>
-<?php if (count($stop_info) > 0) { ?>
+<?php  } if (count($stop_info) > 0) { ?>
 <div class="result" id="12345">
                 <h2 class="resultType">Public Transport</h2>               
  <p class="resultDescription"> Walk or ride your bike to these bus stops: 
@@ -48,12 +48,14 @@
 	?>
 </p>
                </div>
-<?php } ?>
+<?php }
 
+if ($ferry_results) { ?>
 <div class="result" id="123451">
                 <h2 class="resultType">Ferry</h2>              
   <p class="resultDescription">Bike to the ferry! Plan the details <a target="_blank" href="http://goldengateferry.org/schedules/Sausalito.php">here.</a></p>
                 </div>
+<?php } ?>
 	</div>
 
 
