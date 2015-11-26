@@ -29,7 +29,7 @@ if ($row = mysqli_fetch_array($bart_ferry_results, MYSQLI_ASSOC)){
 }
 
 $bike_ferry_results = mysqli_query($con, $q1 = "select * from bike_ferry f join zip_codes z on st_intersects(f.geo, z.geo) where zip_code = $zip");
-if ($row = mysqli_fetch_array($bus_ferry_results, MYSQLI_ASSOC)){
+if ($row = mysqli_fetch_array($bike_ferry_results, MYSQLI_ASSOC)){
 	$t_results['ferry']['coordinates'][] = array(37.856561, -122.478122);
 	$ferry_results = true;
 }
