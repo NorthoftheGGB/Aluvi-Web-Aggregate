@@ -205,7 +205,7 @@ if (transportModes.bus != undefined) {
 
 
 if (transportModes.ferry != undefined) {
-        for(i = 0; i < 2; i++) {
+        for(i = 0; i < transportModes.ferry.coordinates.length; i++) {
                 L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).addTo(map);
         };
 }
