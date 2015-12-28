@@ -183,7 +183,6 @@ var busIcon = L.icon({
 
 
 //markers
-L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'glassdoor'}).addTo(map);
 
 if (transportModes.carpool != undefined) {
         for(i = 0; i < 1; i++) {
@@ -215,6 +214,10 @@ if (transportModes.vanpool != undefined) {
                 L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).addTo(map);
         };
 }
+
+
+L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'glassdoor'}).addTo(map);
+
 //zip codes
 
 if (zipcode.coordinates != undefined && zipcode.coordinates != null)
