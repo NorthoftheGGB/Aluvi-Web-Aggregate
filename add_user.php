@@ -8,7 +8,6 @@ if ($_REQUEST['driver'])
 else
     $driver = 0;
 mysqli_query($con, $q = "insert into users values('$name', '$email', '$zip', $driver)");
-mysqli_select_db($con, "glassdoor");
 $t_results = array('bus' => array('coordinates' => array()));
 $bus_results = mysqli_query($con, $q1 = "select * from bus_routes b join zip_codes z on st_intersects(b.SHAPE, z.geo) where zip_code = $zip");
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $q1 -->";
