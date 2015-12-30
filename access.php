@@ -21,26 +21,31 @@ if(mysqli_num_rows($results) == 0){
 
 
 setcookie('aluvi_token', $cookie_key, time() + 30*60);
-$url = "http://52.88.178.30/gis_dev/transportation.php?token=$link_key";
-echo $url;
+$url = "http://52.24.245.96/gis_dev/transportation.php?token=$link_key";
 
 
 // send email
-require_once 'vendor/swiftmailer/swiftmailer/lib/swift_required.php';
-$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 587, 'tls')
-  ->setUsername('support@aluviapp.com"')
- ->setPassword('support4aluviapp');
+$subject = 'Glassdoor Transportation Options Access';
+$body = "Follow this link to access your transportation options $url";
 
-$mailer = Swift_Mailer::newInstance($transport);
-
-$message = Swift_Message::newInstance('Glassdoor Transportation Options Access')
-	->setTo(array($email))
-	->setFrom('support@aluviapp.com')
-	->setBody("Followthis link to access your transportation options $url");
-
-//$result = $mailer->send($message);
-
-
+$mail = new PHPMailer();  // create a new object
+$mail->IsSMTP(); // enable SMTP
+$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = true;  // authentication enabled
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 465; 
+$mail->Username = 'support@aluviapp.com';  
+$mail->Password = 'support4aluviapp';           
+$mail->SetFrom($mail->Username, 'Glassdoor Transporation Options via Aluvi');
+$mail->Subject = $subject;
+$mail->Body = $body;
+$mail->AddAddress($email);
+if(!$mail->Send()) {
+	$error = 'Mail error: '.$mail->ErrorInfo; 
+} else {
+	$error = 'Message sent!';
+}
 
 // serve page
 ?>
@@ -62,6 +67,7 @@ $message = Swift_Message::newInstance('Glassdoor Transportation Options Access')
 <div class="rightBox">
 
 <div class="description">
+<p><?php echo $error;?>
 <p>Hi <?php echo $name;?>,
 <p>Thank you for entering your information for Glassdoor's transportation options.
 <p>Please check your email as we have generated a customized link for you to access the site.
