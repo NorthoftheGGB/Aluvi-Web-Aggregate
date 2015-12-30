@@ -66,4 +66,7 @@ while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){
 $zip = str_replace('"', '', json_encode(array("coordinates" => $zip_points)));
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $qx -->";
 
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
 require('map.php');
