@@ -33,6 +33,11 @@ function toggle_visibility(id) {
 <div class="rightBox">
 
 <div class="description">
+<p> Let's complete the final steps.<br>
+Please select the transportation options you are interested in: <br></p>
+</div>
+
+<div class="description" id="choices">
 
 <form action="update_preferences.php" method="POST">
 
@@ -120,7 +125,7 @@ function toggle_visibility(id) {
 </div>
 
 
-<input type="submit" value="Next"/>
+<input type="submit" value="Next" class="submit"/>
 
 </form>
 
