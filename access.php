@@ -21,7 +21,7 @@ if(mysqli_num_rows($results) == 0){
 
 
 setcookie('aluvi_token', $cookie_key, time() + 30*60);
-$url = "http://{$_SERVER['SERVER_NAME']}/gis_dev/transportation.php?token=$link_key";
+$url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key";
 
 
 // send email

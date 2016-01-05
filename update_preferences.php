@@ -21,6 +21,10 @@ mysqli_stmt_bind_param($stmt, 'iiiiiiss', $row['id'],  $carpool, $vanpool, $bicy
 mysqli_stmt_execute($stmt);
 
 // and get the map data ready
+$t_results['carpool'] = 'true';
+$car_results = true;
+
+
 $zip = $row['zip'];
 $t_results = array('bus' => array('coordinates' => array()));
 $bus_results = mysqli_query($con, $q1 = "select * from bus_routes b join zip_codes z on st_intersects(b.SHAPE, z.geo) where zip_code = $zip");
