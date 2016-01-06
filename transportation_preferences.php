@@ -32,6 +32,8 @@ function toggle_visibility(id) {
 
 <div class="rightBox">
 
+<div class="logo"></div>
+
 <div class="description">
 <p> Let's complete the final steps.<br>
 Please select the transportation options you are interested in: <br></p>
@@ -42,7 +44,7 @@ Please select the transportation options you are interested in: <br></p>
 <form action="update_preferences.php" method="POST">
 
 <div class="option">
-<p>Carpool
+<!--<p>Carpool-->
 <p>
 <select name="carpool_options">
 	<option value="rider">Rider</option>
@@ -51,17 +53,18 @@ Please select the transportation options you are interested in: <br></p>
 </select>
 <p>
 	<div id="transportation_type_carpool" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: block;">
-	Carpool Not Selected
+	Carpool<!--not selected-->
 	</div>
 	<div id="transportation_type_carpool_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: none;"> 
-	Carpool Selected
+	Carpool
 	</div>
 	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
 </div>
 
 
+
 <div class="option">
-<p>Vanpool
+<!--<p>Vanpool-->
 <p>
 <select name="vanpool_options">
 	<option value="rider">Rider</option>
@@ -70,10 +73,10 @@ Please select the transportation options you are interested in: <br></p>
 </select>
 <p>
 	<div id="transportation_type_vanpool" class="transportation_type" onclick="toggle_visibility('transportation_type_vanpool');" style="display: block;">
-	Vanpool Not Selected
+	Vanpool<!--not selected-->
 	</div>
 	<div id="transportation_type_vanpool_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_vanpool');" style="display: none;"> 
-	Vanpool Selected
+	Vanpool
 	</div>
 	<input type="hidden" id="transportation_type_vanpool_input" name="transportation_type_vanpool" value="selected" disabled="true"/>
 </div>
@@ -83,13 +86,13 @@ Please select the transportation options you are interested in: <br></p>
 
 
 <div class="option">
-<p>Bicycle
+<!--<p>Bicycle-->
 <p>
 	<div id="transportation_type_bicycle" class="transportation_type" onclick="toggle_visibility('transportation_type_bicycle');" style="display: block;">
-	Bicycle Not Selected
+	Bicycle<!--not selected-->
 	</div>
 	<div id="transportation_type_bicycle_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_bicycle');" style="display: none;"> 
-	Bicycle Selected
+	Bicycle
 	</div>
 	<input type="hidden" id="transportation_type_bicycle_input" name="transportation_type_bicycle" value="selected" disabled="true"/>
 </div>
@@ -97,13 +100,13 @@ Please select the transportation options you are interested in: <br></p>
 
 
 <div class="option">
-<p>Public Transportation
+<!--<p>Public Transportation-->
 <p>
 	<div id="transportation_type_public_transportation" class="transportation_type" onclick="toggle_visibility('transportation_type_public_transportation');" style="display: block;">
-	Public Transportation Not Selected
+	Public Transportation<!--not selected-->
 	</div>
 	<div id="transportation_type_public_transportation_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_public_transportation');" style="display: none;"> 
-	Public Transportation Selected
+	Public Transportation
 	</div>
 	<input type="hidden" id="transportation_type_public_transportation_input" name="transportation_type_public_transportation" value="selected" disabled="true"/>
 </div>
@@ -113,13 +116,13 @@ Please select the transportation options you are interested in: <br></p>
 
 
 <div class="option">
-<p>Commuter Bus
+<!--<p>Commuter Bus-->
 <p>
 	<div id="transportation_type_commuter_bus" class="transportation_type" onclick="toggle_visibility('transportation_type_commuter_bus');" style="display: block;">
-	Commuter Bus Not Selected
+	Commuter Bus<!--not selected-->
 	</div>
 	<div id="transportation_type_commuter_bus_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_commuter_bus');" style="display: none;"> 
-	Commuter Bus Selected
+	Commuter Bus
 	</div>
 	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
 </div>

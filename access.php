@@ -66,6 +66,8 @@ if(!$mail->Send()) {
 
 <div class="rightBox">
 
+<div class="logo"></div>
+
 <div class="description">
 <p><?php echo $error;?>
 <p>Hi <?php echo $name;?>,
