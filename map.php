@@ -1,4 +1,3 @@
-<?php include "add_user.php" ?>
 <html>
 <head>
 <title>Aluvi</title>
@@ -184,51 +183,88 @@ var busIcon = L.icon({
         popupAnchor: [-7, -65],
 });
 
- var customPopup = "Glassdoor<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
-   var customOptions =
-        {
+
+//popups
+
+var glassdoorPopup = "Glassdoor<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var glassdoorOptions =
+{
+	'maxWidth': '600',
+	'border-radius':'5px',
+} 
+
+var carpoolPopup = "Carpool<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var carpoolOptions =
+{
         'maxWidth': '600',
-               } 
+        'border-radius':'5px',
+} 
+
+var vanpoolPopup = "Vanpool<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var vanpoolOptions =
+{
+        'maxWidth': '600',
+        'border-radius':'5px',
+} 
+var ferryPopup = "Ferry<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var ferryOptions =
+{
+        'maxWidth': '600',
+        'border-radius':'5px',
+} 
+var publicTransitPopup = "PublicTransit<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var publicTransitOptions =
+{
+        'maxWidth': '600',
+        'border-radius':'5px',
+} 
+
+
+
+var customPopup = "Glassdoor<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var customOptions =
+{
+	'maxWidth': '600',
+	'border-radius':'5px',
+} 
 
 
 //markers
 
 if (transportModes.carpool != undefined) {
         for(i = 0; i < 1; i++) {
-                L.marker(transportModes.carpool.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(customPopup,customOptions).addTo(map);
+                L.marker(transportModes.carpool.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
         };
 }
 
 if (transportModes.carpool2 != undefined) {
         for(i = 0; i < 2; i++) {
-                L.marker(transportModes.carpool2.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(customPopup,customOptions).addTo(map);
+                L.marker(transportModes.carpool2.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
         };
 }
 
 if (transportModes.bus != undefined) {
         for(i = 0; i < transportModes.bus.coordinates.length; i++) {
-                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).bindPopup(customPopup,customOptions).addTo(map);
+                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).bindPopup(publicTransitPopup,publicTransitOptions).addTo(map);
         };
 }
 
 
 if (transportModes.ferry != undefined) {
         for(i = 0; i < transportModes.ferry.coordinates.length; i++) {
-                L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).bindPopup(customPopup,customOptions).addTo(map);
+                L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).bindPopup(ferryPopup,ferryOptions).addTo(map);
         };
 }
 
 if (transportModes.vanpool != undefined) {
         for(i = 0; i < 2; i++) {
-                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).bindPopup(customPopup,customOptions).addTo(map);
+                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).bindPopup(vanpoolPopup,vanpoolOptions).addTo(map);
         };
 }
 
 
-L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'Glassdoor', description:'youve been here!'}).bindPopup(customPopup,customOptions).addTo(map);
+L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'Glassdoor', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
 
-
-marker.bindPopup(popupContent).openPopup();
 
 //zip codes
 
