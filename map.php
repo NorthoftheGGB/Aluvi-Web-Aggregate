@@ -146,7 +146,11 @@ var glassdoorIcon = L.icon({
         iconUrl: "resources/glassdoor_marker.png",
         iconSize: [62, 60],
         iconAnchor: [30, 62],
-        popupAnchor: [-7, -65]
+        popupAnchor: [-7, -65],
+	title: "Glassdoor",
+	description: "You know it well."
+
+
 });
 
 
@@ -155,6 +159,7 @@ var carpoolIcon = L.icon({
         iconSize: [62, 60],
         iconAnchor: [30, 62],
         popupAnchor: [-7, -65],
+
 });
 
 
@@ -179,44 +184,51 @@ var busIcon = L.icon({
         popupAnchor: [-7, -65],
 });
 
-
+ var customPopup = "Glassdoor<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+   var customOptions =
+        {
+        'maxWidth': '600',
+               } 
 
 
 //markers
 
 if (transportModes.carpool != undefined) {
         for(i = 0; i < 1; i++) {
-                L.marker(transportModes.carpool.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).addTo(map);
+                L.marker(transportModes.carpool.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(customPopup,customOptions).addTo(map);
         };
 }
 
 if (transportModes.carpool2 != undefined) {
         for(i = 0; i < 2; i++) {
-                L.marker(transportModes.carpool2.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).addTo(map);
+                L.marker(transportModes.carpool2.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(customPopup,customOptions).addTo(map);
         };
 }
 
 if (transportModes.bus != undefined) {
         for(i = 0; i < transportModes.bus.coordinates.length; i++) {
-                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).addTo(map);
+                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).bindPopup(customPopup,customOptions).addTo(map);
         };
 }
 
 
 if (transportModes.ferry != undefined) {
         for(i = 0; i < transportModes.ferry.coordinates.length; i++) {
-                L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).addTo(map);
+                L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).bindPopup(customPopup,customOptions).addTo(map);
         };
 }
 
 if (transportModes.vanpool != undefined) {
         for(i = 0; i < 2; i++) {
-                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).addTo(map);
+                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).bindPopup(customPopup,customOptions).addTo(map);
         };
 }
 
 
-L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'glassdoor'}).addTo(map);
+L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'Glassdoor', description:'youve been here!'}).bindPopup(customPopup,customOptions).addTo(map);
+
+
+marker.bindPopup(popupContent).openPopup();
 
 //zip codes
 
