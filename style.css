@@ -264,6 +264,11 @@ background-image:url("gd_logo2.jpg");
 margin: 50px auto;
 }
 
+.leaflet-popup-content-wrapper, .map-legends, .map-tooltip{
+border-radius:5px!important;
+}
+
+
 }
 
 @media only screen and (max-device-width: 480px) {

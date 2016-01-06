@@ -70,10 +70,6 @@ if ($ferry_results) { ?>
 
 
 <script>
-// TODO: add id's to trasportation options in htlm
-// fake testing polygon
-// show and hide id's 
-
 // Data Structure
 
 var zipcode =<?php echo $zip ?>;

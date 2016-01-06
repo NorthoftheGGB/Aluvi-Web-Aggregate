@@ -10,10 +10,11 @@ if(mysqli_num_rows($result) == 0){
 } else {
 	$cookie_key = $_COOKIE['aluvi_token'];
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-	if(strcmp($cookie_key, $row['cookie_key']) != 0){
-		require('expired_link.php');
-		exit;
-	} else {
+// took out the cookie check
+	//if(strcmp($cookie_key, $row['cookie_key']) != 0){
+//		require('expired_link.php');
+//		exit;
+//	} else {
 		$user = $row;	
 		// update the cookie and the stored key
 		// this also expires the link as a side effect
@@ -27,5 +28,5 @@ if(mysqli_num_rows($result) == 0){
 		header("Pragma: no-cache"); // HTTP 1.0.
 		header("Expires: 0"); // Proxies.
 		require('transportation_preferences.php');
-	}
+//	}
 }
