@@ -44,7 +44,7 @@ $mail->AddAddress($email);
 if(!$mail->Send()) {
 	$error = 'Mail error: '.$mail->ErrorInfo; 
 } else {
-	$error = 'Message sent!';
+	$error = '';
 }
 
 // serve page

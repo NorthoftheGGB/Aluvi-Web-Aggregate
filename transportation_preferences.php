@@ -20,6 +20,10 @@ function toggle_visibility(id) {
 		e_input.disabled = true;
 	}
 }
+
+function validate_form(){
+	return false;
+}
 //-->
 </script>
 
@@ -47,9 +51,46 @@ Please select the transportation options you are interested in: <br></p>
 <!--<p>Carpool-->
 <p>
 <select name="carpool_options">
+	<option value="">--Select Option--</option>
 	<option value="rider">Rider</option>
 	<option value="driver">Driver</option>
 	<option value="both">Both</option>
+</select>
+<p>
+When you leave for work (AM):
+<select name="carpool_times_morning">
+	<option value="">--Select Time--</option>
+	<option value="4:00">4:00</option>
+	<option value="4:30">4:30</option>
+	<option value="5:00">4:00</option>
+	<option value="5:30">4:30</option>
+	<option value="6:00">4:00</option>
+	<option value="6:30">4:30</option>
+	<option value="7:00">4:00</option>
+	<option value="7:30">4:30</option>
+	<option value="8:00">4:00</option>
+	<option value="8:30">4:30</option>
+	<option value="9:00">4:00</option>
+	<option value="9:30">4:30</option>
+	<option value="10:00">4:00</option>
+</select>
+<p>
+When you leave to head home (PM):
+<select name="carpool_times_evening">
+	<option value="">--Select Time--</option>
+	<option value="4:00">4:00</option>
+	<option value="4:30">4:30</option>
+	<option value="5:00">4:00</option>
+	<option value="5:30">4:30</option>
+	<option value="6:00">4:00</option>
+	<option value="6:30">4:30</option>
+	<option value="7:00">4:00</option>
+	<option value="7:30">4:30</option>
+	<option value="8:00">4:00</option>
+	<option value="8:30">4:30</option>
+	<option value="9:00">4:00</option>
+	<option value="9:30">4:30</option>
+	<option value="10:00">4:00</option>
 </select>
 <p>
 	<div id="transportation_type_carpool" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: block;">
@@ -67,6 +108,7 @@ Please select the transportation options you are interested in: <br></p>
 <!--<p>Vanpool-->
 <p>
 <select name="vanpool_options">
+	<option value="">--Select Option--</option>
 	<option value="rider">Rider</option>
 	<option value="driver">Driver</option>
 	<option value="both">Both</option>
@@ -128,11 +170,13 @@ Please select the transportation options you are interested in: <br></p>
 </div>
 
 
-<input type="submit" value="Next" class="submit"/>
+<input type="submit" value="Next" class="submit" onClick="validate_form();"/>
 
 </form>
 
 </div>
+
+<p>Powered by Aluvi</p>
 
 </body>
 

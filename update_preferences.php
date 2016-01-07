@@ -5,13 +5,13 @@ require('database.php');
 $cookie_key = $_COOKIE['aluvi_token'];
 $result = mysqli_query($users_con, $q = "select * from users where cookie_key = '$cookie_key'");
 if(mysqli_num_rows($result) == 0){
-	//require 'expired_link.php';
-	//exit;
+	require 'expired_link.php';
+	exit;
 }
 
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-$stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option) values ( ?, ?, ?, ?,   ?, ?, ? , ?)');
+$stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpooling_times_morning, carpooling_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;
 $vanpool = isset($_POST['transportation_type_vanpool']) ? 1 : 0; 
 $bicycle = isset($_POST['transportation_type_bicycle']) ? 1 : 0; 
@@ -57,6 +57,14 @@ if ($row = mysqli_fetch_array($bike_ferry_results, MYSQLI_ASSOC)){
 }
 
 $t_results['carpool'] = true;
+
+// spooffing demo data
+if($zip == '94118'){
+	$vanpool_results = true;
+	$t_results['vanpool']['coordinates'][] = array(37.779473,-122.45557);
+}
+
+
 $transportationModes = json_encode($t_results);
 $zip_results = mysqli_query($con, $qx = "select st_astext(geo) as geotext from zip_codes where zip_code = $zip");
 while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){

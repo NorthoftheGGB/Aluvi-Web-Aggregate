@@ -31,7 +31,9 @@
 		<br/>
 		<p class="resultDescription"> Commuter Incentive: $100</p>
 		<br/>
-		<p class="resultDescription"> Make extra cash doing what you already do! Pick up coworkers on your drive to work by downlading the Aluvi app for <a target="_blank" href="https://itunes.apple.com/us/app/aluvi/id914223284?mt=8">iOS</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aluvi.android">Android</a></p>
+		<p class="resultDescription"> Pick up coworkers on your drive to work by downlading the Aluvi app for <a target="_blank" href="https://itunes.apple.com/us/app/aluvi/id914223284?mt=8">iOS</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aluvi.android">Android</a></p>
+		<br/>
+		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about carpooling</a></p>
 		</div>
 <?php }
 if ($van_results) { ?>
@@ -41,6 +43,8 @@ if ($van_results) { ?>
 		<p class="resultDescription"> Commuter Incentive: $100</p>
 		<br/>
  <p class="resultDescription"> Meet your co-workers at one of the vanpool pickup spots. There is one near your house, get in on the planning <a target="_blank" href="#">here.</a></p>
+ 		<br/>
+		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about vanpooling</a></p>
                 </div>
 <?php  } if (count($stop_info) > 0) { ?>
 <div class="result" id="12345">
@@ -64,11 +68,16 @@ if ($ferry_results) { ?>
 		<br/>
 		<p class="resultDescription"> Commuter Incentive: $100</p>
 		<br/>
-  <p class="resultDescription">Bike to the ferry! Plan the details <a target="_blank" href="http://goldengateferry.org/schedules/Sausalito.php">here.</a></p>
+  <p class="resultDescription">Bike or BART to the ferry! Plan the details <a target="_blank" href="http://goldengateferry.org/schedules/Sausalito.php">here.</a></p>
                 </div>
 <?php } ?>
-	</div>
 
+<div class="result" id="123451">
+	<p>Map pins contain transportation times and commuter details.</p>
+<br/>
+	<p>Powered by Aluvi</p>
+</div>
+	</div>
 
 	<div class="mapContainer">
 		<div id="map">
@@ -201,14 +210,14 @@ var glassdoorOptions =
 	'border-radius':'5px',
 } 
 
-var carpoolPopup = "Carpool<br/>Carpool via Aluvi";
+var carpoolPopup = "Carpool Pickup Point<br/><br/>Amanda Green<br/>amanda.green@glassdoor.com<br/>Driver and River<br/><br/>Jason Adams<br/>jason.adams@glassdoor.com<br/>Driver and Rider<br/><br/>Ryan Russel<br/>ryan.russel@glassdoor.com<br/>Rider";
 var carpoolOptions =
 {
         'maxWidth': '600',
         'border-radius':'5px',
 } 
 
-var vanpoolPopup = "Vanpool<br/>";
+var vanpoolPopup = "Vanpool Pickup Point<br/><br/>Vanpool Leader:<br/>Karen Tripp<br/>karen.tripp@glassdoor.com<br/><br/>To Glassdoor<br/>Pickup Time: 7:45am<br/>Arrival Time: 8:45am<br/><br/>Back Home<br/>Pickup Time: 4:45pm<br/>Arrival Time: 5:45pm<br/><br/><a href=\"#\">View Glassdoor's Vanpooling Rules</a>";
 var vanpoolOptions =
 {
         'maxWidth': '600',
@@ -220,7 +229,7 @@ var ferryOptions =
         'maxWidth': '600',
         'border-radius':'5px',
 } 
-var publicTransitPopup = "PublicTransit<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var publicTransitPopup = "PublicTransit<br/>This is your closest Golden Gate Transit Stop<br/><br/>Check Golden Gate Transit's information <a href=\"http://www.goldengatetransit.org/\" target=\"_blank\" >Here</a>";
 var publicTransitOptions =
 {
         'maxWidth': '600',
@@ -279,7 +288,7 @@ if (transportModes.ferry != undefined) {
 }
 
 if (transportModes.vanpool != undefined) {
-        for(i = 0; i < 2; i++) {
+        for(i = 0; i < transportModes.vanpool.coordinates.length ; i++) {
                 L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).bindPopup(vanpoolPopup,vanpoolOptions).addTo(map);
         };
 }
