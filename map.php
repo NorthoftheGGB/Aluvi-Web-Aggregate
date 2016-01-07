@@ -33,7 +33,7 @@
 		<br/>
 		<p class="resultDescription"> Pick up coworkers on your drive to work by downlading the Aluvi app for <a target="_blank" href="https://itunes.apple.com/us/app/aluvi/id914223284?mt=8">iOS</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aluvi.android">Android</a></p>
 		<br/>
-		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about carpooling</a></p>
+		<p class="resultDescription"> <a href="mailto:benefits@trudell.com">Email the benefits team about carpooling</a></p>
 		</div>
 <?php }
 if ($van_results) { ?>
@@ -44,7 +44,7 @@ if ($van_results) { ?>
 		<br/>
  <p class="resultDescription"> Meet your co-workers at one of the vanpool pickup spots. There is one near your house, get in on the planning <a target="_blank" href="#">here.</a></p>
  		<br/>
-		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about vanpooling</a></p>
+		<p class="resultDescription"> <a href="mailto:benefits@trudell.com">Email the benefits team about vanpooling</a></p>
                 </div>
 <?php  } if (count($stop_info) > 0) { ?>
 <div class="result" id="12345">
@@ -163,7 +163,7 @@ var glassdoorIcon = L.icon({
         iconSize: [62, 60],
         iconAnchor: [30, 62],
         popupAnchor: [-7, -65],
-	title: "Glassdoor",
+	title: "Trudel",
 	description: "You know it well."
 
 
@@ -203,21 +203,21 @@ var busIcon = L.icon({
 
 //popups
 
-var glassdoorPopup = "Glassdoor<br/>100 Shoreline Hwy, Mill Valley, CA 94941";
+var glassdoorPopup = "Trudell Inc.<br/>100 Shoreline Hwy, Mill Valley, CA 94941";
 var glassdoorOptions =
 {
 	'maxWidth': '600',
 	'border-radius':'5px',
 } 
 
-var carpoolPopup = "Carpool Pickup Point<br/><br/>Amanda Green<br/>amanda.green@glassdoor.com<br/>Driver and River<br/><br/>Jason Adams<br/>jason.adams@glassdoor.com<br/>Driver and Rider<br/><br/>Ryan Russel<br/>ryan.russel@glassdoor.com<br/>Rider";
+var carpoolPopup = "Carpool Pickup Point<br/><br/>Amanda Green<br/>amanda.green@trudell.com<br/>Driver and River<br/><br/>Jason Adams<br/>jason.adams@trudell.com<br/>Driver and Rider<br/><br/>Ryan Russel<br/>ryan.russel@trudell.com<br/>Rider";
 var carpoolOptions =
 {
         'maxWidth': '600',
         'border-radius':'5px',
 } 
 
-var vanpoolPopup = "Vanpool Pickup Point<br/><br/>Vanpool Leader:<br/>Karen Tripp<br/>karen.tripp@glassdoor.com<br/><br/>To Glassdoor<br/>Pickup Time: 7:45am<br/>Arrival Time: 8:45am<br/><br/>Back Home<br/>Pickup Time: 4:45pm<br/>Arrival Time: 5:45pm<br/><br/><a href=\"#\">View Glassdoor's Vanpooling Rules</a>";
+var vanpoolPopup = "Vanpool Pickup Point<br/><br/>Vanpool Leader:<br/>Karen Tripp<br/>karen.tripp@trudell.com<br/><br/>To Trudell Inc.<br/>Pickup Time: 7:45am<br/>Arrival Time: 8:45am<br/><br/>Back Home<br/>Pickup Time: 4:45pm<br/>Arrival Time: 5:45pm<br/><br/><a href=\"#\">View Trudell Inc.'s Vanpooling Rules</a>";
 var vanpoolOptions =
 {
         'maxWidth': '600',
@@ -238,7 +238,7 @@ var publicTransitOptions =
 
 
 
-var customPopup = "Glassdoor<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var customPopup = "Trudell Inc.<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
 var customOptions =
 {
 	'maxWidth': '600',
@@ -294,7 +294,7 @@ if (transportModes.vanpool != undefined) {
 }
 
 
-L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'Glassdoor', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
+L.marker([37.901298, -122.51333] ,{icon: glassdoorIcon, title: 'Trudell Inc.', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
 
 </script>
 
