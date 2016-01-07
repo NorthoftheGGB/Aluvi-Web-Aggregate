@@ -57,7 +57,15 @@ Please select the transportation options you are interested in: <br></p>
 	<option value="both">Both</option>
 </select>
 <p>
-When you leave for work (AM):
+	<div id="transportation_type_carpool" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: block;">
+	Carpool<!--not selected-->
+	</div>
+	<div id="transportation_type_carpool_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: none;"> 
+	Carpool
+	</div>
+	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
+<p>
+When you leave for work (AM):<br>
 <select name="carpool_times_morning">
 	<option value="">--Select Time--</option>
 	<option value="4:00">4:00</option>
@@ -75,7 +83,7 @@ When you leave for work (AM):
 	<option value="10:00">4:00</option>
 </select>
 <p>
-When you leave to head home (PM):
+When you leave to head home (PM):<br>
 <select name="carpool_times_evening">
 	<option value="">--Select Time--</option>
 	<option value="4:00">4:00</option>
@@ -92,14 +100,7 @@ When you leave to head home (PM):
 	<option value="9:30">4:30</option>
 	<option value="10:00">4:00</option>
 </select>
-<p>
-	<div id="transportation_type_carpool" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: block;">
-	Carpool<!--not selected-->
-	</div>
-	<div id="transportation_type_carpool_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: none;"> 
-	Carpool
-	</div>
-	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
+
 </div>
 
 
