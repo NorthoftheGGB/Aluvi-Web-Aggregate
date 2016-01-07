@@ -28,17 +28,26 @@
 <?php if ($car_results) { ?>
 		<div class="result">
 		<h2 class="resultType">Carpool</h2>
+		<br/>
+		<p class="resultDescription"> Commuter Incentive: $100</p>
+		<br/>
 		<p class="resultDescription"> Make extra cash doing what you already do! Pick up coworkers on your drive to work by downlading the Aluvi app for <a target="_blank" href="https://itunes.apple.com/us/app/aluvi/id914223284?mt=8">iOS</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aluvi.android">Android</a></p>
 		</div>
 <?php }
 if ($van_results) { ?>
 <div class="result" id="67890">
                 <h2 class="resultType">Vanpool</h2>               
+		<br/>
+		<p class="resultDescription"> Commuter Incentive: $100</p>
+		<br/>
  <p class="resultDescription"> Meet your co-workers at one of the vanpool pickup spots. There is one near your house, get in on the planning <a target="_blank" href="#">here.</a></p>
                 </div>
 <?php  } if (count($stop_info) > 0) { ?>
 <div class="result" id="12345">
                 <h2 class="resultType">Public Transport</h2>               
+		<br/>
+		<p class="resultDescription"> Commuter Incentive: $100</p>
+		<br/>
  <p class="resultDescription"> Walk or ride your bike to these bus lines: 
 	<?php
 		foreach ($stop_info as $stop){
@@ -52,6 +61,9 @@ if ($van_results) { ?>
 if ($ferry_results) { ?>
 <div class="result" id="123451">
                 <h2 class="resultType">Ferry</h2>              
+		<br/>
+		<p class="resultDescription"> Commuter Incentive: $100</p>
+		<br/>
   <p class="resultDescription">Bike to the ferry! Plan the details <a target="_blank" href="http://goldengateferry.org/schedules/Sausalito.php">here.</a></p>
                 </div>
 <?php } ?>
@@ -182,27 +194,27 @@ var busIcon = L.icon({
 
 //popups
 
-var glassdoorPopup = "Glassdoor<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var glassdoorPopup = "Glassdoor<br/>100 Shoreline Hwy, Mill Valley, CA 94941";
 var glassdoorOptions =
 {
 	'maxWidth': '600',
 	'border-radius':'5px',
 } 
 
-var carpoolPopup = "Carpool<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var carpoolPopup = "Carpool<br/>Carpool via Aluvi";
 var carpoolOptions =
 {
         'maxWidth': '600',
         'border-radius':'5px',
 } 
 
-var vanpoolPopup = "Vanpool<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var vanpoolPopup = "Vanpool<br/>";
 var vanpoolOptions =
 {
         'maxWidth': '600',
         'border-radius':'5px',
 } 
-var ferryPopup = "Ferry<br/><img src='http://joshuafrazier.info/images/maptime.gif' alt='maptime logo gif' width='350px'/>";
+var ferryPopup = "Ferry<br/>";
 var ferryOptions =
 {
         'maxWidth': '600',
@@ -225,17 +237,31 @@ var customOptions =
 } 
 
 
+//zip codes
+
+if (zipcode.coordinates != undefined && zipcode.coordinates != null)
+var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
+
+zipCodeCentroid = polygon.getBounds().getCenter();
+zipCodeCentroid = [zipCodeCentroid.lat, zipCodeCentroid.lng];
+
+
+
+
 //markers
 
 if (transportModes.carpool != undefined) {
+
+	L.marker(zipCodeCentroid, {icon: carpoolIcon , title:'Carpooling via Aluvi'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
+
         for(i = 0; i < 1; i++) {
-                L.marker(transportModes.carpool.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
+             //   L.marker(transportModes.carpool.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
         };
 }
 
 if (transportModes.carpool2 != undefined) {
         for(i = 0; i < 2; i++) {
-                L.marker(transportModes.carpool2.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
+     //           L.marker(transportModes.carpool2.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
         };
 }
 
@@ -260,12 +286,6 @@ if (transportModes.vanpool != undefined) {
 
 
 L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'Glassdoor', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
-
-
-//zip codes
-
-if (zipcode.coordinates != undefined && zipcode.coordinates != null)
-var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
 
 </script>
 

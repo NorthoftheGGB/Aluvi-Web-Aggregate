@@ -5,8 +5,8 @@ require('database.php');
 $cookie_key = $_COOKIE['aluvi_token'];
 $result = mysqli_query($users_con, $q = "select * from users where cookie_key = '$cookie_key'");
 if(mysqli_num_rows($result) == 0){
-	require 'expired_link.php';
-	exit;
+	//require 'expired_link.php';
+	//exit;
 }
 
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -21,7 +21,6 @@ mysqli_stmt_bind_param($stmt, 'iiiiiiss', $row['id'],  $carpool, $vanpool, $bicy
 mysqli_stmt_execute($stmt);
 
 // and get the map data ready
-$t_results['carpool'] = 'true';
 $car_results = true;
 
 
@@ -57,6 +56,7 @@ if ($row = mysqli_fetch_array($bike_ferry_results, MYSQLI_ASSOC)){
 	$ferry_results = true;
 }
 
+$t_results['carpool'] = true;
 $transportationModes = json_encode($t_results);
 $zip_results = mysqli_query($con, $qx = "select st_astext(geo) as geotext from zip_codes where zip_code = $zip");
 while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){
