@@ -39,10 +39,10 @@ if ($van_results) { ?>
 <?php  } if (count($stop_info) > 0) { ?>
 <div class="result" id="12345">
                 <h2 class="resultType">Public Transport</h2>               
- <p class="resultDescription"> Walk or ride your bike to these bus stops: 
+ <p class="resultDescription"> Walk or ride your bike to these bus lines: 
 	<?php
 		foreach ($stop_info as $stop){
-			echo "<br />$stop";
+			echo "<br />Golden Gate Transit $stop";
 		}
 	?>
 </p>
