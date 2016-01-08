@@ -68,8 +68,8 @@ Please select the transportation options you are interested in: <br></p>
 </p>
 <center style='width:1000px; position:absolute;'>
 <div style='width:600px'>
-<p style='float:left'>
-When you leave for work (AM):<br>
+<p style='float:left; margin-left:45px; margin-right:10px;'>
+When you leave for work (AM):&nbsp;&nbsp;<br>
 <select name="carpool_times_morning">
 	<option value="">--Select Time--</option>
 	<option value="4:00">4:00</option>
