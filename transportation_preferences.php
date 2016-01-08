@@ -56,6 +56,7 @@ Please select the transportation options you are interested in: <br></p>
 	<option value="driver">Driver</option>
 	<option value="both">Both</option>
 </select>
+</p>
 <p>
 	<div id="transportation_type_carpool" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: block;">
 	Carpool<!--not selected-->
@@ -64,7 +65,9 @@ Please select the transportation options you are interested in: <br></p>
 	Carpool
 	</div>
 	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
-<p>
+</p>
+<div style='text-align:center'>
+<p style='float:left'>
 When you leave for work (AM):<br>
 <select name="carpool_times_morning">
 	<option value="">--Select Time--</option>
@@ -82,6 +85,7 @@ When you leave for work (AM):<br>
 	<option value="9:30">4:30</option>
 	<option value="10:00">4:00</option>
 </select>
+</p>
 <p>
 When you leave to head home (PM):<br>
 <select name="carpool_times_evening">
@@ -100,7 +104,8 @@ When you leave to head home (PM):<br>
 	<option value="9:30">4:30</option>
 	<option value="10:00">4:00</option>
 </select>
-
+</p>
+</div>
 </div>
 
 
@@ -114,6 +119,7 @@ When you leave to head home (PM):<br>
 	<option value="driver">Driver</option>
 	<option value="both">Both</option>
 </select>
+</p>
 <p>
 	<div id="transportation_type_vanpool" class="transportation_type" onclick="toggle_visibility('transportation_type_vanpool');" style="display: block;">
 	Vanpool<!--not selected-->
@@ -122,6 +128,7 @@ When you leave to head home (PM):<br>
 	Vanpool
 	</div>
 	<input type="hidden" id="transportation_type_vanpool_input" name="transportation_type_vanpool" value="selected" disabled="true"/>
+</p>
 </div>
 
 
@@ -152,6 +159,7 @@ When you leave to head home (PM):<br>
 	Public Transportation
 	</div>
 	<input type="hidden" id="transportation_type_public_transportation_input" name="transportation_type_public_transportation" value="selected" disabled="true"/>
+</p>
 </div>
 
 
@@ -168,6 +176,7 @@ When you leave to head home (PM):<br>
 	Commuter Bus
 	</div>
 	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
+</p>
 </div>
 
 
