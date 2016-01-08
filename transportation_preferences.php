@@ -25,7 +25,7 @@ function validate_form(){
 	var form = document.forms[0];
 	if ((form.elements['transportation_type_carpool'].disabled && form.elements['transportation_type_vanpool'].disabled && form.elements['transportation_type_bicycle'].disabled
 	     && form.elements['transportation_type_commuter_bus'].disabled && form.elements['transportation_type_public_transportation'].disabled)){
-	document.getElementById('error').innerHTML = 'Please select at least one transportation option, your commute times, and driving preferences.';
+	document.getElementById('error').innerHTML = '<br/><br/><br/>Please select at least one transportation option, your commute times, and driving preferences.';
 	return false;
 	}
 return true;
@@ -114,10 +114,7 @@ When you leave to head home (PM):<br>
 </select>
 </p>
 </div>
-<br/>
-<br/>
-<br/>
-<div id='error'></div>
+<div id='error' style='width:100%'></div>
 </center>
 </div>
 
