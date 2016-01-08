@@ -22,8 +22,18 @@ function toggle_visibility(id) {
 }
 
 function validate_form(){
+	var form = document.forms[0];
+	if ((form.elements['transportation_type_carpool'].disabled && form.elements['transportation_type_vanpool'].disabled && form.elements['transportation_type_bicycle'].disabled
+	     && form.elements['transportation_type_commuter_bus'].disabled && form.elements['transportation_type_public_transportation'].disabled) ||
+	    form.elements['carpool_times_morning'].value == '' || form.elements['carpool_times_evening'].value == '' ||
+	    (!form.elements['transportation_type_carpool'].disabled && form.elements['carpool_options'].value == '') ||
+	    (!form.elements['transportation_type_vanpool'].disabled && form.elements['vanpool_options'].value == '') ){
+	document.getElementById('error').innerHTML = '<br/><br/>Please select at least one transportation option, your commute times, and driving preferences.';
 	return false;
+	}
+return true;
 }
+
 //-->
 </script>
 
@@ -56,6 +66,7 @@ Please select the transportation options you are interested in: <br></p>
 	<option value="driver">Driver</option>
 	<option value="both">Both</option>
 </select>
+</p>
 <p>
 	<div id="transportation_type_carpool" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: block;">
 	Carpool<!--not selected-->
@@ -64,43 +75,50 @@ Please select the transportation options you are interested in: <br></p>
 	Carpool
 	</div>
 	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
-<p>
-When you leave for work (AM):<br>
+</p>
+<center style='width:1000px; position:absolute;'>
+<div style='width:600px'>
+<p style='float:left; margin-left:40px; margin-right:10px;'>
+When you leave for work (AM):&nbsp;&nbsp;<br>
 <select name="carpool_times_morning">
 	<option value="">--Select Time--</option>
 	<option value="4:00">4:00</option>
 	<option value="4:30">4:30</option>
-	<option value="5:00">4:00</option>
-	<option value="5:30">4:30</option>
-	<option value="6:00">4:00</option>
-	<option value="6:30">4:30</option>
-	<option value="7:00">4:00</option>
-	<option value="7:30">4:30</option>
-	<option value="8:00">4:00</option>
-	<option value="8:30">4:30</option>
-	<option value="9:00">4:00</option>
-	<option value="9:30">4:30</option>
-	<option value="10:00">4:00</option>
+	<option value="5:00">5:00</option>
+	<option value="5:30">5:30</option>
+	<option value="6:00">6:00</option>
+	<option value="6:30">6:30</option>
+	<option value="7:00">7:00</option>
+	<option value="7:30">7:30</option>
+	<option value="8:00">8:00</option>
+	<option value="8:30">8:30</option>
+	<option value="9:00">9:00</option>
+	<option value="9:30">9:30</option>
+	<option value="10:00">10:00</option>
 </select>
-<p>
+</p>
+<p style='float:left'>
 When you leave to head home (PM):<br>
 <select name="carpool_times_evening">
 	<option value="">--Select Time--</option>
 	<option value="4:00">4:00</option>
 	<option value="4:30">4:30</option>
-	<option value="5:00">4:00</option>
-	<option value="5:30">4:30</option>
-	<option value="6:00">4:00</option>
-	<option value="6:30">4:30</option>
-	<option value="7:00">4:00</option>
-	<option value="7:30">4:30</option>
-	<option value="8:00">4:00</option>
-	<option value="8:30">4:30</option>
-	<option value="9:00">4:00</option>
-	<option value="9:30">4:30</option>
-	<option value="10:00">4:00</option>
+	<option value="5:00">5:00</option>
+	<option value="5:30">5:30</option>
+	<option value="6:00">6:00</option>
+	<option value="6:30">6:30</option>
+	<option value="7:00">7:00</option>
+	<option value="7:30">7:30</option>
+	<option value="8:00">8:00</option>
+	<option value="8:30">8:30</option>
+	<option value="9:00">9:00</option>
+	<option value="9:30">9:30</option>
+	<option value="10:00">10:00</option>
 </select>
-
+</p>
+</div>
+<div id='error' style='clear:both; width:500px; text-align:left;'></div>
+</center>
 </div>
 
 
@@ -114,6 +132,7 @@ When you leave to head home (PM):<br>
 	<option value="driver">Driver</option>
 	<option value="both">Both</option>
 </select>
+</p>
 <p>
 	<div id="transportation_type_vanpool" class="transportation_type" onclick="toggle_visibility('transportation_type_vanpool');" style="display: block;">
 	Vanpool<!--not selected-->
@@ -122,6 +141,7 @@ When you leave to head home (PM):<br>
 	Vanpool
 	</div>
 	<input type="hidden" id="transportation_type_vanpool_input" name="transportation_type_vanpool" value="selected" disabled="true"/>
+</p>
 </div>
 
 
@@ -152,6 +172,7 @@ When you leave to head home (PM):<br>
 	Public Transportation
 	</div>
 	<input type="hidden" id="transportation_type_public_transportation_input" name="transportation_type_public_transportation" value="selected" disabled="true"/>
+</p>
 </div>
 
 
@@ -168,10 +189,11 @@ When you leave to head home (PM):<br>
 	Commuter Bus
 	</div>
 	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
+</p>
 </div>
 
 
-<input type="submit" value="Next" class="submit" onClick="validate_form();"/>
+<input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
 
 </form>
 
