@@ -4,7 +4,8 @@ require('database.php');
 $email = $_REQUEST['email'];
 $name = $_REQUEST['name'];
 $zip = $_REQUEST['zip'];
-
+$split_email = explode('@', $email);
+if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' ){
 $factory = new RandomLib\Factory;
 $generator = $factory->getMediumStrengthGenerator();
 
@@ -46,7 +47,9 @@ if(!$mail->Send()) {
 } else {
 	$error = '';
 }
-
+}
+else
+	$error = 'Sorry, this is only available for Glassdoor employees at present.';
 // serve page
 ?>
 
