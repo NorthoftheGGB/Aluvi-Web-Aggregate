@@ -23,8 +23,8 @@ function toggle_visibility(id) {
 
 function validate_form(){
 	var form = document.forms[0];
-	if ((transportation_type_carpool.disabled && transportation_type_vanpool.disabled && transportation_type_bicycle.disabled
-	     && transportation_type_commuter_bus.disabled && transportation_type_public_transportation.disabled)){
+	if ((form.elements['transportation_type_carpool'].disabled && form.elements['transportation_type_vanpool'].disabled && form.elements['transportation_type_bicycle'].disabled
+	     && form.elements['transportation_type_commuter_bus'].disabled && form.elements['transportation_type_public_transportation'].disabled)){
 	document.getElementById('error').innerHTML = 'Please select at least one transportation option, your commute times, and driving preferences.';
 	return false;
 	}
