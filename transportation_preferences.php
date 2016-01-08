@@ -22,8 +22,15 @@ function toggle_visibility(id) {
 }
 
 function validate_form(){
+	var form = document.forms[0];
+	if ((transportation_type_carpool.disabled && transportation_type_vanpool.disabled && transportation_type_bicycle.disabled
+	     && transportation_type_commuter_bus.disabled && transportation_type_public_transportation.disabled)){
+	document.getElementById('error').innerHTML = 'Please select at least one transportation option, your commute times, and driving preferences.';
 	return false;
+	}
+return true;
 }
+
 //-->
 </script>
 
@@ -68,23 +75,23 @@ Please select the transportation options you are interested in: <br></p>
 </p>
 <center style='width:1000px; position:absolute;'>
 <div style='width:600px'>
-<p style='float:left; margin-left:45px; margin-right:10px;'>
+<p style='float:left; margin-left:40px; margin-right:10px;'>
 When you leave for work (AM):&nbsp;&nbsp;<br>
 <select name="carpool_times_morning">
 	<option value="">--Select Time--</option>
 	<option value="4:00">4:00</option>
 	<option value="4:30">4:30</option>
-	<option value="5:00">4:00</option>
-	<option value="5:30">4:30</option>
-	<option value="6:00">4:00</option>
-	<option value="6:30">4:30</option>
-	<option value="7:00">4:00</option>
-	<option value="7:30">4:30</option>
-	<option value="8:00">4:00</option>
-	<option value="8:30">4:30</option>
-	<option value="9:00">4:00</option>
-	<option value="9:30">4:30</option>
-	<option value="10:00">4:00</option>
+	<option value="5:00">5:00</option>
+	<option value="5:30">5:30</option>
+	<option value="6:00">6:00</option>
+	<option value="6:30">6:30</option>
+	<option value="7:00">7:00</option>
+	<option value="7:30">7:30</option>
+	<option value="8:00">8:00</option>
+	<option value="8:30">8:30</option>
+	<option value="9:00">9:00</option>
+	<option value="9:30">9:30</option>
+	<option value="10:00">10:00</option>
 </select>
 </p>
 <p style='float:left'>
@@ -93,20 +100,21 @@ When you leave to head home (PM):<br>
 	<option value="">--Select Time--</option>
 	<option value="4:00">4:00</option>
 	<option value="4:30">4:30</option>
-	<option value="5:00">4:00</option>
-	<option value="5:30">4:30</option>
-	<option value="6:00">4:00</option>
-	<option value="6:30">4:30</option>
-	<option value="7:00">4:00</option>
-	<option value="7:30">4:30</option>
-	<option value="8:00">4:00</option>
-	<option value="8:30">4:30</option>
-	<option value="9:00">4:00</option>
-	<option value="9:30">4:30</option>
-	<option value="10:00">4:00</option>
+	<option value="5:00">5:00</option>
+	<option value="5:30">5:30</option>
+	<option value="6:00">6:00</option>
+	<option value="6:30">6:30</option>
+	<option value="7:00">7:00</option>
+	<option value="7:30">7:30</option>
+	<option value="8:00">8:00</option>
+	<option value="8:30">8:30</option>
+	<option value="9:00">9:00</option>
+	<option value="9:30">9:30</option>
+	<option value="10:00">10:00</option>
 </select>
 </p>
 </div>
+<div id='error'></div>
 </center>
 </div>
 
@@ -182,7 +190,7 @@ When you leave to head home (PM):<br>
 </div>
 
 
-<input type="submit" value="Next" class="submit" onClick="validate_form();"/>
+<input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
 
 </form>
 
