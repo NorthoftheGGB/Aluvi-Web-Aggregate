@@ -114,7 +114,7 @@ When you leave to head home (PM):<br>
 </select>
 </p>
 </div>
-<div id='error' style='width:1000px'></div>
+<div id='error' style='clear:both; width:500px; text-align:left;'></div>
 </center>
 </div>
 
