@@ -66,48 +66,7 @@ Please select the transportation options you are interested in: <br></p>
 	</div>
 	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
 </p>
-<center style='width:1000px'>
-<div style='width:600px'>
-<p style='float:left; margin-left:45px; margin-right:5px;'>
-When you leave for work (AM):&nbsp;&nbsp;<br>
-<select name="carpool_times_morning">
-	<option value="">--Select Time--</option>
-	<option value="4:00">4:00</option>
-	<option value="4:30">4:30</option>
-	<option value="5:00">4:00</option>
-	<option value="5:30">4:30</option>
-	<option value="6:00">4:00</option>
-	<option value="6:30">4:30</option>
-	<option value="7:00">4:00</option>
-	<option value="7:30">4:30</option>
-	<option value="8:00">4:00</option>
-	<option value="8:30">4:30</option>
-	<option value="9:00">4:00</option>
-	<option value="9:30">4:30</option>
-	<option value="10:00">4:00</option>
-</select>
-</p>
-<p style='float:left'>
-When you leave to head home (PM):<br>
-<select name="carpool_times_evening">
-	<option value="">--Select Time--</option>
-	<option value="4:00">4:00</option>
-	<option value="4:30">4:30</option>
-	<option value="5:00">4:00</option>
-	<option value="5:30">4:30</option>
-	<option value="6:00">4:00</option>
-	<option value="6:30">4:30</option>
-	<option value="7:00">4:00</option>
-	<option value="7:30">4:30</option>
-	<option value="8:00">4:00</option>
-	<option value="8:30">4:30</option>
-	<option value="9:00">4:00</option>
-	<option value="9:30">4:30</option>
-	<option value="10:00">4:00</option>
-</select>
-</p>
-</div>
-</center>
+
 </div>
 
 
@@ -180,7 +139,48 @@ When you leave to head home (PM):<br>
 	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
 </p>
 </div>
-
+<center style='width:1000px'>
+<div style='width:600px'>
+<p style='float:left; margin-left:45px; margin-right:5px;'>
+When you leave for work (AM):&nbsp;&nbsp;<br>
+<select name="carpool_times_morning">
+	<option value="">--Select Time--</option>
+	<option value="4:00">4:00</option>
+	<option value="4:30">4:30</option>
+	<option value="5:00">4:00</option>
+	<option value="5:30">4:30</option>
+	<option value="6:00">4:00</option>
+	<option value="6:30">4:30</option>
+	<option value="7:00">4:00</option>
+	<option value="7:30">4:30</option>
+	<option value="8:00">4:00</option>
+	<option value="8:30">4:30</option>
+	<option value="9:00">4:00</option>
+	<option value="9:30">4:30</option>
+	<option value="10:00">4:00</option>
+</select>
+</p>
+<p style='float:left'>
+When you leave to head home (PM):<br>
+<select name="carpool_times_evening">
+	<option value="">--Select Time--</option>
+	<option value="4:00">4:00</option>
+	<option value="4:30">4:30</option>
+	<option value="5:00">4:00</option>
+	<option value="5:30">4:30</option>
+	<option value="6:00">4:00</option>
+	<option value="6:30">4:30</option>
+	<option value="7:00">4:00</option>
+	<option value="7:30">4:30</option>
+	<option value="8:00">4:00</option>
+	<option value="8:30">4:30</option>
+	<option value="9:00">4:00</option>
+	<option value="9:30">4:30</option>
+	<option value="10:00">4:00</option>
+</select>
+</p>
+</div>
+</center>
 
 <input type="submit" value="Next" class="submit" onClick="validate_form();"/>
 
