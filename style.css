@@ -74,10 +74,10 @@ float:left;
 
 
 .resultsContainer{
-width:43%;
+width:33%;
 height:97%;
 min-height:310px;
-margin:.5em 10%;
+margin:.5em 0;
 float:left;
 background-color:rgba(255,255,255, 0.8);
 
