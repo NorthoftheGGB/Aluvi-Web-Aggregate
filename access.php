@@ -49,7 +49,7 @@ if(!$mail->Send()) {
 }
 }
 else
-	$error = 'Sorry, this is only available for Glassdoor employees at present.';
+	$error = 'Please enter your Glassdoor email address.';
 // serve page
 ?>
 
@@ -72,11 +72,14 @@ else
 <div class="logo"></div>
 
 <div class="description">
-<p><?php echo $error;?>
+<p><?php echo $error;
+if (!$error) {
+?>
 <p>Hi <?php echo $name;?>,
 <p>Thank you for entering your information for Glassdoor's transportation options.
 <p>Please check your email as we have generated a customized link for you to access the site.
 <p> - The Aluvi Team
+<?php } ?>
 </div>
 
 </body>

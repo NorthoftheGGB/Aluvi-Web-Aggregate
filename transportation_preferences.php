@@ -199,7 +199,7 @@ When you leave to head home (PM):<br>
 
 </div>
 
-<!--<p>Powered by Aluvi</p>-->
+<p>Powered by Aluvi</p>
 
 </body>
 
