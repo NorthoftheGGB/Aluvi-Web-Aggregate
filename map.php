@@ -75,7 +75,7 @@ if ($ferry_results) { ?>
 <div class="result" id="123451">
 	<p>Map pins contain transportation times and commuter details.</p>
 <br/>
-	<p>Powered by Aluvi</p>
+	<!--<p>Powered by Aluvi</p>-->
 </div>
 	</div>
 
