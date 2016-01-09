@@ -97,6 +97,10 @@ text-align:center;
 color:white;
 }
 
+.resultsDescription{
+padding-right:15%;
+}
+
 #choices{
 width:1000px!important;
 }
