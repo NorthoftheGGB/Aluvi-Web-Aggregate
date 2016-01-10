@@ -5,7 +5,7 @@ $email = $_REQUEST['email'];
 $name = $_REQUEST['name'];
 $zip = $_REQUEST['zip'];
 $split_email = explode('@', $email);
-if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' ){
+if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email = 'mattfrykman@yahoo.com' ){
 $factory = new RandomLib\Factory;
 $generator = $factory->getMediumStrengthGenerator();
 
