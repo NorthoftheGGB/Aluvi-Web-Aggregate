@@ -5,6 +5,7 @@ $email = $_REQUEST['email'];
 $name = $_REQUEST['name'];
 $zip = $_REQUEST['zip'];
 $split_email = explode('@', $email);
+$error = "none";
 if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email = 'mattfrykman@yahoo.com' ){
 $factory = new RandomLib\Factory;
 $generator = $factory->getMediumStrengthGenerator();
@@ -44,9 +45,7 @@ $mail->Body = $body;
 $mail->AddAddress($email);
 if(!$mail->Send()) {
 	$error = 'Mail error: '.$mail->ErrorInfo; 
-} else {
-	$error = '';
-}
+} 
 }
 else
 	$error = 'Please enter your Glassdoor email address.';
@@ -73,7 +72,7 @@ else
 
 <div class="description">
 <p><?php echo $error;
-if (!$error) {
+if ($error == "none") {
 ?>
 <p>Hi <?php echo $name;?>,
 <p>Thank you for entering your information for Glassdoor's transportation options.
