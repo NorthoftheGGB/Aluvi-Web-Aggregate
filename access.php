@@ -76,7 +76,7 @@ if (!$error) {
 <p>Thank you for entering your information for Glassdoor's transportation options.
 <p>Please check your email as we have generated a customized link for you to access the site.
 <p> - The Aluvi Team
-<?php ?>
+<?php } ?>
 </div>
 
 </body>
