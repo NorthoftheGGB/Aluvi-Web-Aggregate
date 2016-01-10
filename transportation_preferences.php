@@ -62,9 +62,8 @@ Please select the transportation options you are interested in: <br></p>
 <p>
 <select name="carpool_options">
 	<option value="">--Select Option--</option>
-	<option value="rider">Rider</option>
-	<option value="driver">Driver</option>
-	<option value="both">Both</option>
+	<option value="both">Drive and Ride</option>
+	<option value="rider">Ride Only</option>
 </select>
 </p>
 <p>
@@ -125,9 +124,8 @@ When you'd like to leave to head home (PM):<br>
 <p>
 <select name="vanpool_options">
 	<option value="">--Select Option--</option>
-	<option value="rider">Rider</option>
-	<option value="driver">Driver</option>
-	<option value="both">Both</option>
+	<option value="both">Drive and Ride</option>
+	<option value="rider">Ride Only</option>
 </select>
 </p>
 <p>
