@@ -24,9 +24,11 @@ mysqli_stmt_execute($stmt);
 // and get the map data ready
 
 $carpool_matches = array();
-$car_results = mysqli_query($users_con, $q = "select name, email, p.carpool_times_morning as t1, p.carpool_times_evening as t2 from users u join preferences p on u.id = p.user_id where u.zip = $userzip and u.id <> $userid");
+$car_results = mysqli_query($users_con, $q = "select name, email from users u where u.zip = $userzip and u.id <> $userid");
 while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
-	$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[t1]</td><td>$row[t2]</td></tr>";
+	$time_results = mysqli_query($users_con, "select carpool_times_morning as t1, carpool_times_evening as t2 from preferences where id = (select max(id) from preferences where user_id = $userid)");
+	if ($row2 = mysqli_fetch_array($time_results, MYSQLI_ASSOC))
+		$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row2[t1]</td><td>$row2[t2]</td></tr>";
 }
 
 $zip = $userzip;
