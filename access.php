@@ -5,9 +5,7 @@ $email = $_REQUEST['email'];
 $name = $_REQUEST['name'];
 $zip = $_REQUEST['zip'];
 $split_email = explode('@', $email);
-$error = "gremlins";
-if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email = 'mattfrykman@yahoo.com' ){
-	echo "<!--$split_email[1]-->";
+if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email == 'mattfrykman@yahoo.com' ){
 	$factory = new RandomLib\Factory;
 	$generator = $factory->getMediumStrengthGenerator();
 	
@@ -49,12 +47,10 @@ if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || 
 		$error = 'Mail error: '.$mail->ErrorInfo; 
 	}
 	else {
-		echo "<!-2-->";
 		$error = "";
 	}
 }
 else {
-	echo "<!-3-->";
 	$error = 'Please enter your Glassdoor email address.';
 
 }
