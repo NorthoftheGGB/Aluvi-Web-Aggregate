@@ -5,7 +5,7 @@ $email = $_REQUEST['email'];
 $name = $_REQUEST['name'];
 $zip = $_REQUEST['zip'];
 $split_email = explode('@', $email);
-$error = "none";
+$error = "";
 if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email = 'mattfrykman@yahoo.com' ){
 $factory = new RandomLib\Factory;
 $generator = $factory->getMediumStrengthGenerator();
@@ -72,7 +72,7 @@ else
 
 <div class="description">
 <p><?php echo $error;
-if ($error == "none") {
+if (!$error) {
 ?>
 <p>Hi <?php echo $name;?>,
 <p>Thank you for entering your information for Glassdoor's transportation options.
