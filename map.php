@@ -35,16 +35,17 @@
 		<br/>
 		<p class="resultDescription">
 		<table>
-		<th>Name</th>
-		<th>Email</th>
-		<th>Arrive</th>
-		<th>Depart</th>
+		<th style='width:38%'>Name</th>
+		<th style='width:37%'>Email</th>
+		<th style='width:15%'>Arrive</th>
+		<th style='width:15%'>Depart</th>
 		<?php
 			foreach($carpool_matches as $match){
 				echo $match;
 			}
 		?>
 		</table>
+		<br />
 		</p>
 		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about carpooling</a></p>
 		</div>
