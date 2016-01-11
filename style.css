@@ -83,6 +83,16 @@ background-color:rgba(255,255,255, 0.8);
 
 }
 
+table, th, td {
+    border: 1px solid black;
+}
+table {
+border-collapse:collapse;
+
+}
+td, th {
+padding:2px;
+}
 
 .rightBox{
 /*float:left;*/
