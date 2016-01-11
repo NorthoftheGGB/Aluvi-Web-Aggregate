@@ -38,7 +38,7 @@ $vanpool_matches = array();
 $van_results = mysqli_query($con, $qx = "select name, email, location_title title, departs_location dl, arrives_work aw, departs_work dw
 			    from vanpool_pickup p join aluvidb.users u on leader_id = u.id where p.zip = $userzip limit 2");
 while ($row = mysqli_fetch_array($van_results)){
-	$vanpool_matches =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]</td><td>$row[aw]</td><td>$row[dw]</td></tr>";
+	$vanpool_matches[] =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]</td><td>$row[aw]</td><td>$row[dw]</td></tr>";
 }
 
 $zip = $userzip;
