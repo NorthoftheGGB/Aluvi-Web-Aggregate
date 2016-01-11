@@ -61,9 +61,11 @@ if ($van_results) { ?>
 		<br/>
  <p class="resultDescription"> Walk or ride your bike to these bus lines: 
 	<?php
+		/*
 		foreach ($stop_info as $stop){
 			echo "<br />Golden Gate Transit $stop";
 		}
+		*/
 	?>
 </p>
                </div>
