@@ -53,7 +53,7 @@ if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || 
 	}
 }
 else {
-	echo "<!-2-->";
+	echo "<!-3-->";
 	$error = 'Please enter your Glassdoor email address.';
 
 }
