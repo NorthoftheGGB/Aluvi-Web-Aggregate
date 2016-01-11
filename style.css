@@ -66,7 +66,7 @@ height:100%;
 }
 
 .mapContainer{
-width:55%;
+width:48%;
 height:97%;
 margin:.5em;
 float:left;
@@ -74,13 +74,13 @@ float:left;
 
 
 .resultsContainer{
-width:43%;
+width:50%;
 height:97%;
 min-height:310px;
 margin:.5em 0;
 float:left;
 background-color:rgba(255,255,255, 0.8);
-
+overflow:auto;
 }
 
 table, th, td {

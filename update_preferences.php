@@ -29,9 +29,16 @@ $car_results = mysqli_query($users_con, $q = "select * from users u where u.zip 
 while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
 	$time_results = mysqli_query($users_con, $qq = "select carpool_times_morning as t1, carpool_times_evening as t2, carpool_option from preferences where id = (select max(id) from preferences where user_id = $row[id]) and carpool");
 	if ($row2 = mysqli_fetch_array($time_results, MYSQLI_ASSOC)) {
-		$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row2[carpool_option]</td><td>$row2[t1]</td><td>$row2[t2]</td></tr>";
+		$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row2[carpool_option]</td><td>$row2[t1]am</td><td>$row2[t2]pm</td></tr>";
 		++$n_results;
 	}
+}
+
+$vanpool_matches = array();
+$van_results = mysqli_query($con, $qx = "select name, email, location_title title, departs_location dl, arrives_work aw, departs_work dw
+			    from vanpool_pickup p join aluvidb.users u on leader_id = u.id where p.zip = $userzip limit 2");
+while ($row = mysqli_fetch_array($van_results)){
+	$vanpool_matches =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]</td><td>$row[aw]</td><td>$row[dw]</td></tr>";
 }
 
 $zip = $userzip;
@@ -67,13 +74,13 @@ if ($row = mysqli_fetch_array($bike_ferry_results, MYSQLI_ASSOC)){
 }
 
 $t_results['carpool'] = true;
-
+/*
 // spooffing demo data
 if($zip == '94118'){
 	$vanpool_results = true;
 	$t_results['vanpool']['coordinates'][] = array(37.779473,-122.45557);
 }
-
+*/
 
 $transportationModes = json_encode($t_results);
 $zip_results = mysqli_query($con, $qx = "select st_astext(geo) as geotext from zip_codes where zip_code = $zip");

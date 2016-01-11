@@ -51,14 +51,28 @@
 		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about carpooling</a></p>
 		</div>
 <?php }
-if ($van_results) { ?>
+if (count($vanpool_matches) > 0) { ?>
 <div class="result" id="67890">
                 <h2 class="resultType">Vanpool</h2>               
 		<br/>
 		<p class="resultDescription"> Commuter Incentive: $100</p>
 		<br/>
- <p class="resultDescription"> Meet your co-workers at one of the vanpool pickup spots. There is one near your house, get in on the planning <a target="_blank" href="#">here.</a></p>
- 		<br/>
+ <p class="resultDescription">
+		<table>
+		<th style='width:20%'>Vanpool Leader</th>
+		<th style='width:24%'>Email</th>
+		<th style='width:22%'>Pickup Location</th>
+		<th style='width:12%'>Departs Location</th>
+		<th style='width:12%'>Arrives Glassdoor</th>
+		<th style='width:12%'>Departs Glassdoor</th>
+		<?php
+			foreach($vanpool_matches as $match){
+				echo $match;
+			}
+		?>
+		</table>
+		<br />
+		</p>
 		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about vanpooling</a></p>
                 </div>
 <?php  } if (count($stop_info) > 0) { ?>
