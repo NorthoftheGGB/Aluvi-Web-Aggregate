@@ -25,7 +25,7 @@
 <div class="container2">
 	
 	<div class="resultsContainer">
-<?php if ($car_results) { ?>
+<?php if (count($carpool_matches) > 0) { ?>
 		<div class="result">
 		<h2 class="resultType">Carpool</h2>
 		<br/>
@@ -34,11 +34,17 @@
 		<p class="resultDescription"> Pick up coworkers on your drive to work by downlading the Aluvi app for <a target="_blank" href="https://itunes.apple.com/us/app/aluvi/id914223284?mt=8">iOS</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aluvi.android">Android</a></p>
 		<br/>
 		<p class="resultDescription">
+		<table>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Arrive</th>
+		<th>Depart</th>
 		<?php
 			foreach($carpool_matches as $match){
-				echo "$match<br/>";
+				echo $match;
 			}
 		?>
+		</table>
 		</p>
 		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about carpooling</a></p>
 		</div>
