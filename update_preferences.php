@@ -26,7 +26,7 @@ mysqli_stmt_execute($stmt);
 $carpool_matches = array();
 $car_results = mysqli_query($users_con, $q = "select name, email, carpool_times_morning as t1, carpool_times_evening as t2 from users where zip = $userzip and id <> $userid");
 while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
-	$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>t1</td><td>t2</td></tr>";
+	$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[t1]</td><td>$row[t2]</td></tr>";
 }
 
 $zip = $userzip;
