@@ -12,6 +12,7 @@ if(mysqli_num_rows($result) == 0){
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
+mysqli_query('delete from preferences where user_id='.$row['id']);
 $stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;
 $vanpool = isset($_POST['transportation_type_vanpool']) ? 1 : 0; 
@@ -26,9 +27,9 @@ $carpool_matches = array();
 $n_results = 0;
 $car_results = mysqli_query($users_con, $q = "select * from users u where u.zip = $userzip and u.id <> $userid");
 while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
-	$time_results = mysqli_query($users_con, $qq = "select carpool_times_morning as t1, carpool_times_evening as t2 from preferences where id = (select max(id) from preferences where user_id = $row[id]) and carpool");
+	$time_results = mysqli_query($users_con, $qq = "select carpool_times_morning as t1, carpool_times_evening as t2, carpool_option from preferences where id = (select max(id) from preferences where user_id = $row[id]) and carpool");
 	if ($row2 = mysqli_fetch_array($time_results, MYSQLI_ASSOC)) {
-		$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[carpool_option]</td><td>$row2[t1]</td><td>$row2[t2]</td></tr>";
+		$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row2[carpool_option]</td><td>$row2[t1]</td><td>$row2[t2]</td></tr>";
 		++$n_results;
 	}
 }
