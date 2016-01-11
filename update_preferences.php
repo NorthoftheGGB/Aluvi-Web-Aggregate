@@ -12,13 +12,13 @@ if(mysqli_num_rows($result) == 0){
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
-$stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?, ?, ?)');
+$stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;
 $vanpool = isset($_POST['transportation_type_vanpool']) ? 1 : 0; 
 $bicycle = isset($_POST['transportation_type_bicycle']) ? 1 : 0; 
 $public_transportation = isset($_POST['transportation_type_public_transportation']) ? 1 : 0;
 $commuter_bus =  isset($_POST['transportation_type_commuter_bus']) ? 1 : 0;
-mysqli_stmt_bind_param($stmt, 'iiiiiiss', $row['id'],  $carpool, $vanpool, $bicycle, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $_POST['carpool_times_morning'], $_POST['carpool_times_evening']);
+mysqli_stmt_bind_param($stmt, 'iiiiiissss', $row['id'],  $carpool, $vanpool, $bicycle, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $_POST['carpool_times_morning'], $_POST['carpool_times_evening']);
 mysqli_stmt_execute($stmt);
 echo "<!--".mysqli_error($users_con) ."-->";
 // and get the map data ready
