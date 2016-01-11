@@ -36,7 +36,7 @@
 		<p class="resultDescription">
 		<?php
 			foreach($carpool_matches as $match){
-				echo "<br/>$match";
+				echo "$match<br/>";
 			}
 		?>
 		</p>
