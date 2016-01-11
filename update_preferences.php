@@ -29,7 +29,7 @@ while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
 	$carpool_matches[] = "$row[name] - $row[email]";
 }
 
-$zip = $row['zip'];
+$zip = $userzip;
 $t_results = array('bus' => array('coordinates' => array()));
 $bus_results = mysqli_query($con, $q1 = "select * from bus_routes b join zip_codes z on st_intersects(b.SHAPE, z.geo) where zip_code = $zip");
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $q1 -->";
