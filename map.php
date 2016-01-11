@@ -33,6 +33,13 @@
 		<br/>
 		<p class="resultDescription"> Pick up coworkers on your drive to work by downlading the Aluvi app for <a target="_blank" href="https://itunes.apple.com/us/app/aluvi/id914223284?mt=8">iOS</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aluvi.android">Android</a></p>
 		<br/>
+		<p class="resultDescription">
+		<?php
+			foreach($carpool_matches as $match){
+				echo "<br/>$match";
+			}
+		?>
+		</p>
 		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about carpooling</a></p>
 		</div>
 <?php }
