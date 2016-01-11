@@ -12,7 +12,7 @@ if(mysqli_num_rows($result) == 0){
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
-$stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
+$stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?, ?, ?)');
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;
 $vanpool = isset($_POST['transportation_type_vanpool']) ? 1 : 0; 
 $bicycle = isset($_POST['transportation_type_bicycle']) ? 1 : 0; 
