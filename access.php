@@ -5,51 +5,54 @@ $email = $_REQUEST['email'];
 $name = $_REQUEST['name'];
 $zip = $_REQUEST['zip'];
 $split_email = explode('@', $email);
-$error = "";
+$error = "gremlins";
 if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email = 'mattfrykman@yahoo.com' ){
-$factory = new RandomLib\Factory;
-$generator = $factory->getMediumStrengthGenerator();
-
-$cookie_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-$link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-
-$results = mysqli_query($users_con, $q = "select * from users where email = '$email'");
-
-if(mysqli_num_rows($results) == 0){
-	mysqli_query($users_con, $q = "insert into users (name, email, zip, cookie_key, link_key) values('$name', '$email', '$zip', '$cookie_key', '$link_key')");
-} else {
-	mysqli_query($users_con, $q = "update users set name = '$name', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
-}
-
-
-setcookie('aluvi_token', $cookie_key, time() + 30*60);
-$url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key";
-
-
-// send email
-$subject = 'Glassdoor Transportation Options Access';
-$body = "Follow this link to access your transportation options $url";
-
-$mail = new PHPMailer();  // create a new object
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true;  // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = 465; 
-$mail->Username = 'support@aluviapp.com';  
-$mail->Password = 'support4aluviapp';           
-$mail->SetFrom($mail->Username, 'Glassdoor Transporation Options via Aluvi');
-$mail->Subject = $subject;
-$mail->Body = $body;
-$mail->AddAddress($email);
-if(!$mail->Send()) {
-	$error = 'Mail error: '.$mail->ErrorInfo; 
-} 
+	$factory = new RandomLib\Factory;
+	$generator = $factory->getMediumStrengthGenerator();
+	
+	$cookie_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+	$link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+	
+	$results = mysqli_query($users_con, $q = "select * from users where email = '$email'");
+	
+	if(mysqli_num_rows($results) == 0){
+		mysqli_query($users_con, $q = "insert into users (name, email, zip, cookie_key, link_key) values('$name', '$email', '$zip', '$cookie_key', '$link_key')");
+	} else {
+		mysqli_query($users_con, $q = "update users set name = '$name', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
+	}
+	
+	
+	setcookie('aluvi_token', $cookie_key, time() + 30*60);
+	$url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key";
+	
+	
+	// send email
+	$subject = 'Glassdoor Transportation Options Access';
+	$body = "Follow this link to access your transportation options $url";
+	
+	$mail = new PHPMailer();  // create a new object
+	$mail->IsSMTP(); // enable SMTP
+	$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
+	$mail->SMTPAuth = true;  // authentication enabled
+	$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+	$mail->Host = 'smtp.gmail.com';
+	$mail->Port = 465; 
+	$mail->Username = 'support@aluviapp.com';  
+	$mail->Password = 'support4aluviapp';           
+	$mail->SetFrom($mail->Username, 'Glassdoor Transporation Options via Aluvi');
+	$mail->Subject = $subject;
+	$mail->Body = $body;
+	$mail->AddAddress($email);
+	if(!$mail->Send()) {
+		$error = 'Mail error: '.$mail->ErrorInfo; 
+	}
+	else {
+		$error = "";
+	}
 }
 else {
 	$error = 'Please enter your Glassdoor email address.';
-	echo "There is an error: $error";
+
 }
 // serve page
 ?>
