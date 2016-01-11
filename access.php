@@ -47,8 +47,10 @@ if(!$mail->Send()) {
 	$error = 'Mail error: '.$mail->ErrorInfo; 
 } 
 }
-else
+else {
 	$error = 'Please enter your Glassdoor email address.';
+	echo "There is an error: $error";
+}
 // serve page
 ?>
 
