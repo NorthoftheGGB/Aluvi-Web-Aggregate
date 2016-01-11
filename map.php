@@ -35,10 +35,11 @@
 		<br/>
 		<p class="resultDescription">
 		<table>
-		<th style='width:38%'>Name</th>
-		<th style='width:37%'>Email</th>
-		<th style='width:15%'>Arrive</th>
-		<th style='width:15%'>Depart</th>
+		<th style='width:29%'>Name</th>
+		<th style='width:29%'>Email</th>
+		<th style='width:14%'>Driver/Rider</th>
+		<th style='width:14%'>Arrive</th>
+		<th style='width:14%'>Depart</th>
 		<?php
 			foreach($carpool_matches as $match){
 				echo $match;
