@@ -44,13 +44,16 @@ if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || 
 	$mail->Body = $body;
 	$mail->AddAddress($email);
 	if(!$mail->Send()) {
+		echo "<!-1-->";
 		$error = 'Mail error: '.$mail->ErrorInfo; 
 	}
 	else {
+		echo "<!-2-->";
 		$error = "";
 	}
 }
 else {
+	echo "<!-2-->";
 	$error = 'Please enter your Glassdoor email address.';
 
 }
