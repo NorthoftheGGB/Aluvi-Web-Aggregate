@@ -20,7 +20,7 @@ $public_transportation = isset($_POST['transportation_type_public_transportation
 $commuter_bus =  isset($_POST['transportation_type_commuter_bus']) ? 1 : 0;
 mysqli_stmt_bind_param($stmt, 'iiiiiiss', $row['id'],  $carpool, $vanpool, $bicycle, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $_POST['carpool_times_morning'], $_POST['carpool_times_evening']);
 mysqli_stmt_execute($stmt);
-
+echo "<!--".mysqli_error($users_con) ."-->";
 // and get the map data ready
 
 $carpool_matches = array();
