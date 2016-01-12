@@ -29,9 +29,7 @@
 		<div class="result">
 		<h2 class="resultType">Carpool</h2>
 		<br/>
-		<p class="resultDescription"> Commuter Incentive: $100</p>
-		<br/>
-		<p class="resultDescription"> Pick up coworkers on your drive to work by downlading the Aluvi app for <a target="_blank" href="https://itunes.apple.com/us/app/aluvi/id914223284?mt=8">iOS</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.aluvi.android">Android</a></p>
+		<p class="resultDescription"> Commuter Incentive: Raffle</p>
 		<br/>
 		<p class="resultDescription">
 		<table>
@@ -48,14 +46,14 @@
 		</table>
 		<br />
 		</p>
-		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about carpooling</a></p>
+		<p class="resultDescription">Carpooling Rules: <a href='#'>Click Here</a></p>
 		</div>
 <?php }
 if (count($vanpool_matches) > 0) { ?>
 <div class="result" id="67890">
                 <h2 class="resultType">Vanpool</h2>               
 		<br/>
-		<p class="resultDescription"> Commuter Incentive: $100</p>
+		<p class="resultDescription"> Commuter Incentive Per Month: $252 </p>
 		<br/>
  <p class="resultDescription">
 		<table>
@@ -73,9 +71,8 @@ if (count($vanpool_matches) > 0) { ?>
 		</table>
 		<br />
 		</p>
-		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team about vanpooling</a></p>
                 </div>
-<?php  } if (count($stop_info) > 0) { ?>
+<?php  } /*if (count($stop_info) > 0) { ?>
 <div class="result" id="12345">
                 <h2 class="resultType">Public Transport</h2>               
 		<br/>
@@ -101,12 +98,31 @@ if ($ferry_results) { ?>
 		<br/>
   <p class="resultDescription">Bike or BART to the ferry! Plan the details <a target="_blank" href="http://goldengateferry.org/schedules/Sausalito.php">here.</a></p>
                 </div>
+<?php } */
+if ($public_transportation){ ?>
+<div class="result">
+	<h2 class="resultType">Public Transportation</h2>
+	<br/>
+	<p class="resultDescription"> Commuter Incentive Per Month: $252</p>
+	<br/>
+	<p class="resultDescription">
+		<a href='http://goldengatetransit.org/schedules/current/'>Golden Gate Transit</a>
+		<a href='http://goldengateferry.org/'>Golden Gate Ferry</a>
+		<a href='https://www.bart.gov/stations'>Bart</a>	
+	</p>
+</div>
 <?php } ?>
+<div class="result">
+	                <h2 class="resultType">Activate Your Transportation Benefits</h2>              
 
-<div class="result" id="123451">
-	<p>Map pins contain transportation times and commuter details.</p>
+		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team</a></p>
 <br/>
 	<!--<p>Powered by Aluvi</p>-->
+</div>
+<div class="result">
+	                <h2 class="resultType">Glassdoor's Location!</h2>              
+
+<br/>
 </div>
 	</div>
 

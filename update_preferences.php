@@ -22,23 +22,25 @@ $commuter_bus =  isset($_POST['transportation_type_commuter_bus']) ? 1 : 0;
 mysqli_stmt_bind_param($stmt, 'iiiiiissss', $row['id'],  $carpool, $vanpool, $bicycle, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $t1 = $_POST['carpool_times_morning'], $t2 = $_POST['carpool_times_evening']);
 mysqli_stmt_execute($stmt);
 // and get the map data ready
-
-$carpool_matches = array();
-$n_results = 0;
-$car_results = mysqli_query($users_con, $q = "select name, email, carpool_times_morning as t1, carpool_times_evening as t2, carpool_option
-			    from preferences join users u on user_id = u.id where u.zip = $userzip and u.id <> $userid and carpool
-			    order by abs(time_to_sec(t1) - time_to_sec('$t1')) + abs(time_to_sec(t2) - time_to_sec('$t2')) limit 3");
-echo "<!--$q-->";
-while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
-	
-		$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[carpool_option]</td><td>$row[t1]am</td><td>$row[t2]pm</td></tr>";
+if ($carpool){
+	$carpool_matches = array();
+	$n_results = 0;
+	$car_results = mysqli_query($users_con, $q = "select name, email, carpool_times_morning as t1, carpool_times_evening as t2, carpool_option
+				    from preferences join users u on user_id = u.id where u.zip = $userzip and u.id <> $userid and carpool
+				    order by abs(time_to_sec(t1) - time_to_sec('$t1')) + abs(time_to_sec(t2) - time_to_sec('$t2')) limit 3");
+	echo "<!--$q-->";
+	while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
+		
+			$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[carpool_option]</td><td>$row[t1]am</td><td>$row[t2]pm</td></tr>";
+	}
 }
-
-$vanpool_matches = array();
-$van_results = mysqli_query($con, $qx = "select name, email, location_title title, departs_location dl, arrives_work aw, departs_work dw
-			    from vanpool_pickup p join aluvidb.users u on leader_id = u.id where p.zip = $userzip limit 2");
-while ($row = mysqli_fetch_array($van_results)){
-	$vanpool_matches[] =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]am</td><td>$row[aw]am</td><td>$row[dw]pm</td></tr>";
+if ($vanpool){
+	$vanpool_matches = array();
+	$van_results = mysqli_query($con, $qx = "select name, email, location_title title, departs_location dl, arrives_work aw, departs_work dw
+				    from vanpool_pickup p join aluvidb.users u on leader_id = u.id where p.zip = $userzip limit 2");
+	while ($row = mysqli_fetch_array($van_results)){
+		$vanpool_matches[] =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]am</td><td>$row[aw]am</td><td>$row[dw]pm</td></tr>";
+	}
 }
 
 $zip = $userzip;
