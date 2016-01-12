@@ -5,7 +5,7 @@ $email = $_REQUEST['email'];
 $name = $_REQUEST['name'];
 $zip = $_REQUEST['zip'];
 $split_email = explode('@', $email);
-if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email == 'mattfrykman@yahoo.com' ){
+if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email == 'mattfrykman@yahoo.com' || $email == 'chains@spaz.org' ){
 	$factory = new RandomLib\Factory;
 	$generator = $factory->getMediumStrengthGenerator();
 	
@@ -27,7 +27,7 @@ if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || 
 	
 	// send email
 	$subject = 'Glassdoor Transportation Options Access';
-	$body = "Follow this link to access your transportation options $url";
+	$body = "Hi $name, <br/> <br/> Follow this link to access your transportation options $url";
 	
 	$mail = new PHPMailer();  // create a new object
 	$mail->IsSMTP(); // enable SMTP
@@ -38,7 +38,7 @@ if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || 
 	$mail->Port = 465; 
 	$mail->Username = 'support@aluviapp.com';  
 	$mail->Password = 'support4aluviapp';           
-	$mail->SetFrom($mail->Username, 'Glassdoor Transporation Options via Aluvi');
+	$mail->SetFrom($mail->Username, 'Glassdoor Transportation Options via Aluvi');
 	$mail->Subject = $subject;
 	$mail->Body = $body;
 	$mail->AddAddress($email);
