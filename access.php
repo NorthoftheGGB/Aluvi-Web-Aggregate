@@ -27,7 +27,9 @@ if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || 
 	
 	// send email
 	$subject = 'Glassdoor Transportation Options Access';
-	$body = "Hi $name,
+	$boom = explode(' ', $name);
+	$firstname = $boom[0];
+	$body = "Hi $firstname,
 	
 Follow this link to access your transportation options $url";
 	
