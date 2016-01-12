@@ -106,23 +106,25 @@ if ($public_transportation){ ?>
 	<p class="resultDescription"> Commuter Incentive Per Month: $252</p>
 	<br/>
 	<p class="resultDescription">
-		<a href='http://goldengatetransit.org/schedules/current/'>Golden Gate Transit</a>
-		<a href='http://goldengateferry.org/'>Golden Gate Ferry</a>
+		<a href='http://goldengatetransit.org/schedules/current/'>Golden Gate Transit</a><br/>
+		<a href='http://goldengateferry.org/'>Golden Gate Ferry</a><br/>
 		<a href='https://www.bart.gov/stations'>Bart</a>	
 	</p>
 </div>
 <?php } ?>
 <div class="result">
 	                <h2 class="resultType">Activate Your Transportation Benefits</h2>              
-
+<br/>
 		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team</a></p>
 <br/>
 	<!--<p>Powered by Aluvi</p>-->
 </div>
+<!--
 <div class="result">
 	                <h2 class="resultType">Glassdoor's Location!</h2>              
 
 <br/>
+-->
 </div>
 	</div>
 
