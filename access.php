@@ -27,7 +27,9 @@ if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || 
 	
 	// send email
 	$subject = 'Glassdoor Transportation Options Access';
-	$body = "Hi $name, <br/> <br/> Follow this link to access your transportation options $url";
+	$body = "Hi $name,
+	
+Follow this link to access your transportation options $url";
 	
 	$mail = new PHPMailer();  // create a new object
 	$mail->IsSMTP(); // enable SMTP
