@@ -12,7 +12,7 @@ if(mysqli_num_rows($result) == 0){
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
-mysqli_query('delete from preferences where user_id='.$row['id']);
+mysqli_query($users_con, 'delete from preferences where user_id='.$row['id']);
 $stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;
 $vanpool = isset($_POST['transportation_type_vanpool']) ? 1 : 0; 
@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
 	
 		$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[carpool_option]</td><td>$row[t1]am</td><td>$row[t2]pm</td></tr>";
 }
-
+echo "<!-$q-->";
 $vanpool_matches = array();
 $van_results = mysqli_query($con, $qx = "select name, email, location_title title, departs_location dl, arrives_work aw, departs_work dw
 			    from vanpool_pickup p join aluvidb.users u on leader_id = u.id where p.zip = $userzip limit 2");
