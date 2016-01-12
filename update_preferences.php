@@ -19,7 +19,7 @@ $vanpool = isset($_POST['transportation_type_vanpool']) ? 1 : 0;
 $bicycle = isset($_POST['transportation_type_bicycle']) ? 1 : 0; 
 $public_transportation = isset($_POST['transportation_type_public_transportation']) ? 1 : 0;
 $commuter_bus =  isset($_POST['transportation_type_commuter_bus']) ? 1 : 0;
-mysqli_stmt_bind_param($stmt, 'iiiiiissss', $row['id'],  $carpool, $vanpool, $bicycle, $public_transportation, $commuter_bus, $t1 = $_POST['carpool_options'], $t2 = $_POST['vanpool_options'], $_POST['carpool_times_morning'], $_POST['carpool_times_evening']);
+mysqli_stmt_bind_param($stmt, 'iiiiiissss', $row['id'],  $carpool, $vanpool, $bicycle, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $t1 = $_POST['carpool_times_morning'], $t2 = $_POST['carpool_times_evening']);
 mysqli_stmt_execute($stmt);
 // and get the map data ready
 
