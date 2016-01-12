@@ -29,7 +29,7 @@
 		<div class="result">
 		<h2 class="resultType">Carpool</h2>
 		<br/>
-		<p class="resultDescription"> Commuter Incentive: Raffle</p>
+		<p class="resultDescription"> Commuter Incentive Per Month: Raffle</p>
 		<br/>
 		<p class="resultDescription">
 		<table>
@@ -71,6 +71,7 @@ if (count($vanpool_matches) > 0) { ?>
 		</table>
 		<br />
 		</p>
+ 		<p class="resultDescription">Vanpooling Rules: <a href='#'>Click Here</a></p>
                 </div>
 <?php  } /*if (count($stop_info) > 0) { ?>
 <div class="result" id="12345">
