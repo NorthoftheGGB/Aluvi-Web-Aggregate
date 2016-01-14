@@ -25,7 +25,7 @@
 <div class="container2">
 	
 	<div class="resultsContainer">
-<?php if (count($carpool_matches) > 0) { ?>
+<?php if ($carpool) { ?>
 		<div class="result">
 		<h2 class="resultType">Carpool</h2>
 		<br/>
