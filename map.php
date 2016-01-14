@@ -32,6 +32,7 @@
 		<p class="resultDescription"> Commuter Incentive Per Month: Raffle</p>
 		<br/>
 		<p class="resultDescription">
+<?php		if (count($carpool_matches) > 0) { ?>
 		<table>
 		<th style='width:29%'>Name</th>
 		<th style='width:29%'>Email</th>
@@ -44,6 +45,7 @@
 			}
 		?>
 		</table>
+<?php } 	else echo "We havenÕt found a carpooling match in your area. WeÕll email you when we do."; ?>
 		<br />
 		</p>
 		<p class="resultDescription">Carpooling Rules: <a href='#'>Click Here</a></p>
