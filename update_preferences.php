@@ -1,7 +1,7 @@
 <?php
 require('vendor/autoload.php');
 require('database.php');
-
+//??
 $cookie_key = $_COOKIE['aluvi_token'];
 $result = mysqli_query($users_con, $q = "select * from users where cookie_key = '$cookie_key'");
 if(mysqli_num_rows($result) == 0){
@@ -36,13 +36,14 @@ if ($carpool){
 }
 if ($vanpool){
 	$vanpool_matches = array();
-	$van_results = mysqli_query($con, $qx = "select u.name, email, location_title title, departs_location dl, arrives_work aw, departs_work dw
+	$van_results = mysqli_query($con, $qx = "select u.name, email, location_title title, departs_location dl, arrives_work aw, departs_work dw, lat, lng
 				    from vanpool_pickup p join aluvidb.users u on leader_id = u.id join zip_codes z on z.zip_code = p.zip
 				    join (select geo from zip_codes where zip_code = $userzip) sq
 				    where p.zip = $userzip or st_touches(z.geo, (sq.geo)) order by p.zip = $userzip desc limit 2");
 	echo "<!--$qx-->";
 	while ($row = mysqli_fetch_array($van_results)){
 		$vanpool_matches[] =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]am</td><td>$row[aw]am</td><td>$row[dw]pm</td></tr>";
+		$t_results['vanpool']['coordinates'][] = array($row['lat'], $row['lng']);
 	}
 }
 
@@ -64,13 +65,13 @@ foreach($routes as $route) {
 	}
 }
 
-$bart_ferry_results = mysqli_query($con, $q1 = "select * from bart_ferry f join zip_codes z on st_intersects(f.geo, z.geo) where zip_code = $zip");
-if ($row = mysqli_fetch_array($bart_ferry_results, MYSQLI_ASSOC)){
+//$bart_ferry_results = mysqli_query($con, $q1 = "select * from bart_ferry f join zip_codes z on st_intersects(f.geo, z.geo) where zip_code = $zip");
+//if ($row = mysqli_fetch_array($bart_ferry_results, MYSQLI_ASSOC)){
 	$t_results['ferry']['coordinates'][] = array(37.795748, -122.393326);
 	$t_results['ferry']['coordinates'][] = array(37.856561, -122.478122); 
 	$ferry_results = true;
-}
-
+//}
+/*
 $bike_ferry_results = mysqli_query($con, $q1 = "select * from bike_ferry f join zip_codes z on st_intersects(f.geo, z.geo) where zip_code = $zip");
 if ($row = mysqli_fetch_array($bike_ferry_results, MYSQLI_ASSOC)){
 	$t_results['ferry']['coordinates'][] = array(37.795748, -122.393326);
