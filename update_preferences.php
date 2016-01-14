@@ -40,6 +40,7 @@ if ($vanpool){
 				    from vanpool_pickup p join aluvidb.users u on leader_id = u.id join zip_codes z on z.zip_code = p.zip
 				    join (select geo from zip_codes where zip_code = $userzip) sq
 				    where p.zip = $userzip or st_touches(z.geo, (sq.geo)) order by p.zip = $userzip desc limit 2");
+	echo "<!--$qx-->";
 	while ($row = mysqli_fetch_array($van_results)){
 		$vanpool_matches[] =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]am</td><td>$row[aw]am</td><td>$row[dw]pm</td></tr>";
 	}
