@@ -311,7 +311,7 @@ zipCodeCentroid = [zipCodeCentroid.lat, zipCodeCentroid.lng];
 
 if (transportModes.carpool != undefined) {
 
-	L.marker(zipCodeCentroid, {icon: carpoolIcon , title:'Carpooling via Aluvi'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
+	L.marker(zipCodeCentroid, {icon: carpoolIcon , title:'Carpooling via Aluvi'}).addTo(map);
 
         for(i = 0; i < 1; i++) {
              //   L.marker(transportModes.carpool.coordinates[i] ,{icon: carpoolIcon, title:'Aluvi Pickup Point'}).bindPopup(carpoolPopup,carpoolOptions).addTo(map);
@@ -326,7 +326,7 @@ if (transportModes.carpool2 != undefined) {
 
 if (transportModes.bus != undefined) {
         for(i = 0; i < transportModes.bus.coordinates.length; i++) {
-                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).bindPopup(publicTransitPopup,publicTransitOptions).addTo(map);
+                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).addTo(map);
         };
 }
 
@@ -339,12 +339,12 @@ if (transportModes.ferry != undefined) {
 
 if (transportModes.vanpool != undefined) {
         for(i = 0; i < transportModes.vanpool.coordinates.length ; i++) {
-                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).bindPopup(vanpoolPopup,vanpoolOptions).addTo(map);
+                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).addTo(map);
         };
 }
 
 
-L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'Glassdoor', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
+L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'Glassdoor', description:'youve been here!'}).addTo(map);
 
 </script>
 
