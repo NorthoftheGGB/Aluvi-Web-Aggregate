@@ -75,7 +75,7 @@ if ($row = mysqli_fetch_array($bike_ferry_results, MYSQLI_ASSOC)){
 	$ferry_results = true;
 }
 
-$t_results['carpool'] = true;
+//$t_results['carpool'] = true;
 /*
 // spooffing demo data
 if($zip == '94118'){
