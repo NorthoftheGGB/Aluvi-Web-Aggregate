@@ -51,7 +51,7 @@
 		<p class="resultDescription">Carpooling Rules: <a href='#'>Click Here</a></p>
 		</div>
 <?php }
-if (count($vanpool_matches) > 0) { ?>
+if ($vanpool) { ?>
 <div class="result" id="67890">
                 <h2 class="resultType">Vanpool</h2>               
 		<br/>
