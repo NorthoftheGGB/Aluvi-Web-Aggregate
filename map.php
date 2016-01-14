@@ -45,7 +45,7 @@
 			}
 		?>
 		</table>
-<?php } 	else echo "We havenÕt found a carpooling match in your area. WeÕll email you when we do."; ?>
+<?php } 	else echo "We haven't found a carpooling match in your area. We'll email you when we do.<br/>"; ?>
 		<br />
 		</p>
 		<p class="resultDescription">Carpooling Rules: <a href='#'>Click Here</a></p>
@@ -58,6 +58,7 @@ if (count($vanpool_matches) > 0) { ?>
 		<p class="resultDescription"> Commuter Incentive Per Month: $252 </p>
 		<br/>
  <p class="resultDescription">
+<?php		if (count($vanpool_matches) > 0) { ?>
 		<table>
 		<th style='width:20%'>Vanpool Leader</th>
 		<th style='width:24%'>Email</th>
@@ -71,6 +72,7 @@ if (count($vanpool_matches) > 0) { ?>
 			}
 		?>
 		</table>
+<?php } 	else echo "We haven't found a vanpooling match in your area. We'll email you when we do.<br/>"; ?>
 		<br />
 		</p>
  		<p class="resultDescription">Vanpooling Rules: <a href='#'>Click Here</a></p>
