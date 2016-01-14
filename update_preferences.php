@@ -22,6 +22,7 @@ $commuter_bus =  isset($_POST['transportation_type_commuter_bus']) ? 1 : 0;
 mysqli_stmt_bind_param($stmt, 'iiiiiissss', $row['id'],  $carpool, $vanpool, $bicycle, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $t1 = $_POST['carpool_times_morning'], $t2 = $_POST['carpool_times_evening']);
 mysqli_stmt_execute($stmt);
 // and get the map data ready
+$t_results = array('bus' => array('coordinates' => array()));
 if ($carpool){
 	$carpool_matches = array();
 	$n_results = 0;
@@ -48,7 +49,7 @@ if ($vanpool){
 }
 
 $zip = $userzip;
-$t_results = array('bus' => array('coordinates' => array()));
+
 $bus_results = mysqli_query($con, $q1 = "select * from bus_routes b join zip_codes z on st_intersects(b.SHAPE, z.geo) where zip_code = $zip");
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $q1 -->";
 
