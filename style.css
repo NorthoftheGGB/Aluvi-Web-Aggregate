@@ -66,7 +66,7 @@ height:100%;
 }
 
 .mapContainer{
-width:65%;
+width:48%;
 height:97%;
 margin:.5em;
 float:left;
@@ -74,13 +74,24 @@ float:left;
 
 
 .resultsContainer{
-width:33%;
+width:50%;
 height:97%;
 min-height:310px;
 margin:.5em 0;
 float:left;
 background-color:rgba(255,255,255, 0.8);
+overflow:auto;
+}
 
+table, th, td {
+    border: 1px solid black;
+}
+table {
+border-collapse:collapse;
+
+}
+td, th {
+padding:2px;
 }
 
 .rightBox{
@@ -96,9 +107,7 @@ text-align:center;
 color:white;
 }
 
-.resultDescription{
-padding-right:15%;
-}
+
 
 #choices{
 width:1000px!important;
@@ -176,7 +185,7 @@ margin-left:0;
 margin-top:40px;
 margin-right:10px;
 color:#666;
-width:70%;
+width:95%;
 min-width:271px;
 float:right;
 font-size:1em;
