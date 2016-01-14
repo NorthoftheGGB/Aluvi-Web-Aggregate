@@ -29,7 +29,7 @@ if ($carpool){
 	$car_results = mysqli_query($users_con, $q = "select name, email, carpool_times_morning as t1, carpool_times_evening as t2, carpool_option
 				    from preferences join users u on user_id = u.id where u.zip = $userzip and u.id <> $userid and carpool
 				    order by abs(time_to_sec(t1) - time_to_sec('$t1')) + abs(time_to_sec(t2) - time_to_sec('$t2')) limit 3");
-	echo "<!--$q-->";
+	//echo "<!--$q-->";
 	while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
 		
 			$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[carpool_option]</td><td>$row[t1]am</td><td>$row[t2]pm</td></tr>";
@@ -41,7 +41,7 @@ if ($vanpool){
 				    from vanpool_pickup p join aluvidb.users u on leader_id = u.id join zip_codes z on z.zip_code = p.zip
 				    join (select geo from zip_codes where zip_code = $userzip) sq
 				    where p.zip = $userzip or st_touches(z.geo, (sq.geo)) order by p.zip = $userzip desc limit 2");
-	echo "<!--$qx-->";
+	//echo "<!--$qx-->";
 	while ($row = mysqli_fetch_array($van_results)){
 		$vanpool_matches[] =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]am</td><td>$row[aw]am</td><td>$row[dw]pm</td></tr>";
 		$t_results['vanpool']['coordinates'][] = array($row['lat'], $row['lng']);
