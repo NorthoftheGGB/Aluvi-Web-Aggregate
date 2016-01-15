@@ -55,10 +55,10 @@
 		<th style='width:24%'>Email</th>
 		<th style='width:22%'>Pickup Location</th>
 		<th style='width:12%'>Departs Location</th>
-		<th style='width:12%'>Arrives Glassdoor</th>
-		<th style='width:12%'>Departs Glassdoor</th>
-		<tr><td>Alan Smith</td><td>alan.smith@company.com</td><td>Moscone Recreation Center</td><td>7:00am</td><td>8:00am</td><td>4:30pm</td></tr>
-		<tr><td>Alan Smith</td><td>alan.smith@company.com</td><td>California Academy of Science</td><td>7:15am</td><td>8:00am</td><td>4:30pm</td></tr>		</table>
+		<th style='width:12%'>Arrives Aluvi</th>
+		<th style='width:12%'>Departs Aluvi</th>
+		<tr><td>Alan Smith</td><td>alan.smith@aluvi.com</td><td>Moscone Recreation Center</td><td>7:00am</td><td>8:00am</td><td>4:30pm</td></tr>
+		<tr><td>Alan Smith</td><td>alan.smith@aluvi.com</td><td>California Academy of Science</td><td>7:15am</td><td>8:00am</td><td>4:30pm</td></tr>		</table>
 		<br/>
 		</p>
  		<p class="resultDescription">Vanpooling Rules: <a href='#'>Click Here</a></p>
@@ -129,7 +129,7 @@ var qs = (function(a) {
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWx1dmltYXBzIiwiYSI6ImJlYjg2M2FmNjA4OGZhYjk2ZDRhMGFiZjY1MDQ3ZGYwIn0.2bARToCtaZXue3KJm-WYPQ';
 // Create a map in the div #map
 var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
-    .setView([37.863, -122.375], 11);
+    .setView([37.863, -122.375], 12);
     L.control.locate().addTo(map);
 
 
