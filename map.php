@@ -129,7 +129,7 @@ var qs = (function(a) {
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWx1dmltYXBzIiwiYSI6ImJlYjg2M2FmNjA4OGZhYjk2ZDRhMGFiZjY1MDQ3ZGYwIn0.2bARToCtaZXue3KJm-WYPQ';
 // Create a map in the div #map
 var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
-    .setView([37.864, -122.375], 12);
+    .setView([37.863, -122.375], 11);
     L.control.locate().addTo(map);
 
 
@@ -293,7 +293,7 @@ if (transportModes.vanpool != undefined) {
 }
 
 
-L.marker([37.9078772,-122.5566916] ,{icon: glassdoorIcon, title: 'Trudell Inc.', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
+L.marker([37.9078772,-122.5566916] ,{icon: carpoolIcon, title: 'Trudell Inc.', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
 
 </script>
 
