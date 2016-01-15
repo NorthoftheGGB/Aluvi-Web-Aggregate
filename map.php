@@ -27,7 +27,7 @@
 		<div class="result">
 		<h2 class="resultType">Carpool</h2>
 		<br/>
-		<p class="resultDescription"> Commuter Incentive Per Month: Raffle</p>
+		<p class="resultDescription"> Commuter Incentive Per Month: $252</p>
 		<br/>
 		<p class="resultDescription">
 		<table>
@@ -36,9 +36,9 @@
 		<th style='width:14%'>Driver/Rider</th>
 		<th style='width:14%'>Arrive</th>
 		<th style='width:14%'>Depart</th>
-		<tr><td>Gweneth Yang</td><td>gwen84@gmail.com</td><td>rider</td><td>9:00am</td><td>5:00pm</td></tr>
-		<tr><td>Jorge Alvarez</td><td>jorge@summerleaf.net</td><td>rider</td><td>9:00am</td><td>5:00pm</td></tr>
-		<tr><td>Alfred Berenbaum</td><td>a.berenbaum@cornell.edu</td><td>rider</td><td>9:00am</td><td>5:00pm</td></tr>
+		<tr><td>Gweneth Yang</td><td>gwen84@aluviapp.com</td><td>rider</td><td>9:00am</td><td>5:00pm</td></tr>
+		<tr><td>Jorge Alvarez</td><td>jorge@aluviapp.com</td><td>both</td><td>9:15am</td><td>5:00pm</td></tr>
+		<tr><td>Alfred Berenbaum</td><td>a.berenbaum@aluviapp.com</td><td>rider</td><td>9:00am</td><td>4:45pm</td></tr>
 		</table>
 		<br/>
 		</p>
@@ -169,7 +169,7 @@ var glassdoorIcon = L.icon({
 });
 
 
-var carpoolIcon = L.icon({
+var aluviIcon = L.icon({
         iconUrl: "resources/carpool_marker.png",
         iconSize: [62, 60],
         iconAnchor: [30, 62],
@@ -293,7 +293,7 @@ if (transportModes.vanpool != undefined) {
 }
 
 
-//L.marker([37.901298, -122.51333] ,{icon: glassdoorIcon, title: 'Trudell Inc.', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
+L.marker([37.9078772,-122.5566916] ,{icon: aluviIcon, title: 'Aluvi Inc.', description:'youve been here!'}).addTo(map);
 
 </script>
 
