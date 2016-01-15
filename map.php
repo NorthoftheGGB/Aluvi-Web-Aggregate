@@ -264,20 +264,20 @@ if (transportModes.carpool2 != undefined) {
 
 if (transportModes.bus != undefined) {
         for(i = 0; i < transportModes.bus.coordinates.length; i++) {
-                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).bindPopup(publicTransitPopup,publicTransitOptions).addTo(map);
+                L.marker(transportModes.bus.coordinates[i] ,{icon: busIcon, title:'Bus Stop'}).addTo(map);
         };
 }
 
 
 if (transportModes.ferry != undefined) {
         for(i = 0; i < transportModes.ferry.coordinates.length; i++) {
-                L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).bindPopup(ferryPopup,ferryOptions).addTo(map);
+                L.marker(transportModes.ferry.coordinates[i] ,{icon: ferryIcon, title:'Ferry Pickup'}).addTo(map);
         };
 }
 
 if (transportModes.vanpool != undefined) {
         for(i = 0; i < transportModes.vanpool.coordinates.length ; i++) {
-                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).bindPopup(vanpoolPopup,vanpoolOptions).addTo(map);
+                L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).addTo(map);
         };
 }
 
