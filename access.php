@@ -25,7 +25,7 @@ $url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key";
 
 
 // send email
-$subject = 'Glassdoor Transportation Options Access';
+$subject = 'Aluvi Transportation Options Access';
 	$boom = explode(' ', $name);
 	$firstname = $boom[0];
 	$body = "Hi $firstname,
@@ -77,7 +77,7 @@ if(!$mail->Send()) {
 if (!$error) {
 ?>
 <p>Hi <?php echo $name;?>,
-<p>Thank you for entering your information for Glassdoor's transportation options.
+<p>Thank you for entering your information for Aluvi's transportation options.
 <p>Please check your email as we have generated a customized link for you to access the site.
 <p> - The Aluvi Team
 <?php } ?>
