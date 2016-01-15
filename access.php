@@ -41,7 +41,7 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465; 
 $mail->Username = 'support@aluviapp.com';  
 $mail->Password = 'support4aluviapp';           
-$mail->SetFrom($mail->Username, 'Transporation Options via Aluvi');
+$mail->SetFrom($mail->Username, 'Transportation Options via Aluvi');
 $mail->Subject = $subject;
 $mail->Body = $body;
 $mail->AddAddress($email);

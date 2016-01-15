@@ -36,9 +36,9 @@
 		<th style='width:14%'>Driver/Rider</th>
 		<th style='width:14%'>Arrive</th>
 		<th style='width:14%'>Depart</th>
-		<tr><td>Gweneth Yang</td><td>gwen84@aluviapp.com</td><td>rider</td><td>9:00am</td><td>5:00pm</td></tr>
-		<tr><td>Jorge Alvarez</td><td>jorge@aluviapp.com</td><td>both</td><td>9:15am</td><td>5:00pm</td></tr>
-		<tr><td>Alfred Berenbaum</td><td>a.berenbaum@aluviapp.com</td><td>rider</td><td>9:00am</td><td>4:45pm</td></tr>
+		<tr><td>Gweneth Yang</td><td>gwen.yang@aluviapp.com</td><td>rider</td><td>9:00am</td><td>5:00pm</td></tr>
+		<tr><td>Jorge Alvarez</td><td>jorge.alvarez@aluviapp.com</td><td>both</td><td>9:15am</td><td>5:00pm</td></tr>
+		<tr><td>Alfred Berenbaum</td><td>alfred.berenbaum@aluviapp.com</td><td>rider</td><td>9:00am</td><td>4:45pm</td></tr>
 		</table>
 		<br/>
 		</p>
