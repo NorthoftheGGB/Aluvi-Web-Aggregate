@@ -58,15 +58,26 @@
 		<th style='width:12%'>Arrives Glassdoor</th>
 		<th style='width:12%'>Departs Glassdoor</th>
 		<tr><td>Alan Smith</td><td>alan.smith@company.com</td><td>Moscone Recreation Center</td><td>7:00am</td><td>8:00am</td><td>4:30pm</td></tr>
-		<tr><td>ALan Smith</td><td>alan.smith@company.com</td><td>California Academy of Science</td><td>7:15am</td><td>8:00am</td><td>4:30pm</td></tr>		</table>
+		<tr><td>Alan Smith</td><td>alan.smith@company.com</td><td>California Academy of Science</td><td>7:15am</td><td>8:00am</td><td>4:30pm</td></tr>		</table>
 		<br/>
 		</p>
  		<p class="resultDescription">Vanpooling Rules: <a href='#'>Click Here</a></p>
                 </div>
 <div class="result">
+	<h2 class="resultType">Public Transportation</h2>
+	<br/>
+	<p class="resultDescription"> Commuter Incentive Per Month: $252</p>
+	<br/>
+	<p class="resultDescription">
+		<a href='http://goldengatetransit.org/schedules/current/'>Golden Gate Transit</a><br/>
+		<a href='http://goldengateferry.org/'>Golden Gate Ferry</a><br/>
+		<a href='https://www.bart.gov/stations'>Bart</a>	
+	</p>
+</div>
+<div class="result">
 	                <h2 class="resultType">Activate Your Transportation Benefits</h2>              
 <br/>
-		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team</a></p>
+		<p class="resultDescription"> <a href="#">Email the benefits team</a></p>
 <br/>
 	<!--<p>Powered by Aluvi</p>-->
 </div>
