@@ -11,12 +11,12 @@ $generator = $factory->getMediumStrengthGenerator();
 $cookie_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 $link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
-$results = mysqli_query($users_con, $q = "select * from users where email = '$email'");
+$results = mysqli_query($users_con, $q = "select * from demo_users where email = '$email'");
 
 if(mysqli_num_rows($results) == 0){
-	mysqli_query($users_con, $q = "insert into users (name, email, zip, cookie_key, link_key) values('$name', '$email', '$zip', '$cookie_key', '$link_key')");
+	mysqli_query($users_con, $q = "insert into demo_users (name, email, zip, cookie_key, link_key) values('$name', '$email', '$zip', '$cookie_key', '$link_key')");
 } else {
-	mysqli_query($users_con, $q = "update users set name = '$name', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
+	mysqli_query($users_con, $q = "update demo_users set name = '$name', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
 }
 
 
@@ -26,7 +26,11 @@ $url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key";
 
 // send email
 $subject = 'Glassdoor Transportation Options Access';
-$body = "Follow this link to access your transportation options $url";
+	$boom = explode(' ', $name);
+	$firstname = $boom[0];
+	$body = "Hi $firstname,
+	
+Follow this link to access your transportation options $url";
 
 $mail = new PHPMailer();  // create a new object
 $mail->IsSMTP(); // enable SMTP
@@ -37,7 +41,7 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465; 
 $mail->Username = 'support@aluviapp.com';  
 $mail->Password = 'support4aluviapp';           
-$mail->SetFrom($mail->Username, 'Glassdoor Transporation Options via Aluvi');
+$mail->SetFrom($mail->Username, 'Transporation Options via Aluvi');
 $mail->Subject = $subject;
 $mail->Body = $body;
 $mail->AddAddress($email);
