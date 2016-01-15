@@ -293,7 +293,7 @@ if (transportModes.vanpool != undefined) {
 }
 
 
-L.marker([37.9078772,-122.5566916] ,{icon: carpoolIcon, title: 'Trudell Inc.', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
+L.marker([37.9078772,-122.5566916] ,{icon: aluviIcon, title: 'Trudell Inc.', description:'youve been here!'}).bindPopup(glassdoorPopup,glassdoorOptions).addTo(map);
 
 </script>
 
