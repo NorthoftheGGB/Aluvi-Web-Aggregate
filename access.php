@@ -19,7 +19,12 @@ if(mysqli_num_rows($results) == 0){
 } else {
 	mysqli_query($users_con, $q = "update demo_users set name = '$name', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
 }
-
+if ($e = mysqli_error($users_con)){
+	echo "sorry, there seems to have been a problem.
+	<!--$e
+	$q-->";
+	exit();
+}
 
 setcookie('aluvi_token', $cookie_key, time() + 30*60);
 $url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key";
