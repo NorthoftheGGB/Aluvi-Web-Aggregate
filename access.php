@@ -3,6 +3,7 @@ require('vendor/autoload.php');
 require('database.php');
 $email = $_REQUEST['email'];
 $name = $_REQUEST['name'];
+$sqlname = mysqli_real_escape_string($users_con, $name);
 $zip = $_REQUEST['zip'];
 $split_email = explode('@', $email);
 if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || $email == 'mattfrykman@yahoo.com' || $email == 'chains@spaz.org' ){
@@ -15,9 +16,9 @@ if ($split_email[1] == 'glassdoor.com' ||  $split_email[1] == 'aluviapp.com' || 
 	$results = mysqli_query($users_con, $q = "select * from users where email = '$email'");
 	
 	if(mysqli_num_rows($results) == 0){
-		mysqli_query($users_con, $q = "insert into users (name, email, zip, cookie_key, link_key) values('$name', '$email', '$zip', '$cookie_key', '$link_key')");
+		mysqli_query($users_con, $q = "insert into users (name, email, zip, cookie_key, link_key) values('$sqlname', '$email', '$zip', '$cookie_key', '$link_key')");
 	} else {
-		mysqli_query($users_con, $q = "update users set name = '$name', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
+		mysqli_query($users_con, $q = "update users set name = '$sqlname', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
 	}
 	
 	
