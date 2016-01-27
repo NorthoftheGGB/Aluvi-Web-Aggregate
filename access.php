@@ -3,7 +3,7 @@ require('vendor/autoload.php');
 require('database.php');
 $email = $_REQUEST['email'];
 $name = ($_REQUEST['name']);
-$sqlname = mysqli_real_escape_string($_REQUEST['name']);
+$sqlname = mysqli_real_escape_string($users_con, $_REQUEST['name']);
 $zip = $_REQUEST['zip'];
 
 $factory = new RandomLib\Factory;
