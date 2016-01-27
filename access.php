@@ -2,7 +2,8 @@
 require('vendor/autoload.php');
 require('database.php');
 $email = $_REQUEST['email'];
-$name = mysqli_real_escape_string($_REQUEST['name']);
+$name = ($_REQUEST['name']);
+$sqlname = mysqli_real_escape_string($_REQUEST['name']);
 $zip = $_REQUEST['zip'];
 
 $factory = new RandomLib\Factory;
@@ -14,7 +15,7 @@ $link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyz
 $results = mysqli_query($users_con, $q = "select * from demo_users where email = '$email'");
 
 if(mysqli_num_rows($results) == 0){
-	mysqli_query($users_con, $q = "insert into demo_users (name, email, zip, cookie_key, link_key) values('$name', '$email', '$zip', '$cookie_key', '$link_key')");
+	mysqli_query($users_con, $q = "insert into demo_users (name, email, zip, cookie_key, link_key) values('$sqlname', '$email', '$zip', '$cookie_key', '$link_key')");
 } else {
 	mysqli_query($users_con, $q = "update demo_users set name = '$name', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
 }
