@@ -3,7 +3,7 @@ require('vendor/autoload.php');
 require('database.php');
 $email = $_REQUEST['email'];
 $name = ($_REQUEST['name']);
-$sqlname = mysql_real_escape_string($_REQUEST['name']);
+$sqlname = mysqli_real_escape_string($users_con, $_REQUEST['name']);
 $zip = $_REQUEST['zip'];
 
 $factory = new RandomLib\Factory;
@@ -17,7 +17,7 @@ $results = mysqli_query($users_con, $q = "select * from demo_users where email =
 if(mysqli_num_rows($results) == 0){
 	mysqli_query($users_con, $q = "insert into demo_users (name, email, zip, cookie_key, link_key) values('$sqlname', '$email', '$zip', '$cookie_key', '$link_key')");
 } else {
-	mysqli_query($users_con, $q = "update demo_users set name = '$name', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
+	mysqli_query($users_con, $q = "update demo_users set name = '$sqlname', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
 }
 if ($e = mysqli_error($users_con)){
 	echo "sorry, there seems to have been a problem.
