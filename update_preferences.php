@@ -49,7 +49,7 @@ if ($vanpool){
 }
 
 $zip = $userzip;
-
+if ($public_transportation){
 $bus_results = mysqli_query($con, $q1 = "select * from bus_routes b join zip_codes z on st_intersects(b.SHAPE, z.geo) where zip_code = $zip");
 if ($e = mysqli_error($con)) echo "<!-- $e FROM $q1 -->";
 
@@ -65,7 +65,7 @@ foreach($routes as $route) {
 		$t_results['bus']['coordinates'][] = array($row['stop_lat'],$row['stop_lon']); //array($row['stop_lat'], $row['stop_lon']);
 	}
 }
-
+}
 //$bart_ferry_results = mysqli_query($con, $q1 = "select * from bart_ferry f join zip_codes z on st_intersects(f.geo, z.geo) where zip_code = $zip");
 //if ($row = mysqli_fetch_array($bart_ferry_results, MYSQLI_ASSOC)){
 	$t_results['ferry']['coordinates'][] = array(37.795748, -122.393326);
