@@ -40,7 +40,7 @@ if ($vanpool){
 	$van_results = mysqli_query($con, $qx = "select u.name, email, location_title title, departs_location dl, arrives_work aw, departs_work dw, lat, lng
 				    from vanpool_pickup p join aluvidb.users u on leader_id = u.id join zip_codes z on z.zip_code = p.zip
 				    join (select geo from zip_codes where zip_code = $userzip) sq
-				    where p.zip = $userzip or st_touches(z.geo, (sq.geo)) order by p.zip = $userzip desc limit 2");
+				    where p.zip = $userzip or st_touches(z.geo, (sq.geo)) order by p.zip = $userzip desc limit 3");
 	//echo "<!--$qx-->";
 	if ($dl = $row['dl']) $dl .= 'am'; else $dl = 'varies';
 	if ($aw = $row['aw']) $aw .= 'am'; else $aw = 'varies';
