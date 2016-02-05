@@ -42,8 +42,13 @@ if ($vanpool){
 				    join (select geo from zip_codes where zip_code = $userzip) sq
 				    where p.zip = $userzip or st_touches(z.geo, (sq.geo)) order by p.zip = $userzip desc limit 2");
 	//echo "<!--$qx-->";
+	if ($dl = $row['dl']) $dl .= 'am'; else $dl = 'varies';
+	if ($aw = $row['aw']) $aw .= 'am'; else $aw = 'varies';
+	if ($dw = $row['dw']) $dw .= 'pm'; else $dw = 'varies';
+	if (!$name = $row['name']) $name = "Chariot";
+	if (!$email = $row['email']) $email = "www.chariot.com";
 	while ($row = mysqli_fetch_array($van_results)){
-		$vanpool_matches[] =  "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[title]</td><td>$row[dl]am</td><td>$row[aw]am</td><td>$row[dw]pm</td></tr>";
+		$vanpool_matches[] =  "<tr><td>$name</td><td>$email</td><td>$row[title]</td><td>$dl</td><td>$aw</td><td>$dw</td></tr>";
 		$t_results['vanpool']['coordinates'][] = array($row['lat'], $row['lng']);
 	}
 }
