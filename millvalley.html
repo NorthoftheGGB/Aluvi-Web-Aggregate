@@ -1,0 +1,136 @@
+<html>
+<head>
+<script>
+function validate(field){
+ if ($("[name="+field+"]").val().length == 0) {
+  $("#"+field+"_err").html("&nbsp;<b style='background-color:red; padding:2px;'>!</b>&nbsp;Please fill out this field");
+  return false;
+ }
+ return true;
+}
+function hideError(field){
+ $("#"+field+"_err").html("<b style=padding:2px;>&nbsp;</b>");
+}
+function trySubmit(){
+ var valid = true;
+ valid = validate('name');
+ valid *= validate('email');
+ valid *= validate('zip');
+ valid *= validate('driver');
+ valid *= validate('departure');
+ valid *= validate('return');
+if (valid)
+  document.forms[0].submit()
+}
+</script>
+<title>Aluvi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<link href="style.css" rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<div class="rightBox">
+
+<div class="logo">
+
+</div>
+
+
+<div class="description">
+<p>Sign up with Aluvi to find <br>commute options in your area! </p>
+<p>(Please make sure cookies are enabled on your browser)</p>
+</div>
+
+
+<div class="formContainer">
+<div class"form">
+
+<form id="form" action="access.php" method="POST">
+<div id='name_err' class='errmsg'>
+&nbsp;
+</div>
+<input type="text" name="name" placeholder="NAME" oninput='hideError("name")' onchange='hideError("name")' onblur='validate("name")' required>
+<br>
+<div id='email_err' class='errmsg'>
+&nbsp;
+</div>
+<input type="text" name="email" placeholder="EMAIL" oninput='hideError("email")' onchange='hideError("email")' onblur='validate("email")'>
+<br>
+<div id='zip_err' class='errmsg'>
+&nbsp;
+</div>
+<input type="text" name="zip" placeholder="WORK ZIP CODE" oninput='hideError("zip")' onchange='hideError("zip")' onblur='validate("zip")'>
+<br>
+<div id='driver_err' class='errmsg'>
+&nbsp;
+</div>
+<select name='driver' onchange='hideError("driver"); validate("driver")'>
+<option value=''>Driver, Rider, Both</option>
+<option value='driver'>Driver</option>
+<option value='rider'>Rider</option>
+<option value='both'>Both</option>
+</select>
+<br>
+<div id='departure_err' class='errmsg'>
+&nbsp;
+</div>
+<select name='departure' onchange='hideError("departure"); validate("departure")'>
+<option value="">Time I Leave For Work</option>
+<option value="5:00">5:00 AM</option>
+<option value="5:30">5:30 AM</option>
+<option value="6:00">6:00 AM</option>
+<option value="6:30">6:30 AM</option>
+<option value="7:00">7:00 AM</option>
+<option value="7:30">7:30 AM</option>
+<option value="8:00">8:00 AM</option>
+<option value="8:30">8:30 AM</option>
+<option value="9:00">9:00 AM</option>
+<option value="9:30">9:30 AM</option>
+<option value="10:00">10:00 AM</option>
+</select>
+<br>
+<div id='return_err' class='errmsg'>
+&nbsp;
+</div>
+<select name='return' onchange='hideError("return"); validate("return")'>
+<option value="">Time I Leave Work For Home</option>
+<option value="4:00">2:00 PM</option>
+<option value="4:30">2:30 PM</option>
+<option value="5:00">3:00 PM</option>
+<option value="5:30">3:30 PM</option>
+<option value="4:00">4:00 PM</option>
+<option value="4:30">4:30 PM</option>
+<option value="5:00">5:00 PM</option>
+<option value="5:30">5:30 PM</option>
+<option value="6:00">6:00 PM</option>
+<option value="6:30">6:30 PM</option>
+<option value="7:00">7:00 PM</option>
+<option value="7:30">7:30 PM</option>
+<option value="8:00">8:00 PM</option>
+</select>
+<br>
+<a href="javascript:trySubmit()" class="submit" type="submit" value="Sign Up" style="width:115px;" >Find a Match!</a>
+</form> 
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+
+<center>
+<p>Powered by Aluvi</p>
+</center>
+</body>
+</html>

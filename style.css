@@ -276,6 +276,14 @@ background-image:url("AluviWhite.png");
 margin: 50px auto;
 }
 
+.errmsg {
+font-size:17px;
+color:white;
+margin-left:250px;
+margin-bottom:-18px;
+width:1000px;
+}
+
 .leaflet-popup-content-wrapper, .map-legends, .map-tooltip{
 border-radius:5px!important;
 }
