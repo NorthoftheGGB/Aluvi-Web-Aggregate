@@ -1,9 +1,12 @@
 <?php
+
+$context = $_GET['context'];
+
 require('vendor/autoload.php');
 require('database.php');
 
 $link_key = $_GET['token'];
-$result = mysqli_query($users_con, $q = "select * from demo_users where link_key = '$link_key'");
+$result = mysqli_query($users_con, $q = "select * from users where link_key = '$link_key'");
 if(mysqli_num_rows($result) == 0){
 	require('invalid_link.php');
 	exit;

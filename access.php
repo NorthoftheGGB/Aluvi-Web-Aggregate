@@ -4,6 +4,8 @@ require('vendor/autoload.php');
 require('database.php');
 $email = $_REQUEST['email'];
 $name = ($_REQUEST['name']);
+$split_email = explode('@', $email);
+if ($context == "demo" || $email == "olypuppetfest@gmail.com" || $split_email[1] == "$context.com"){
 $sqlname = mysqli_real_escape_string($users_con, $_REQUEST['name']);
 $zip = $_REQUEST['zip'];
 
@@ -61,7 +63,8 @@ if(!$mail->Send()) {
 } else {
 	$error = '';
 }
-
+}
+else $error = "Please enter your Fico email address";
 // serve page
 ?>
 
