@@ -119,7 +119,7 @@ When you'd like to leave to head home (PM):<br>
 </div>
 
 
-
+<div id="options">
 <div class="option">
 <!--<p>Vanpool-->
 <p>
@@ -187,7 +187,7 @@ When you'd like to leave to head home (PM):<br>
 	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
 </p>
 </div>
-
+</div>
 
 <input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
 
