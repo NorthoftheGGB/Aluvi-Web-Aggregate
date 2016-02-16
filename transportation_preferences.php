@@ -120,8 +120,7 @@ When I usually head home (PM):<br>
 </center>
 </div>
 
-
-<div id="options">
+<?php if ($context !='fico') { ?>
 <div class="option">
 <!--<p>Vanpool-->
 <p>
@@ -141,7 +140,7 @@ When I usually head home (PM):<br>
 	<input type="hidden" id="transportation_type_vanpool_input" name="transportation_type_vanpool" value="selected" disabled="true"/>
 </p>
 </div>
-
+<?php } ?>
 
 
 
@@ -159,7 +158,7 @@ When I usually head home (PM):<br>
 </div>
 
 
-<?php if ($context !='fico') { ?>
+
 <div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
 <p>
@@ -176,7 +175,7 @@ When I usually head home (PM):<br>
 
 
 
-
+<?php if ($context !='fico') { ?>
 <div class="option" id="shuttleBox">
 <!--<p>Commuter Bus-->
 <p>
@@ -191,7 +190,6 @@ When I usually head home (PM):<br>
 </div>
 
 <?php } else echo "<div class='option'>&nbsp;</div>" ?>
-</div>
 
 <input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
 
