@@ -57,7 +57,9 @@ Please select the transportation options you are interested in: <br></p>
 <div class="description" id="choices">
 
 <form action="update_preferences.php" method="POST">
-<?php if ($context == 'fico') echo "<div class='option'>&nbsp;</div>"  ?>
+<?php if ($context == 'fico') echo "<div class='option'>&nbsp;</div>";
+echo "<input type='hidden' name='context' value='$context'>";
+?>
 <div class="option">
 <!--<p>Carpool-->
 <p>
