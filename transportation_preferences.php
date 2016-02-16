@@ -177,7 +177,7 @@ When you'd like to leave to head home (PM):<br>
 
 <div class="option">
 <!--<p>Commuter Bus-->
-<p id="shuttlebox">
+<p id="shuttleBox">
 	<div id="transportation_type_commuter_bus" class="transportation_type" onclick="toggle_visibility('transportation_type_commuter_bus');" style="display: block;">
 	Commuter Shuttle<!--not selected-->
 	</div>
