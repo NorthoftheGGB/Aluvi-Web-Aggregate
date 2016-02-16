@@ -7,7 +7,3 @@ margin: 50px auto;
 #shuttleBox, #publicTransitBox{
     display:none;
 }
-#options{
-    margin-left:250px;
-    margin-right:250px;
-}
