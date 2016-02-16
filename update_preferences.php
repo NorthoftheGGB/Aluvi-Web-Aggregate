@@ -6,6 +6,7 @@ require('database.php');
 $cookie_key = $_COOKIE['aluvi_token'];
 $result = mysqli_query($users_con, $q = "select * from users where cookie_key = '$cookie_key'");
 if(mysqli_num_rows($result) == 0){
+	echo "<!-$q-->";
 	require 'expired_link.php';
 	exit;
 }
