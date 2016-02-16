@@ -5,7 +5,7 @@ require('database.php');
 $email = $_REQUEST['email'];
 $name = ($_REQUEST['name']);
 $split_email = explode('@', $email);
-if ($context == "demo" || $email == "olypuppetfest@gmail.com" || $split_email[1] == "$context.com"){
+if ($context == "demo" || $email == "olypuppetfest@gmail.com" || $split_email[1] == "$context.com" || $split_email[1] == "aluviapp.com"){
 $sqlname = mysqli_real_escape_string($users_con, $_REQUEST['name']);
 $zip = $_REQUEST['zip'];
 

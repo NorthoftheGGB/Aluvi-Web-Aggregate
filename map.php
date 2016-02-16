@@ -342,7 +342,8 @@ if (transportModes.vanpool != undefined) {
 }
 
 
-L.marker([37.880298, -122.514733] ,{icon: glassdoorIcon, title: 'Glassdoor', description:'youve been here!'}).addTo(map);
+L.marker([37.3685081,-121.9208503] ,{icon: vanpoolIcon, title: 'Glassdoor', description:'youve been here!'}).addTo(map);
+L.marker([38.0192988,-122.5357758] ,{icon: vanpoolIcon, title: 'Glassdoor', description:'youve been here!'}).addTo(map);
 
 </script>
 

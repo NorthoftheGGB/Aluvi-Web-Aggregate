@@ -1,5 +1,5 @@
 <?php
-$context = $_POST['context'];
+$context = $_GET['context'];
 require('vendor/autoload.php');
 require('database.php');
 //??
@@ -9,7 +9,10 @@ if(mysqli_num_rows($result) == 0){
 	require 'expired_link.php';
 	exit;
 }
-
+if ($result['office'] == 'San Rafael')
+	$transitlink = "http://www.goldengatetransit.org/";
+else
+	$transitlink = "http://www.vta.org/";
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
@@ -37,8 +40,6 @@ if ($carpool){
 			$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[carpool_option]</td><td>$row[t1]am</td><td>$row[t2]pm</td></tr>";
 	}
 }
-
-
 
 $zip_results = mysqli_query($con, $qx = "select st_astext(geo) as geotext from zip_codes where zip_code = $zip");
 while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){
