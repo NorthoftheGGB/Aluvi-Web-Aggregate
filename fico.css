@@ -5,5 +5,5 @@ background-image:url("fico.png");
 margin: 50px auto;
 }
 #shuttleBox div, #publicTransitBox div{
-    display:none;
+    display:none !important;
 }
