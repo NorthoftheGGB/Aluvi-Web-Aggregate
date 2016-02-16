@@ -19,7 +19,7 @@ $results = mysqli_query($users_con, $q = "select * from users where email = '$em
 if ($context == 'fico'){
 	$extra1 = ",office";
 	$extra2 = ",'$_POST[office]'";
-	$extra3= ",office=$_POST[office]";
+	$extra3= ",office='$_POST[office]'";
 }
 if(mysqli_num_rows($results) == 0){
 	mysqli_query($users_con, $q = "insert into users (name, email, zip, cookie_key, link_key $extra1) values('$sqlname', '$email', '$zip', '$cookie_key', '$link_key' $extra2)");
