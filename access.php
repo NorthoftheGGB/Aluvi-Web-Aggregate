@@ -34,6 +34,9 @@ if ($e = mysqli_error($users_con)){
 }
 
 setcookie('aluvi_token', $cookie_key, time() + 30*60);
+if ($_COOKIE['aluvi_token'] != $cookie_key){
+	die ("hmmm...");
+}
 $url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key&context=$context";
 
 
