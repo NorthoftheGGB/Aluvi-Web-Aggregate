@@ -57,7 +57,7 @@ Please select the transportation options you are interested in: <br></p>
 <div class="description" id="choices">
 
 <form action="update_preferences.php" method="POST">
-
+<?php if ($context == 'fico') echo "<div class='option'>&nbsp;</div>"  ?>
 <div class="option">
 <!--<p>Carpool-->
 <p>
@@ -157,10 +157,10 @@ When you'd like to leave to head home (PM):<br>
 </div>
 
 
-
-<div class="option">
+<?php if ($context !='fico') { ?>
+<div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
-<p id="publicTransitBox">
+<p>
 	<div id="transportation_type_public_transportation" class="transportation_type" onclick="toggle_visibility('transportation_type_public_transportation');" style="display: block;">
 	Public Transportation<!--not selected-->
 	</div>
@@ -175,9 +175,9 @@ When you'd like to leave to head home (PM):<br>
 
 
 
-<div class="option">
+<div class="option" id="shuttleBox">
 <!--<p>Commuter Bus-->
-<p id="shuttleBox">
+<p>
 	<div id="transportation_type_commuter_bus" class="transportation_type" onclick="toggle_visibility('transportation_type_commuter_bus');" style="display: block;">
 	Commuter Shuttle<!--not selected-->
 	</div>
@@ -187,6 +187,8 @@ When you'd like to leave to head home (PM):<br>
 	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
 </p>
 </div>
+
+<?php } else echo "<div class='option'>&nbsp;</div>" ?>
 </div>
 
 <input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
