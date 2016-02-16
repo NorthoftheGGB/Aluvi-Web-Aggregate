@@ -24,7 +24,7 @@ if(mysqli_num_rows($result) == 0){
 		$factory = new RandomLib\Factory;
 		$generator = $factory->getMediumStrengthGenerator();
 		$session_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-		mysqli_query($users_con, $q = "update demo_users set cookie_key='$session_key' where email = '${row['email']}'");
+		mysqli_query($users_con, $q = "update users set cookie_key='$session_key' where email = '${row['email']}'");
 		setcookie('aluvi_token', $session_key, time() + 30*60);
 
 		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.

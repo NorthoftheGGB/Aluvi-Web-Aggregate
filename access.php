@@ -13,6 +13,8 @@ $factory = new RandomLib\Factory;
 $generator = $factory->getMediumStrengthGenerator();
 
 $cookie_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+setcookie('aluvi_token', $cookie_key, time() + 30*60);
+
 $link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
 $results = mysqli_query($users_con, $q = "select * from users where email = '$email'");
@@ -33,7 +35,6 @@ if ($e = mysqli_error($users_con)){
 	exit();
 }
 
-setcookie('aluvi_token', $cookie_key, time() + 30*60);
 /*
 if ($_COOKIE['aluvi_token'] != $cookie_key){
 	die ("hmmm...");
