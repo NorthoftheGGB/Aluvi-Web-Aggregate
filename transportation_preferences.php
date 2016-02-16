@@ -158,7 +158,7 @@ When you'd like to leave to head home (PM):<br>
 
 
 
-<div class="option">
+<div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
 <p>
 	<div id="transportation_type_public_transportation" class="transportation_type" onclick="toggle_visibility('transportation_type_public_transportation');" style="display: block;">
@@ -175,7 +175,7 @@ When you'd like to leave to head home (PM):<br>
 
 
 
-<div class="option">
+<div class="option" id="shuttleBox">
 <!--<p>Commuter Bus-->
 <p>
 	<div id="transportation_type_commuter_bus" class="transportation_type" onclick="toggle_visibility('transportation_type_commuter_bus');" style="display: block;">
