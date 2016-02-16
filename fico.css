@@ -4,9 +4,7 @@ height:144px;
 background-image:url("fico.png");
 margin: 50px auto;
 }
-#shuttleBox, #publicTransitBox{
-    display:none;
-}
+
 .times_select{
     margin-left:-115px;
 }
