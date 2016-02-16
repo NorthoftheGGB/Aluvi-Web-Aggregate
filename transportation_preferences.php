@@ -78,7 +78,7 @@ echo "<input type='hidden' name='context' value='$context'>";
 	</div>
 	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
 </p>
-<center style='width:1000px; position:absolute;' id="times_select">
+<center style='width:1000px; position:absolute;' class="times_select">
 <div style='width:800px'>
 <p style='float:left; margin-left:40px; margin-right:10px;'>
 When I'd like to arrive at work (AM):&nbsp;&nbsp;<br>
