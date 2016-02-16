@@ -1,4 +1,5 @@
 <?php
+$context = $_POST['context'];
 require('vendor/autoload.php');
 require('database.php');
 $email = $_REQUEST['email'];
@@ -12,12 +13,16 @@ $generator = $factory->getMediumStrengthGenerator();
 $cookie_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 $link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
-$results = mysqli_query($users_con, $q = "select * from demo_users where email = '$email'");
-
+$results = mysqli_query($users_con, $q = "select * from users where email = '$email'");
+if ($context == 'fico'){
+	$extra1 = ",office";
+	$extra2 = "'$_POST[office]'";
+	$extra3= ",office=$_POST[office]";
+}
 if(mysqli_num_rows($results) == 0){
-	mysqli_query($users_con, $q = "insert into demo_users (name, email, zip, cookie_key, link_key) values('$sqlname', '$email', '$zip', '$cookie_key', '$link_key')");
+	mysqli_query($users_con, $q = "insert into users (name, email, zip, cookie_key, link_key $extra1) values('$sqlname', '$email', '$zip', '$cookie_key', '$link_key' $extra2)");
 } else {
-	mysqli_query($users_con, $q = "update demo_users set name = '$sqlname', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' where email = '$email'");
+	mysqli_query($users_con, $q = "update users set name = '$sqlname', zip = '$zip', cookie_key='$cookie_key', link_key='$link_key' $extra3 where email = '$email'");
 }
 if ($e = mysqli_error($users_con)){
 	echo "sorry, there seems to have been a problem.
@@ -27,7 +32,7 @@ if ($e = mysqli_error($users_con)){
 }
 
 setcookie('aluvi_token', $cookie_key, time() + 30*60);
-$url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key";
+$url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key&context=$context";
 
 
 // send email

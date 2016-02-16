@@ -30,14 +30,20 @@
 
 <form id="form" action="access.php" method="POST">
 
-<input type="text" name="name" placeholder="NAME">
+<input type="hidden" name="context" value="fico" />
+<input type="text" name="name" placeholder="NAME" />
 <br>
-<input type="text" name="email" placeholder="ENTER YOUR WORK EMAIL">
+<input type="text" name="email" placeholder="ENTER YOUR WORK EMAIL" />
 <br>
-<input type="text" name="zip" placeholder="HOME ZIP CODE">
+<input type="text" name="zip" placeholder="HOME ZIP CODE" />
+<br>
+<select name="office">
+    <option value=""> Office</option>
+    <option value="San Rafael">San Rafael</option>
+    <option value="San Jose">San Jose</option>
+</select>
 <br>
 <br>
-
 <a  href="javascript:document.forms[0].submit()" class="submit">Access Commuting Options</a>
 </form> 
 

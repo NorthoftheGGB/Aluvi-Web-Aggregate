@@ -11,4 +11,4 @@ if (!$con) {
 	echo "Could not establish connection to database";
 	exit;
 }
-mysqli_select_db($users_con, "aluvidb");
+mysqli_select_db($users_con, $context."_users");
