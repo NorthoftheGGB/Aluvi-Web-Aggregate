@@ -76,10 +76,10 @@ Please select the transportation options you are interested in: <br></p>
 	</div>
 	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
 </p>
-<center style='width:1000px; position:absolute;'>
+<center style='width:1000px; position:absolute;' id="times_select">
 <div style='width:800px'>
 <p style='float:left; margin-left:40px; margin-right:10px;'>
-When you'd like to arrive at work (AM):&nbsp;&nbsp;<br>
+When I'd like to arrive at work (AM):&nbsp;&nbsp;<br>
 <select name="carpool_times_morning">
 	<option value="">--Select Time--</option>
 	<option value="5:30">5:30</option>
@@ -95,7 +95,7 @@ When you'd like to arrive at work (AM):&nbsp;&nbsp;<br>
 </select>
 </p>
 <p style='float:left'>
-When you'd like to leave to head home (PM):<br>
+When I usually head home (PM):<br>
 <select name="carpool_times_evening">
 	<option value="">--Select Time--</option>
 	<option value="4:00">2:00</option>
