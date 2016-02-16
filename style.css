@@ -125,7 +125,7 @@ height:400px;
 color:white;
 }
 
-input, select {
+input, .bigSelect {
 border:white 1px solid;
        -moz-border-radius: 5px;
        -webkit-border-radius: 5px;
