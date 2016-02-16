@@ -16,7 +16,7 @@ $link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyz
 $results = mysqli_query($users_con, $q = "select * from users where email = '$email'");
 if ($context == 'fico'){
 	$extra1 = ",office";
-	$extra2 = "'$_POST[office]'";
+	$extra2 = ",'$_POST[office]'";
 	$extra3= ",office=$_POST[office]";
 }
 if(mysqli_num_rows($results) == 0){
