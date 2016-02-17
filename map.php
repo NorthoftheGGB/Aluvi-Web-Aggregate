@@ -111,13 +111,7 @@ if ($public_transportation){ ?>
 	</p>
 </div>
 <?php } ?>
-<div class="result">
-	                <h2 class="resultType">Activate Your Transportation Benefits</h2>              
-<br/>
-		<p class="resultDescription"> <a href="mailto:benefits@glassdoor.com">Email the benefits team</a></p>
-<br/>
-	<!--<p>Powered by Aluvi</p>-->
-</div>
+
 <!--
 <div class="result">
 	                <h2 class="resultType">Glassdoor's Location!</h2>              
@@ -186,10 +180,10 @@ var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
 
-
+/*
 var keys = Object.keys(transportModes);
 keys.forEach(function(key){
-
+*/
 //geojson codes and styling for each maybe a loop or not
 // get element by id and set to visible
 
@@ -306,7 +300,7 @@ zipCodeCentroid = [zipCodeCentroid.lat, zipCodeCentroid.lng];
 
 
 //markers
-
+/*
 if (transportModes.carpool != undefined) {
 
 	L.marker(zipCodeCentroid, {icon: carpoolIcon , title:'Carpooling via Aluvi'}).addTo(map);
@@ -340,7 +334,7 @@ if (transportModes.vanpool != undefined) {
                 L.marker(transportModes.vanpool.coordinates[i] ,{icon: vanpoolIcon, title:'Vanpool Pickup Point'}).addTo(map);
         };
 }
-
+*/
 
 L.marker([37.3685081,-121.9208503] ,{icon: vanpoolIcon, title: 'Glassdoor', description:'youve been here!'}).addTo(map);
 L.marker([38.0192988,-122.5357758] ,{icon: vanpoolIcon, title: 'Glassdoor', description:'youve been here!'}).addTo(map);
