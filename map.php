@@ -319,8 +319,7 @@ if (transportModes.vanpool != undefined) {
 }
 */
 
-L.marker([<?php echo $office_coordinates ?>] ,{icon: busIcon, title: '', description:''}).addTo(map);
-L.marker([<?php echo $office_coordinates ?>] ,{icon: busIcon, title: '', description:''}).addTo(map);
+L.marker([<?php echo $office_coordinates ?>] ,{icon: ficoIcon, title: '', description:''}).addTo(map);
 
 </script>
 
