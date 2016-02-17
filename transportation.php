@@ -7,6 +7,7 @@ require('database.php');
 
 $link_key = $_GET['token'];
 $result = mysqli_query($users_con, $q = "select * from users where link_key = '$link_key'");
+$userid = $result['id'];
 if(mysqli_num_rows($result) == 0){
 	require('invalid_link.php');
 	exit;
