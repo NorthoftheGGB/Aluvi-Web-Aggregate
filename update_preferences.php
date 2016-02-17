@@ -13,13 +13,16 @@ if(mysqli_num_rows($result) == 0){
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
-if ($row['office'] == 'San Rafael'){
-	$transitlink = "<a href='http://www.goldengatetransit.org/'>http://www.goldengatetransit.org/</a>";
-	$office_coordinates = "37.3685081,-121.9208503";
-}
-else {
-	$transitlink = "<a href='http://www.vta.org/'>http://www.vta.org/</a>";
-	$office_coordinates = "38.0192988,-122.5357758";
+if ($context == 'fico') {
+	$office = $row['office'];
+	if ($row['office'] == 'San Rafael'){
+		$transitlink = "<a href='http://www.goldengatetransit.org/'>http://www.goldengatetransit.org/</a>";
+		$office_coordinates = "38.0192988,-122.5357758";
+	}
+	else {
+		$transitlink = "<a href='http://www.vta.org/'>http://www.vta.org/</a>";
+		$office_coordinates  = "37.3685081,-121.9208503"; 
+	}
 }
 mysqli_query($users_con, 'delete from preferences where user_id='.$row['id']);
 $stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
@@ -30,13 +33,17 @@ $public_transportation = isset($_POST['transportation_type_public_transportation
 $commuter_bus =  isset($_POST['transportation_type_commuter_bus']) ? 1 : 0;
 mysqli_stmt_bind_param($stmt, 'iiiiiissss', $row['id'],  $carpool, $vanpool, $bicycle, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $t1 = $_POST['carpool_times_morning'], $t2 = $_POST['carpool_times_evening']);
 mysqli_stmt_execute($stmt);
+if ($context == 'demo'){
+	include "map_demo.html";
+	exit;
+}
 // and get the map data ready
 $t_results = array('bus' => array('coordinates' => array()));
 if ($carpool){
 	$carpool_matches = array();
 	$n_results = 0;
 	$car_results = mysqli_query($users_con, $q = "select name, email, carpool_times_morning as t1, carpool_times_evening as t2, carpool_option
-				    from preferences join users u on user_id = u.id where u.zip = $userzip and u.id <> $userid and carpool
+				    from preferences join users u on user_id = u.id where u.zip = $userzip and u.id <> $userid and u.office = $office and carpool
 				    order by abs(time_to_sec(t1) - time_to_sec('$t1')) + abs(time_to_sec(t2) - time_to_sec('$t2')) limit 3");
 	//echo "<!--$q-->";
 	while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
