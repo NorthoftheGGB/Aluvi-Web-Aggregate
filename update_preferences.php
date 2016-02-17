@@ -88,7 +88,7 @@ if($zip == '94118'){
 */
 
 $transportationModes = json_encode($t_results);
-$zip_results = mysqli_query($con, $qx = "select st_astext(geo) as geotext from zip_codes where zip_code = $zip");
+$zip_results = mysqli_query($con, $qx = "select st_astext(geo) as geotext from zip_codes where zip_code = $userzip");
 while ($row = mysqli_fetch_array($zip_results, MYSQLI_ASSOC)){
 	$raw_coordinates = str_replace('MULTIPOLYGON', '', str_replace('(', '', str_replace(')', '', $row['geotext'])));
 	$zip_points = array();
