@@ -14,6 +14,7 @@ if(mysqli_num_rows($result) == 0){
 */
 $result = mysqli_query($users_con, $q = "select * from users where id = $_POST[userid]");
 if(mysqli_num_rows($result) == 0){
+	echo "$context";
 	echo "<!-$q-->";
 	require 'expired_link.php';
 	exit;
