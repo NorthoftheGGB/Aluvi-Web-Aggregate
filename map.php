@@ -272,13 +272,13 @@ var customOptions =
 
 
 //zip codes
-
+/*
 if (zipcode.coordinates != undefined && zipcode.coordinates != null)
 var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
 
 zipCodeCentroid = polygon.getBounds().getCenter();
 zipCodeCentroid = [zipCodeCentroid.lat, zipCodeCentroid.lng];
-
+*/
 
 
 
