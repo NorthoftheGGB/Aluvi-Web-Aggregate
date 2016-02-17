@@ -137,9 +137,6 @@ if ($public_transportation){ ?>
 
 var zipcode =<?php echo $zip ?>;
 
-var transportModes = <?php echo $transportationModes; ?>;
-
-
 
 </script>
 
@@ -179,20 +176,6 @@ var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
 //add the custom markers to the map
 var myLayer = L.mapbox.featureLayer().addTo(map);
 
-
-/*
-var keys = Object.keys(transportModes);
-keys.forEach(function(key){
-*/
-//geojson codes and styling for each maybe a loop or not
-// get element by id and set to visible
-
-});
-
-
-
-//myLayer.addPolygon or something
-// as in, add the polygon to the map
 
 
 var polygon_options = {
