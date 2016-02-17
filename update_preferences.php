@@ -12,7 +12,7 @@ if(mysqli_num_rows($result) == 0){
 	exit;
 }
 */
-$result = mysqli_query($users_con, $q = "select * from users where id = $_POST[id]");
+$result = mysqli_query($users_con, $q = "select * from users where id = $_POST[userid]");
 if(mysqli_num_rows($result) == 0){
 	echo "<!-$q-->";
 	require 'expired_link.php';
