@@ -1,9 +1,9 @@
 <?php
-$context = $_GET['context'];
+$context = $_POST['context'];
 require('vendor/autoload.php');
 require('database.php');
 //??
-/*
+
 $cookie_key = $_COOKIE['aluvi_token'];
 $result = mysqli_query($users_con, $q = "select * from users where cookie_key = '$cookie_key'");
 if(mysqli_num_rows($result) == 0){
@@ -11,7 +11,7 @@ if(mysqli_num_rows($result) == 0){
 	require 'expired_link.php';
 	exit;
 }
-*/
+
 $result = mysqli_query($users_con, $q = "select * from users where id = $_POST[userid]");
 if(mysqli_num_rows($result) == 0){
 	echo "<!-$q-->";
