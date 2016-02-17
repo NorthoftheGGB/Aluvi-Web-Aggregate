@@ -1,5 +1,4 @@
 <?php
-//print_r($_POST);
 $context = $_POST['context'];
 require('vendor/autoload.php');
 require('database.php');
@@ -14,13 +13,13 @@ if(mysqli_num_rows($result) == 0){
 }
 */
 $result = mysqli_query($users_con, $q = "select * from users where id = $_POST[userid]");
-/*
+
 if(mysqli_num_rows($result) == 0){
 	echo "<!-$q-->";
 	require 'expired_link.php';
 	exit;
 }
-*/
+
 if ($result['office'] == 'San Rafael')
 	$transitlink = "http://www.goldengatetransit.org/";
 else
