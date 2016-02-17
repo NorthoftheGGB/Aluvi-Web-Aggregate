@@ -183,8 +183,8 @@ var polygon_options = {
 };
 
 
-var glassdoorIcon = L.icon({
-        iconUrl: "resources/glassdoor_marker.png",
+var ficoIcon = L.icon({
+        iconUrl: "resources/work_marker.png",
         iconSize: [62, 60],
         iconAnchor: [30, 62],
         popupAnchor: [-7, -65],
