@@ -12,8 +12,4 @@ if (!$con) {
 	exit;
 }
 mysqli_select_db($users_con, $context."_users");
-if ($result = mysqli_query($users_con, "SELECT DATABASE()")) {
-    $row = mysqli_fetch_row($result);
-    printf("<!--Default database is %s.\n-->", $row[0]);
-    mysqli_free_result($result);
-}
+
