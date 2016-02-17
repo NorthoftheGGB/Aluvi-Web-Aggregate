@@ -58,8 +58,8 @@ Please select the transportation options you are interested in: <br></p>
 
 <form action="update_preferences.php" method="POST">
 <?php if ($context == 'fico') echo "<div class='option'>&nbsp;</div>";
-echo "<input type='hidden' name='context' value='$context'>";
-//<input type='hidden' name='userid' value='$user[id]' />";
+echo "<input type='hidden' name='context' value='$context'>
+<input type='hidden' name='userid' value='$user[id]' />";
 ?>
 <div class="option">
 <!--<p>Carpool-->
