@@ -13,10 +13,14 @@ if(mysqli_num_rows($result) == 0){
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
-if ($row['office'] == 'San Rafael')
+if ($row['office'] == 'San Rafael'){
 	$transitlink = "<a href='http://www.goldengatetransit.org/'>http://www.goldengatetransit.org/</a>";
-else
+	$office_coordinates = "37.3685081,-121.9208503";
+}
+else {
 	$transitlink = "<a href='http://www.vta.org/'>http://www.vta.org/</a>";
+	$office_coordinates = "38.0192988,-122.5357758";
+}
 mysqli_query($users_con, 'delete from preferences where user_id='.$row['id']);
 $stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;

@@ -169,7 +169,7 @@ var qs = (function(a) {
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWx1dmltYXBzIiwiYSI6ImJlYjg2M2FmNjA4OGZhYjk2ZDRhMGFiZjY1MDQ3ZGYwIn0.2bARToCtaZXue3KJm-WYPQ';
 // Create a map in the div #map
 var map = L.mapbox.map('map', 'aluvimaps.o4c16jlk')
-    .setView([37.863, -122.375], 11);
+    .setView([<?php echo $office_coordinates ?>], 11);
     L.control.locate().addTo(map);
 
 
@@ -272,14 +272,14 @@ var customOptions =
 
 
 //zip codes
-/*
-if (zipcode.coordinates != undefined && zipcode.coordinates != null)
+
+if (zipcode.coordinates != undefined && zipcode.coordinates != null) {
 var polygon = L.polygon(zipcode.coordinates, polygon_options).addTo(map);
 
 zipCodeCentroid = polygon.getBounds().getCenter();
 zipCodeCentroid = [zipCodeCentroid.lat, zipCodeCentroid.lng];
-*/
 
+}
 
 
 //markers
@@ -319,8 +319,8 @@ if (transportModes.vanpool != undefined) {
 }
 */
 
-L.marker([37.3685081,-121.9208503] ,{icon: vanpoolIcon, title: 'Glassdoor', description:'youve been here!'}).addTo(map);
-L.marker([38.0192988,-122.5357758] ,{icon: vanpoolIcon, title: 'Glassdoor', description:'youve been here!'}).addTo(map);
+L.marker([<?php echo $office_coordinates ?>] ,{icon: busIcon, title: '', description:''}).addTo(map);
+L.marker([<?php echo $office_coordinates ?>] ,{icon: busIcon, title: '', description:''}).addTo(map);
 
 </script>
 
