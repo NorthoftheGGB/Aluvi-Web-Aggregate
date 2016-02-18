@@ -96,8 +96,8 @@ else $error = "Please enter your Fico email address";
 <p><?php echo $error;
 if (!$error) {
 ?>
-<p>Hi <?php echo $name;?>,
-<p>Thank you for entering your information for Aluvi's transportation options.
+<p>Hi <?php echo $name; ?>,
+<p>Thank you for entering your information for <?php echo ($context == 'fico' ? 'FICO' : 'Aluvi')?>'s transportation options.
 <p>Please check your email as we have generated a customized link for you to access the site.
 <p> - The Aluvi Team
 <?php } ?>

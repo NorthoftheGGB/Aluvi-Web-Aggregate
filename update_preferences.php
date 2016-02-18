@@ -43,9 +43,9 @@ if ($carpool){
 	$carpool_matches = array();
 	$n_results = 0;
 	$car_results = mysqli_query($users_con, $q = "select name, email, carpool_times_morning as t1, carpool_times_evening as t2, carpool_option
-				    from preferences join users u on user_id = u.id where u.zip = $userzip and u.id <> $userid and u.office = $office and carpool
+				    from preferences join users u on user_id = u.id where u.zip = $userzip and u.id <> $userid and u.office = '$office' and carpool
 				    order by abs(time_to_sec(t1) - time_to_sec('$t1')) + abs(time_to_sec(t2) - time_to_sec('$t2')) limit 3");
-	//echo "<!--$q-->";
+	echo "<!--$q-->";
 	while ($row = mysqli_fetch_array($car_results, MYSQLI_ASSOC)){
 		
 			$carpool_matches[] = "<tr><td>$row[name]</td><td>$row[email]</td><td>$row[carpool_option]</td><td>$row[t1]am</td><td>$row[t2]pm</td></tr>";
