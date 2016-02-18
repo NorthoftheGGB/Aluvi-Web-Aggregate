@@ -57,7 +57,7 @@ Please select the transportation options you are interested in: <br></p>
 <div class="description" id="choices">
 
 <form action="update_preferences.php" method="POST">
-<?php if ($context == 'fico') echo "<div class='option' style='width:375px'>&nbsp;</div>";
+<?php if ($context == 'fico') echo "<div class='option' style='width:300px'>&nbsp;</div>";
 echo "<input type='hidden' name='context' value='$context'>
 <input type='hidden' name='userid' value='$user[id]' />";
 ?>
@@ -190,7 +190,7 @@ When I usually head home (PM):<br>
 </p>
 </div>
 
-<?php } else echo "<div class='option' style='width:375px'>&nbsp;</div>" ?>
+<?php } else echo "<div class='option' style='width:300px'>&nbsp;</div>" ?>
 
 <input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
 
