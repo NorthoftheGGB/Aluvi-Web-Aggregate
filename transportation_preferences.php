@@ -24,9 +24,11 @@ function toggle_visibility(id) {
 
 function validate_form(){
 	var form = document.forms[0];
-	if ((form.elements['transportation_type_carpool'].disabled && form.elements['transportation_type_vanpool'].disabled && form.elements['transportation_type_bicycle'].disabled
-	     && form.elements['transportation_type_commuter_bus'].disabled && form.elements['transportation_type_public_transportation'].disabled) ||
-	    form.elements['carpool_times_morning'].value == '' || form.elements['carpool_times_evening'].value == '' ||
+	if ((form.elements['transportation_type_carpool'].disabled && form.elements['transportation_type_vanpool'].disabled
+	     <?php if ($context == 'demo') echo "&& form.elements['transportation_type_bicycle'].disabled
+	     && form.elements['transportation_type_commuter_bus'].disabled && form.elements['transportation_type_public_transportation'].disabled" ?>) ||
+	    form.elements['carpool_times_morning'].value == '' ||
+	    form.elements['carpool_times_evening'].value == '' ||
 	    (!form.elements['transportation_type_carpool'].disabled && form.elements['carpool_options'].value == '') ||
 	    (!form.elements['transportation_type_vanpool'].disabled && form.elements['vanpool_options'].value == '') ){
 	document.getElementById('error').innerHTML = '<br/><br/>Please select at least one transportation option, your commute times, and driving preferences.';
