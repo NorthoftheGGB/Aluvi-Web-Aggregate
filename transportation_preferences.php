@@ -52,7 +52,7 @@ return true;
 <div class="logo"></div>
 
 <div class="description">
-<p> Let's complete the final steps.<br>
+<p id="tagline"> Let's complete the final steps.<br>
 Please select the transportation options you are interested in: <br></p>
 </div>
 

@@ -11,3 +11,9 @@ margin: 50px auto;
 #error {
     margin-left:-215px;
 }
+.logo {
+    background-position:24px;
+}
+#tagline {
+    margin-left:40px;
+}
