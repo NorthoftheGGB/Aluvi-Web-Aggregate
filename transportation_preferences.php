@@ -2,9 +2,8 @@
 <head>
 <title>Aluvi</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-
 <link href="style.css" rel="stylesheet">
-<link href="fico.css" rel="stylesheet">
+<link href="<?php echo $context ?>.css" rel="stylesheet">
 <script type="text/javascript">
 <!--
 function toggle_visibility(id) {
