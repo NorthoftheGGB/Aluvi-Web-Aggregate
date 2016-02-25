@@ -18,7 +18,7 @@ echo
         chart.draw(data, options);
 ";
 }
-$data1 = myesqli_fetch_assoc(mysqli_query("select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_transportation) as `Public Transportation` from preferences"));
+$data1 = mysqli_fetch_assoc(mysqli_query("select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_transportation) as `Public Transportation` from preferences"));
 ?>
 <html>
   <head>
