@@ -8,7 +8,6 @@ $data_fmt = implode(",", $data_fmt);
 echo
 "
         data = google.visualization.arrayToDataTable([
-          $data_header,
           $data_fmt
         ]);
         options = {
@@ -27,8 +26,8 @@ $data1 = mysqli_fetch_assoc(mysqli_query($users_con, "select sum(carpool) as Car
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawCharts);
       function drawCharts() {
-	<?php addChart('column1', 'Globally', $data1, "['ilp', 'yilx']", 'ColumnChart') ?>
-	<?php addChart('pie2', 'Totalism', array('pax' => 13, 'zim' => 25, 'yilf' => 18), "['ilp', 'yilx']", 'PieChart') ?>
+	<?php addChart('column1', 'Globally', $data1, "", 'ColumnChart') ?>
+	<?php addChart('pie2', 'Totalism', array('pax' => 13, 'zim' => 25, 'yilf' => 18), "", 'PieChart') ?>
         
       }
     </script>
