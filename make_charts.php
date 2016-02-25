@@ -8,7 +8,8 @@ $data_fmt = implode(",", $data_fmt);
 echo
 "
         data = google.visualization.arrayToDataTable([
-          $data_fmt
+          $data_header,
+	  $data_fmt
         ]);
         options = {
           title: '$title',
