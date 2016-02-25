@@ -25,8 +25,8 @@ echo
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
-	<?php addChart('pie1', 'Mentalism', array(array('pox', 23),array('lim', 50),array('arum', 17)), "['ilp', 'yilx']", 'PieChart') ?>
-	<?php addChart('pie2', 'Totalism', array(array('pax', 13),array('lim', 30),array('arum', 27)), "['ilp', 'yilx']", 'PieChart') ?>
+	<?php addChart('pie1', 'Mentalism', array(array('pox', 23),array('lim', 50),array('arum', 17)), "['ilp', 'yilx'],", 'PieChart') ?>
+	<?php addChart('pie2', 'Totalism', array(array('pax', 13),array('lim', 30),array('arum', 27)), "['ilp', 'yilx'],", 'PieChart') ?>
         
       }
     </script>
