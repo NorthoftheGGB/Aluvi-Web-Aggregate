@@ -34,7 +34,7 @@ $data3 = mysqli_fetch_assoc(mysqli_query($users_con, $q3));
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawCharts);
       function drawCharts() {
-	<?php addChart('column1', 'ColumnChart', 'Globally', $data1, "['Users', '']") ?>
+	<?php addChart('column1', 'ColumnChart', 'Globally', $data1, "legend: { position: 'none' }") ?>
 	<?php addChart('pie1',  'PieChart', 'Arrival Times', $data2) ?>
 	<?php addChart('pie2',  'PieChart', 'Departure Times', $data3) ?>
         

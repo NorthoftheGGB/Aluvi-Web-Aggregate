@@ -1,9 +1,11 @@
 <?php
-function addChart($element, $type, $title, $data, $data_header = "['','']"){
+function addChart($element, $type, $title, $data, $options='', $data_header = "['','']"){
 foreach ($data as $k => $v){
 	$data_fmt[] = "['$k', $v]";
 }
 $data_fmt = implode(",", $data_fmt);
+if ($options)
+	$options = ", $options";
 echo
 "
         data = google.visualization.arrayToDataTable([
@@ -11,8 +13,7 @@ echo
 	  $data_fmt
         ]);
         options = {
-          title: '$title',
-	  legend: { position: 'none' }
+          title: '$title'$options
         };
         chart = new google.visualization.$type(document.getElementById('$element'));
         chart.draw(data, options);
