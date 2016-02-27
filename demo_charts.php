@@ -23,7 +23,7 @@ echo "<!--$q3-->";
 
 $data1 = mysqli_fetch_assoc(mysqli_query($users_con, $q1));
 $data2 = mysqli_fetch_assoc(mysqli_query($users_con, $q2));
-$data2 = mysqli_fetch_assoc(mysqli_query($users_con, $q3));
+$data3 = mysqli_fetch_assoc(mysqli_query($users_con, $q3));
 
 
 ?>
@@ -47,7 +47,7 @@ $data2 = mysqli_fetch_assoc(mysqli_query($users_con, $q3));
   <body>
 	<div></div>
 	<div class="chart" id="column1" style="width: 450px; height: 250px;"></div>
-	<div  class="chart" id="pie2" style="width: 450px; height: 250px;"></div>
+	<div  class="chart" id="pie1" style="width: 450px; height: 250px;"></div>
 	<div  class="chart" id="pie2" style="width: 450px; height: 250px;"></div>
   </body>
 </html>
