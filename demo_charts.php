@@ -7,14 +7,14 @@ $tq1 = "select distinct(carpool_times_morning) as time from preferences";
 $tq2 = "select distinct(carpool_times_evening) as time from preferences";
 
 $tr1 = mysqli_fetch_assoc(mysqli_query($users_con, $tq1));
-while ($row = mysql_fetch_assoc($tq1)) {
+while ($row = mysql_fetch_assoc($tr1)) {
 	$times1[] = " sum(carpool_times_morning = '$row[time]') as `$row[time]`";
 }
 $times1 = implode(',', $times1);
 $q2 = "select $times1 from preferences";
 echo "<!--$q2-->";
 $tr2 = mysqli_fetch_assoc(mysqli_query($users_con, $tq2));
-while ($row = mysql_fetch_assoc($tq2)) {
+while ($row = mysql_fetch_assoc($tr2)) {
 	$times2[] = " sum(carpool_times_evening = '$row[time]') as `$row[time]`";
 }
 $times2 = implode(',', $times2);
