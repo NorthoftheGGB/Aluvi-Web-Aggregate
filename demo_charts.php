@@ -5,6 +5,7 @@ include "make_charts.php";
 $q1 = "select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_transportation) as `Public Transportation` from preferences";
 $tq1 = "select distinct(carpool_times_morning) as time from preferences";
 $tq2 = "select distinct(carpool_times_evening) as time from preferences";
+$uq = "select count(*) as number from preferences";
 
 $tr1 = mysqli_query($users_con, $tq1);
 while ($row = mysqli_fetch_assoc($tr1)) {
@@ -24,7 +25,7 @@ echo "<!--$q3-->";
 $data1 = mysqli_fetch_assoc(mysqli_query($users_con, $q1));
 $data2 = mysqli_fetch_assoc(mysqli_query($users_con, $q2));
 $data3 = mysqli_fetch_assoc(mysqli_query($users_con, $q3));
-
+$users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 
 ?>
 <html>
@@ -34,7 +35,7 @@ $data3 = mysqli_fetch_assoc(mysqli_query($users_con, $q3));
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawCharts);
       function drawCharts() {
-	<?php addChart('column1', 'ColumnChart', 'Globally', $data1, "legend: { position: 'none' }") ?>
+	<?php addChart('column1', 'ColumnChart', 'Transportation Types', $data1, "legend: { position: 'none' }") ?>
 	<?php addChart('pie1',  'PieChart', 'Arrival Times', $data2) ?>
 	<?php addChart('pie2',  'PieChart', 'Departure Times', $data3) ?>
         
@@ -45,10 +46,12 @@ $data3 = mysqli_fetch_assoc(mysqli_query($users_con, $q3));
     </style>
   </head>
   <body>
-	<div></div>
-	<div class="chart" id="column1" style="width: 450px; height: 250px;"></div>
-	<div  class="chart" id="pie1" style="width: 450px; height: 250px;"></div>
-	<div  class="chart" id="pie2" style="width: 450px; height: 250px;"></div>
+	<div>
+		<span style='font-size:20px'>Total Sign Ups: <?php echo $users['number'] ?></span>
+	</div>
+	<div class="chart" id="column1" style="width: 350px; height: 250px;"></div>
+	<div  class="chart" id="pie1" style="width: 350px; height: 250px;"></div>
+	<div  class="chart" id="pie2" style="width: 350px; height: 250px;"></div>
   </body>
 </html>
    
