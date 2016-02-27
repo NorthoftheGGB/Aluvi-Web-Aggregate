@@ -46,14 +46,16 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
     </style>
   </head>
   <body>
-	<div style='margin:auto; font-size:20px; '>
+	<div style='margin:auto; font-size:20px; width:700px; '>
 		<span style='margin-right:400px'>Total Sign Ups: <?php echo $users['number'] ?></span>
 		<a href='demo_csv.php'>Download CSV</a>
 	</div>
-	<br/>
-	<div class="chart" id="column1" style="width: 350px; height: 250px;"></div>
-	<div  class="chart" id="pie1" style="width: 350px; height: 250px;"></div>
-	<div  class="chart" id="pie2" style="width: 350px; height: 250px;"></div>
+	<br/><br/><br/>
+	<div style='width:1060px; margin:auto'>
+	<div class="chart" id="column1" style="width: 420px; height: 250px;"></div>
+	<div  class="chart" id="pie1" style="width: 320px; height: 250px;"></div>
+	<div  class="chart" id="pie2" style="width: 320px; height: 250px;"></div>
+	</div>
   </body>
 </html>
    
