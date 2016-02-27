@@ -6,7 +6,7 @@ yes' else 'no' end, case when public_transportation then 'yes' else 'no' end fro
 $csv = "Date Added,Name,Email,Arrives,Departs,Carpool,Vanpool,Public Transportation\n";
 $result = mysqli_query($users_con, $query);
 while ($row = mysqli_fetch_assoc($result)){
-    $csv .= implode(",", $row).'\n';
+    $csv .= implode(",", $row)."\n";
 }
 header("Content-Disposition: attachment; filename='users.csv'"); 
 header("Content-Type: application/csv");
