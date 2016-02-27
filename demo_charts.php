@@ -3,8 +3,8 @@ $context = "demo";
 include "database.php";
 include "make_charts.php";
 $q1 = "select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_transportation) as `Public Transportation` from preferences";
-$tq1 = "select distinct(carpool_times_morning) as time from preferences";
-$tq2 = "select distinct(carpool_times_evening) as time from preferences";
+$tq1 = "select distinct(carpool_times_morning) as time from preferences order by time";
+$tq2 = "select distinct(carpool_times_evening) as time from preferences order by time";
 $uq = "select count(*) as number from preferences";
 
 $tr1 = mysqli_query($users_con, $tq1);
