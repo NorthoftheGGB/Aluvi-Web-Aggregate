@@ -42,6 +42,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 ?>
 <html>
   <head>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>	
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -52,9 +53,18 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	<?php addChart('pie2',  'PieChart', 'Departure Times', $data3) ?>
         
       }
+      function showCities(county){
+	$('.cityopt').hide();
+	$('.county_'+county).show();
+      }
+      function showZipcodes(city){
+	$('.zipopt').hide();
+	$('.city_'+city).show();
+      }
     </script>
     <style>
 	.chart {float:left;}
+	.cityopt, .zipopt {display:none;}
     </style>
   </head>
   <body>
@@ -79,10 +89,10 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 				}
 			?>
 		</select>
-		<select name='zipcode' onchange='showCounties(this.value)'>
+		<select name='zipcode' >
 			<option value='all'>All Zip Codes</option>
 			<?php foreach ($zipcodes as $z){
-				echo "<option value='$z[id]' class='zipopt city_$z[city]'>$z[name]</option>";
+				echo "<option value='$z[id]' class='zipopt city_$z[city]'>$z[code]</option>";
 				}
 			?>
 		</select>
