@@ -20,7 +20,7 @@ if ($_GET['county']){
 		$fwhere.= " and c.id = $_GET[city]";
 	if ($_GET['zipcode'] != 'all')
 		$fwhere .= " and u.zip = $_GET[zipcode]";
-	$filter = "join (select u.id as id from users u join glassdoor.zipcode_location z on z.zip = u.zip join glassdoor.cities c on c.id = z.city)
+	$filter = "join (select u.id as id from users u join glassdoor.zipcode_locations z on z.zip = u.zip join glassdoor.cities c on c.id = z.city $fwhere)
 	x on x.id = user_id";
 }
 
