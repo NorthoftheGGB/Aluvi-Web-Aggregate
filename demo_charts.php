@@ -14,10 +14,20 @@ while ($row = mysqli_fetch_array($result)){
 }
 
 //user data
-$q1 = "select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_transportation) as `Public Transportation` from preferences";
-$tq1 = "select distinct(carpool_times_morning) as time from preferences order by time";
-$tq2 = "select distinct(carpool_times_evening) as time from preferences order by time";
-$uq = "select count(*) as number from preferences";
+if ($_GET['county']){
+	$fwhere = "where c.county=$_GET[county]";
+	if ($_GET['city'] != 'all')
+		$fwhere.= " and c.id = $_GET[city]";
+	if ($_GET['zipcode'] != 'all')
+		$fwhere .= " and u.zip = $_GET[zipcode]";
+	$filter = "join (select u.id as id from users u join glassdoor.zipcode_location z on z.zip = u.zip join glassdoor.cities c on c.id = z.city)
+	x on x.id = user_id";
+}
+
+$q1 = "select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_transportation) as `Public Transportation` from preferences $filter";
+$tq1 = "select distinct(carpool_times_morning) as time from preferences $filter order by time";
+$tq2 = "select distinct(carpool_times_evening) as time from preferences $filter order by time";
+$uq = "select count(*) as number from preferences $filter";
 
 $tr1 = mysqli_query($users_con, $tq1);
 while ($row = mysqli_fetch_assoc($tr1)) {
@@ -55,13 +65,13 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
       }
       function showCities(county){
 	$('.cityopt').hide();
-	$('#citysel').val('');
+	$('#citysel').val('all');
 	$('.county_'+county).show();
       }
       function showZipcodes(city){
 	$('.zipopt').hide();
-	$('#citysel').val('');
-	$('#zipsel').val('');
+	$('#citysel').val('all');
+	$('#zipsel').val('all');
 	$('.city_'+city).show();
       }
     </script>
@@ -78,29 +88,33 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	<br/><br/><br/>
 	<div style='width:1060px; margin:auto'>
 	<form method = 'get' action = 'demo_charts.php'>
-		<span style='width:100px;'></span>
+		<div style='margin-left:100px;'>
 		<select name='county' onchange='showCities(this.value)'>
 			<option value='all'>All Counties</option>
 			<?php foreach ($counties as $c){
-				echo "<option value='$c[id]'>$c[name]</option>";
+				$selected = $c['id'] == $_GET['county'] ? 'selected' : '';
+				echo "<option value='$c[id]' $selected>$c[name]</option>";
 				}
 			?>
 		</select>
 		<select name='city' id='ctysel' onchange='showZipcodes(this.value)'>
-			<option>All Cities</option>
+			<option value='all'>All Cities</option>
 			<?php foreach ($cities as $c){
-				echo "<option value='$c[id]' class='cityopt county_$c[county]'>$c[name]</option>";
+				$selected = $c['id'] == $_GET['city'] ? 'selected' : '';
+				echo "<option value='$c[id]' $selected class='cityopt county_$c[county]'>$c[name]</option>";
 				}
 			?>
 		</select>
 		<select name='zipcode' id='zipsel' >
 			<option value='all'>All Zip Codes</option>
 			<?php foreach ($zipcodes as $z){
+				$selected = $z['code'] == $_GET['zipcode'] ? 'selected' : '';
 				echo "<option value='$z[id]' class='zipopt city_$z[city]'>$z[code]</option>";
 				}
 			?>
 		</select>
 		<input type='submit' value='Show' />
+		</div>
 	</form>
 	<div class="chart" id="column1" style="width: 420px; height: 250px;"></div>
 	<div  class="chart" id="pie1" style="width: 320px; height: 250px;"></div>
