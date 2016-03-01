@@ -50,10 +50,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
-	<div style='margin-left:70px;'>
+	<div style='width:800px; margin:auto;'>
 		<form method='get' action='demo_heatmap.php'>
 			<select name='type'>
-				<option>All Transportation Types</option>
+				<option value=''>All Transportation Types</option>
 				<option value='carpool'>Carpool</option>
 				<option value='vanpool'>Vanpool</option>
 				<option value='public_transportation'>Public Transportation</option>
