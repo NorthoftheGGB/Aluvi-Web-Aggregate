@@ -84,6 +84,7 @@ $heatmap_data = implode(",", $heatmap_data);
       }
     </script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <!--
     <script>
 var map, pointarray, heatmap;
  
@@ -116,7 +117,7 @@ function initialize() {
 // as soon as the document is ready the map is initialized
 google.maps.event.addDomListener(window, 'load', initialize);
  
-    </script>
+    </script>-->
     <style>
 	.chart {float:left;}
 	.cityopt, .zipopt {display:none;}
