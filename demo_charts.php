@@ -163,9 +163,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	<div  class="chart" id="pie1" style="width: 320px; height: 250px;"></div>
 	<div  class="chart" id="pie2" style="width: 320px; height: 250px;"></div>
 	</div>
-	<div style='text-align:center'>
+	<center>
 		<div style = "width:800px; height:400px;" id="heatmap"></div>
-	</div>
+	</center>
   </body>
 </html>
    
