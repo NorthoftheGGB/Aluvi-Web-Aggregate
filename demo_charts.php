@@ -82,7 +82,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	.cityopt, .zipopt {display:none;}
     </style>
   </head>
-  <body>
+  <body onload="showCities($('#cntysel'.val())); showZipcodes($('#ctysel'.val()));">
 	<div style='margin:auto; font-size:20px; width:700px; '>
 		<span style='margin-right:400px'>Total Sign Ups: <?php echo $users['number'] ?></span>
 		<a href='demo_csv.php'>Download CSV</a>
@@ -90,8 +90,8 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	<br/><br/><br/>
 	<div style='width:1060px; margin:auto'>
 	<form method = 'get' action = 'demo_charts.php'>
-		<div style='margin-left:100px;'>
-		<select name='county' onchange='showCities(this.value)'>
+		<div style='margin-left:70px;'>
+		<select name='county' id='cntysel' onchange='showCities(this.value)'>
 			<option value='all'>All Counties</option>
 			<?php foreach ($counties as $c){
 				$selected = $c['id'] == $_GET['county'] ? 'selected' : '';
