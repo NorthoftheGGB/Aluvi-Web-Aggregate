@@ -1,9 +1,12 @@
 <?php
 $context = "demo";
 include "database.php";
+if ($_GET['type']){
+	$where = "and $_GET[type]";
+}
 //heatmap
 $result = mysqli_query($users_con, "select lat, lng from glassdoor.zipcode_locations z join users u on u.zip = z.zip
-					  join preferences p on u.id = p.user_id");
+					  join preferences p on u.id = p.user_id $where");
 while ($row = mysqli_fetch_assoc($result)) {
 	$heatmap_data[] = "new google.maps.LatLng($row[lat], $row[lng])";
 }
@@ -47,7 +50,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
-	
+	<div style='margin-left:70px;'>
+		<form method='get' action='demo_heatmap.php'>
+			<select name='type'>
+				<option>All Transportation Types</option>
+				<option value='carpool'>Carpool</option>
+				<option value='vanpool'>Vanpool</option>
+				<option value='public_transportation'>Public Transportation</option>
+			</select>
+			<input type='submit' value='Show' />
+		</form>
+	</div>
 	<center>
 		<div style = "width:800px; height:400px;" id="heatmap"></div>
 	</center>
