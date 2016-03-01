@@ -55,10 +55,13 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
       }
       function showCities(county){
 	$('.cityopt').hide();
+	$('#citysel').val('');
 	$('.county_'+county).show();
       }
       function showZipcodes(city){
 	$('.zipopt').hide();
+	$('#citysel').val('');
+	$('#zipsel').val('');
 	$('.city_'+city).show();
       }
     </script>
@@ -75,6 +78,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	<br/><br/><br/>
 	<div style='width:1060px; margin:auto'>
 	<form method = 'get' action = 'demo_charts.php'>
+		<span style='width:100px;'></span>
 		<select name='county' onchange='showCities(this.value)'>
 			<option value='all'>All Counties</option>
 			<?php foreach ($counties as $c){
@@ -82,20 +86,21 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 				}
 			?>
 		</select>
-		<select name='city' onchange='showZipcodes(this.value)'>
+		<select name='city' id='ctysel' onchange='showZipcodes(this.value)'>
 			<option>All Cities</option>
 			<?php foreach ($cities as $c){
 				echo "<option value='$c[id]' class='cityopt county_$c[county]'>$c[name]</option>";
 				}
 			?>
 		</select>
-		<select name='zipcode' >
+		<select name='zipcode' id='zipsel' >
 			<option value='all'>All Zip Codes</option>
 			<?php foreach ($zipcodes as $z){
 				echo "<option value='$z[id]' class='zipopt city_$z[city]'>$z[code]</option>";
 				}
 			?>
 		</select>
+		<input type='submit' value='Show' />
 	</form>
 	<div class="chart" id="column1" style="width: 420px; height: 250px;"></div>
 	<div  class="chart" id="pie1" style="width: 320px; height: 250px;"></div>
