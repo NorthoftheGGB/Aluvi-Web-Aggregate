@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_array($result)){
 }
 
 //user data
-if ($_GET['county']){
+if ($_GET['county'] && $_GET['county'] != 'all'){
 	$fwhere = "where c.county=$_GET[county]";
 	if ($_GET['city'] != 'all')
 		$fwhere.= " and c.id = $_GET[city]";
