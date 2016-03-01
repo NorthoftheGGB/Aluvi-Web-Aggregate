@@ -96,7 +96,7 @@ var data = [
 function initialize() {
   // the map's options
   var mapOptions = {
-    zoom: 10,
+    zoom: 8,
     center: new google.maps.LatLng(37.794546, -122.433523)  };
  
   // the map and where to place it
