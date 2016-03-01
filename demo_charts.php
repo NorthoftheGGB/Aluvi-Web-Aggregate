@@ -28,7 +28,9 @@ $q1 = "select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_trans
 $tq1 = "select distinct(carpool_times_morning) as time from preferences $filter order by time";
 $tq2 = "select distinct(carpool_times_evening) as time from preferences $filter order by time";
 $uq = "select count(*) as number from preferences $filter";
-
+echo "<!--
+$q1
+-->";
 $tr1 = mysqli_query($users_con, $tq1);
 while ($row = mysqli_fetch_assoc($tr1)) {
 	$times1[] = " sum(carpool_times_morning = '$row[time]') as `$row[time]`";
