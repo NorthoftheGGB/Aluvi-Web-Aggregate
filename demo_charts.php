@@ -50,7 +50,13 @@ $data1 = mysqli_fetch_assoc(mysqli_query($users_con, $q1));
 $data2 = mysqli_fetch_assoc(mysqli_query($users_con, $q2));
 $data3 = mysqli_fetch_assoc(mysqli_query($users_con, $q3));
 $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
-
+//heatmap
+$result = mysqli_query($users_con, "select lat, lng from glassdoor.zipcode_locations z join users u on u.zip = z.zip
+					  join preferences p on u.id = p.user_id");
+while ($row = mysqli_fetch_assoc($result)) {
+	$heatmap_data[] = "new google.maps.LatLng($row[lat], $row[lng])";
+}
+$heatmap_data = implode(",", $heatmap_data);
 ?>
 <html>
   <head>
@@ -77,12 +83,47 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	$('.city_'+city).show();
       }
     </script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    
+    <script>
+var map, pointarray, heatmap;
+ 
+var data = [
+  <?php echo $heatmap_data ?>
+];
+ 
+ 
+function initialize() {
+  // the map's options
+  var mapOptions = {
+    zoom: 11,
+    center: new google.maps.LatLng(37.784546, -122.433523)  };
+ 
+  // the map and where to place it
+  map = new google.maps.Map(document.getElementById('heatmap'), mapOptions);
+ 
+  var pointArray = new google.maps.MVCArray(data);
+ 
+  // what data for the heatmap and how to display it
+  heatmap = new google.maps.visualization.HeatmapLayer({
+    data: pointArray,
+    radius: 50
+  });
+ 
+  // placing the heatmap on the map
+  heatmap.setMap(map);
+}
+ 
+// as soon as the document is ready the map is initialized
+google.maps.event.addDomListener(window, 'load', initialize);
+ 
+    </script>
     <style>
 	.chart {float:left;}
 	.cityopt, .zipopt {display:none;}
     </style>
   </head>
-  <body>
+  <body onload="showCities($('#cntysel').val()); showZipcodes($('#ctysel').val());">
 	<div style='margin:auto; font-size:20px; width:700px; '>
 		<span style='margin-right:400px'>Total Sign Ups: <?php echo $users['number'] ?></span>
 		<a href='demo_csv.php'>Download CSV</a>
@@ -91,7 +132,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	<div style='width:1060px; margin:auto'>
 	<form method = 'get' action = 'demo_charts.php'>
 		<div style='margin-left:70px;'>
-		<select name='county' onchange='showCities(this.value)'>
+		<select name='county' id='cntysel' onchange='showCities(this.value)'>
 			<option value='all'>All Counties</option>
 			<?php foreach ($counties as $c){
 				$selected = $c['id'] == $_GET['county'] ? 'selected' : '';
@@ -121,6 +162,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	<div class="chart" id="column1" style="width: 420px; height: 250px;"></div>
 	<div  class="chart" id="pie1" style="width: 320px; height: 250px;"></div>
 	<div  class="chart" id="pie2" style="width: 320px; height: 250px;"></div>
+	<div style = "width:800px; height:400px;" id="heatmap"></div>
 	</div>
   </body>
 </html>
