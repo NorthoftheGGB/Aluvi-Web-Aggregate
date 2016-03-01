@@ -96,8 +96,8 @@ var data = [
 function initialize() {
   // the map's options
   var mapOptions = {
-    zoom: 11,
-    center: new google.maps.LatLng(37.784546, -122.433523)  };
+    zoom: 10,
+    center: new google.maps.LatLng(37.794546, -122.433523)  };
  
   // the map and where to place it
   map = new google.maps.Map(document.getElementById('heatmap'), mapOptions);
@@ -162,7 +162,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	<div class="chart" id="column1" style="width: 420px; height: 250px;"></div>
 	<div  class="chart" id="pie1" style="width: 320px; height: 250px;"></div>
 	<div  class="chart" id="pie2" style="width: 320px; height: 250px;"></div>
-	<div style = "width:800px; height:400px;" id="heatmap"></div>
+	</div>
+	<div style='text-align:center'>
+		<div style = "width:800px; height:400px;" id="heatmap"></div>
 	</div>
   </body>
 </html>
