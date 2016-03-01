@@ -122,7 +122,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	.cityopt, .zipopt {display:none;}
     </style>
   </head>
-  <body onload="showCities($('#cntysel'.val())); showZipcodes($('#ctysel'.val()));">
+  <body onload="showCities($('#cntysel').val()); showZipcodes($('#ctysel').val());">
 	<div style='margin:auto; font-size:20px; width:700px; '>
 		<span style='margin-right:400px'>Total Sign Ups: <?php echo $users['number'] ?></span>
 		<a href='demo_csv.php'>Download CSV</a>
