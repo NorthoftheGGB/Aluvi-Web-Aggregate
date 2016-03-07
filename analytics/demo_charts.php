@@ -85,7 +85,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
   <body onload="showCities($('#cntysel').val()); showZipcodes($('#ctysel').val());">
 	<div style='margin:auto; font-size:20px; width:700px; '>
 		<span style='margin-right:400px'>Total Sign Ups: <?php echo $users['number'] ?></span>
-		<a href='demo_csv.php'>Download CSV</a>
+		
 	</div>
 	<br/><br/><br/>
 	<div style='width:1060px; margin:auto'>
