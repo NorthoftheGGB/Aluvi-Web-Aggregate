@@ -4,6 +4,16 @@
 		<style>
 			.tabs {margin-bottom:2em; text-align:center; width:100%}
 			.tabs a {margin-right:25px;}
+			table, th, td {
+				 border: 1px solid black;
+			}
+			table {
+				border-collapse:collapse;
+
+			}
+			td, th {
+				padding:2px;
+			}
 		</style>
 	</head>
 	<body>
