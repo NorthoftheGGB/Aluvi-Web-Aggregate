@@ -1,5 +1,5 @@
 <?php
-require "../database.php";
+
 $query = "select date_format(added, '%m/%d/%Y')as added, name, email, carpool_times_morning, carpool_times_evening, case when carpool then 'yes' else 'no' end, case when vanpool then 'yes' else 'no' end, case when public_transportation then 'yes' else 'no' end
 from users u join preferences p on u.id = user_id order by added";
 $result = mysqli_query($users_con, $query);
