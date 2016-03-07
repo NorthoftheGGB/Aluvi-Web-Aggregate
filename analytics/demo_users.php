@@ -13,6 +13,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 </div>
 <br/><br/>
 <table style='width:100%'>
+    <tr>
     <th>Added</th>
     <th>Name</th>
     <th>Email</th>
@@ -21,13 +22,14 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
     <th>Carpool</th>
     <th>Vanpool</th>
     <th>Public Transportation</th>
+    </tr>
     <?php
     while ($row = mysqli_fetch_assoc($result)){
-    echo "<th>";
+    echo "<tr>";
     foreach ($row as $c){
         echo "<td>$c</td>";
         }
     }
-    echo "</th>";
+    echo "</tr>";
     ?>
 </table>
