@@ -9,9 +9,9 @@
 	<body>
 		<div class='tabs'>
 			<?php foreach(array("Survey", "Reccomendations",  "Usage", "Users", "Sustainability", "Admin") as $tab){
-				if ($tab = $_GET['view']) $selected = "class='selected'";
+				if ($tab == $_GET['view']) $selected = "class='selected'";
 					else $selected = "";
-				echo "<a href='demo_analytics.php?view=$tab'>$tab</a>";
+				echo "<a href='demo_analytics.php?view=$tab' $selected>$tab</a>";
 				}?>
 		</div>
 		<?php if (!$_GET['view'] || $_GET['view'] == 'Survey')  { ?>

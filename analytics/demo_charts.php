@@ -1,6 +1,6 @@
 <?php
 $context = "demo";
-include "database.php";
+include "../database.php";
 include "make_charts.php";
 //geographical data
 $result = mysqli_query($con, "select u.zip, c.name city_name, c.id as city_id, cn.name county_name, cn.id as county_id
@@ -85,7 +85,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
   <body onload="showCities($('#cntysel').val()); showZipcodes($('#ctysel').val());">
 	<div style='margin:auto; font-size:20px; width:700px; '>
 		<span style='margin-right:400px'>Total Sign Ups: <?php echo $users['number'] ?></span>
-		
+		<a href='demo_csv.php'>Download CSV</a>
 	</div>
 	<br/><br/><br/>
 	<div style='width:1060px; margin:auto'>

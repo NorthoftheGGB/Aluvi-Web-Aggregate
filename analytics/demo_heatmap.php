@@ -1,6 +1,6 @@
 <?php
 $context = "demo";
-include "database.php";
+include "../database.php";
 if ($_GET['type']){
 	$where = "and $_GET[type]";
 }
