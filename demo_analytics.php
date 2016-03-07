@@ -31,7 +31,7 @@
 		<?php if (!$_GET['view'] || $_GET['view'] == 'Survey')  { ?>
 		<iframe style="width:100%; height:400px" frameborder='0' src='analytics/demo_charts.php'></iframe>
 		<iframe style="width:100%; height:450px" frameborder='0' src='analytics/demo_heatmap.php'></iframe>
-		<?php } else if (in_array($_GET['view'], array('Users'))) {
+		<?php } else if (in_array($_GET['view'], array('Users', "Recommendations"))) {
 			$view = strtolower($_GET['view']);
 			include "database.php";
 			include "analytics/demo_$view.php";
