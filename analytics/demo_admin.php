@@ -23,7 +23,8 @@ else if ($_POST['action'] == 'add vanpool'){
             $lat = $res['geometry']['location']['lat'];
             $lng = $res['geometry']['location']['lng'];
             mysqli_query($users_con, $q = "insert into vanpool_pickup (leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, lat, lng, zip)
-                 values ($_POST[name], $_POST[email], $_POST[address], $_POST[departs_location], $_POST[arrives_work], $_POST[departs_work], $lat, $lng, $zip )");
+                 values ('$_POST[name]', '$_POST[email]', '$_POST[address]', '$_POST[departs_location]', '$_POST[arrives_work]', '$_POST[departs_work]', $lat, $lng, '$zip' )");
+            
         }
         else $error = 'Location Not Found';
     }
