@@ -25,6 +25,8 @@
 				margin-left:1em;	
 			}
 		</style>
+		<script type="text/javascript" src="analytics/jquery-1.9.1.js"></script>	
+
 	</head>
 	<body>
 		<div class='tabs'>
