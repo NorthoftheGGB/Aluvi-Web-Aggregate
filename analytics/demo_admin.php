@@ -105,8 +105,8 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
 <br/>
 <?php if ($id) { ?>
 <input type='submit' value='Update' />
-<input type='button' value='cancel'
-<?php } else { ?>}
+<a href='demo_analytics.php?view=Admin'><input type='button' value='Cancel' /></a>
+<?php } else { ?>
 <input type='submit' value='Add Vanpool To Map' /> &nbsp;&nbsp; <span style='color:red'><?php echo $error ?> </span>
 <?php } ?>
 </form>
