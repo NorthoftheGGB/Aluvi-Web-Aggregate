@@ -22,8 +22,13 @@ else if ($_POST['action'] == 'add vanpool'){
         if ($zip) {
             $lat = $res['geometry']['location']['lat'];
             $lng = $res['geometry']['location']['lng'];
-            mysqli_query($users_con, $q = "insert into vanpool_pickup (leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, lat, lng, zip)
-                 values ('$_POST[name]', '$_POST[email]', '$_POST[address]', '$_POST[departs_location]', '$_POST[arrives_work]', '$_POST[departs_work]', $lat, $lng, '$zip' )");
+            if ($_POST['edit_id']){
+                mysqli_query($users_con, 'delete from vanpool_pickup where id = $_POST[edit_id]');
+                $extra1 = ', id';
+                $extra2 = ', '.$_POST['edit_id'];
+            }
+            mysqli_query($users_con, $q = "insert into vanpool_pickup (leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, lat, lng, zip$extra1)
+                 values ('$_POST[name]', '$_POST[email]', '$_POST[address]', '$_POST[departs_location]', '$_POST[arrives_work]', '$_POST[departs_work]', $lat, $lng, '$zip'$extra2 )");
             
         }
         else $error = 'Location Not Found';
