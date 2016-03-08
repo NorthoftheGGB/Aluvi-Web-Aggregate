@@ -21,10 +21,12 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
     </tr>
     <?php
         while ($row = mysqli_fetch_assoc($admin_results)){
+        echo "<tr>";
             foreach ($row as $c){
                 echo "<td>$c</td>";
             }
         }
+        echo "</tr>";
     ?>
     <tr>
         <td><input style='width:100%' type='text' placeholder='Name' name='name'/></td>
