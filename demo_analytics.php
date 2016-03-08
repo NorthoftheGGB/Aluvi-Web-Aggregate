@@ -33,7 +33,7 @@
 	</head>
 	<body>
 		<div class='tabs'>
-			<?php foreach(array("Survey", "Recommendations",  "Usage", "Users", "Sustainability", "Admin") as $tab){
+			<?php foreach(array("Survey", "Recommendations",  "Usage", "Users", "Sustainability", "Options", "Admin") as $tab){
 				if ($tab == $_GET['view']) $selected = "class='selected'";
 					else $selected = "";
 				echo "<a href='demo_analytics.php?view=$tab' $selected>$tab</a>";
