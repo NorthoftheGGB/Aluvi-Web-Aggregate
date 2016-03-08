@@ -4,6 +4,7 @@ $vanpool_results = mysqli_query($users_con, "select name, zip from users where z
 $shuttle_results = mysqli_query($users_con, "select name, zip from users where zip in (select zip from users u join preferences on u.id = user_id where commuter_bus group by zip having count(*) > 11) order by zip");
 $public_results = mysqli_query($users_con, "select name, zip from users u join preferences on u.id = user_id where public_transportation order by zip");
 ?>
+<div style="width:1060px; margin:auto">
 <div class='col4'>
     <h2>Public Transportation</h2>
 <?php
@@ -67,4 +68,5 @@ $public_results = mysqli_query($users_con, "select name, zip from users u join p
   }
   if (!$results) echo "<i>No Results</i>";
 ?>    
+</div>
 </div>

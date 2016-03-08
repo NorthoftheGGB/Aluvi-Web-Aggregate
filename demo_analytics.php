@@ -18,6 +18,12 @@
 				float:left;
 				width:23%;
 			}
+			zipItem{
+				font-weight:bold;
+			}
+			nameItem{
+				margin-left:1em;	
+			}
 		</style>
 	</head>
 	<body>
