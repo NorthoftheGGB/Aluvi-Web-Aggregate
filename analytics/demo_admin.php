@@ -30,4 +30,5 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
         <td><input style='width:100%' type='text' placeholder='Email' name='email'/></td>
     </tr>
 </table>
+<input type='submit' value='Add User' />
 </form>
