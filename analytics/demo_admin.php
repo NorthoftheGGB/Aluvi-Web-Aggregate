@@ -79,14 +79,14 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
                 foreach ($row as $v){
                     $val[] = "value = '$v'";
                 }
-                $n = 0;
+                $x = 0;
             }
             else {
             echo "<tr>";
                 foreach ($row as $c => $v){
                     if ($c != "id")
                         echo "<td>$v</td>";
-                    else echo "<td><a href='demo_admin.php?view=Admin&edit=$v'>Edit</td>";
+                    else echo "<td><a href='demo_analytics.php?view=Admin&edit=$v'>Edit</td>";
                 }
             }
         }
