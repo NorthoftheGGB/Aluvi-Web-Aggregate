@@ -81,6 +81,7 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
             }
             $n = 0;
         }
+        else {
         echo "<tr>";
             foreach ($row as $c => $v){
                 if ($c != "id")
@@ -93,7 +94,7 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
     ?>
     <tr class='input'>
         <td><input style='width:100%' type='text' placeholder='Leader Name' name='name' <?php echo $val[$x++] ?>/></td>
-        <td><input style='width:100%' type='text' placeholder='Leader Email' name='email <?php echo $val[$x++] ?>'/></td>
+        <td><input style='width:100%' type='text' placeholder='Leader Email' name='email' <?php echo $val[$x++] ?>/></td>
         <td><input style='width:100%' type='text' placeholder='Pickup Location' name='address' <?php echo $val[$x++] ?>/></td>
         <td><input style='width:100%' type='text' placeholder='Departs Location' name='departs_location' <?php echo $val[$x++] ?>/></td>
         <td><input style='width:100%' type='text' placeholder='Arrives Work' name='arrives_work' <?php echo $val[$x++] ?>/></td>
