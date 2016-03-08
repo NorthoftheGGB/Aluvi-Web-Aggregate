@@ -24,6 +24,9 @@
 			.nameItem{
 				margin-left:1em;	
 			}
+			.input td{
+				padding:0;
+			}
 		</style>
 		<script type="text/javascript" src="analytics/jquery-1.9.1.js"></script>	
 
