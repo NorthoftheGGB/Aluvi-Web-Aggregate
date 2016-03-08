@@ -31,7 +31,7 @@ else if ($_POST['action'] == 'add vanpool'){
     else $error = 'Location Not Found';
 }
 $admin_results = mysqli_query($users_con, "select name, email from admin");
-$vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, location_title, departs_location, arrives_work, departs_work from vanpool_pickup");
+$vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, id from vanpool_pickup");
 ?>
 <form method='post' action='demo_analytics.php?view=Admin'>
 <input type='hidden' name='action' value='add user' />
@@ -60,6 +60,7 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
 </form>
 <form method='post' action='demo_analytics.php?view=Admin'>
 <input type='hidden' name='action' value='add vanpool' />
+<?php if ($id = $_GET['edit']) echo "<input type='hidden' name='edit_id' value='$id' />" ?>
 <h2>Vanpools</h2>
 <table style='width:100%'>
     <tr>
@@ -69,25 +70,42 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
         <th>Departs Location</th>
         <th>Arrives Work</th>
         <th>Departs Work</th>
+        <th>&nbsp;</th>
     </tr>
     <?php
         while ($row = mysqli_fetch_assoc($vanpool_results)){
+        if ($row['id'] == $id) {
+            $val = array();
+            foreach ($row as $v){
+                $val[] = "value = '$v'";
+            }
+            $n = 0;
+        }
         echo "<tr>";
-            foreach ($row as $c){
-                echo "<td>$c</td>";
+            foreach ($row as $c => $v){
+                if ($c != "id")
+                    echo "<td>$v</td>";
+                else echo "<td><a href='demo_admin.php?view=Admin&edit=$v'>Edit</td>";
             }
         }
+        
         echo "</tr>";
     ?>
     <tr class='input'>
-        <td><input style='width:100%' type='text' placeholder='Leader Name' name='name'/></td>
-        <td><input style='width:100%' type='text' placeholder='Leader Email' name='email'/></td>
-        <td><input style='width:100%' type='text' placeholder='Pickup Location' name='address'/></td>
-        <td><input style='width:100%' type='text' placeholder='Departs Location' name='departs_location'/></td>
-        <td><input style='width:100%' type='text' placeholder='Arrives Work' name='arrives_work'/></td>
-        <td><input style='width:100%' type='text' placeholder='Departs Work' name='departs_work'/></td>
+        <td><input style='width:100%' type='text' placeholder='Leader Name' name='name' <?php echo $val[$x++] ?>/></td>
+        <td><input style='width:100%' type='text' placeholder='Leader Email' name='email <?php echo $val[$x++] ?>'/></td>
+        <td><input style='width:100%' type='text' placeholder='Pickup Location' name='address' <?php echo $val[$x++] ?>/></td>
+        <td><input style='width:100%' type='text' placeholder='Departs Location' name='departs_location' <?php echo $val[$x++] ?>/></td>
+        <td><input style='width:100%' type='text' placeholder='Arrives Work' name='arrives_work' <?php echo $val[$x++] ?>/></td>
+        <td><input style='width:100%' type='text' placeholder='Departs Work' name='departs_work' <?php echo $val[$x++] ?>/></td>
+        <td>&nbsp;</td>
     </tr>
 </table>
 <br/>
+<?php if ($id) { ?>
+<input type='submit' value='Update' />
+<input type='button' value='cancel'
+<?php } else { ?>}
 <input type='submit' value='Add Vanpool To Map' /> &nbsp;&nbsp; <span style='color:red'><?php echo $error ?> </span>
+<?php } ?>
 </form>
