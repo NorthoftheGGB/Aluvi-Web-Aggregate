@@ -74,22 +74,22 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
     </tr>
     <?php
         while ($row = mysqli_fetch_assoc($vanpool_results)){
-        if ($row['id'] == $id) {
-            $val = array();
-            foreach ($row as $v){
-                $val[] = "value = '$v'";
+            if ($row['id'] == $id) {
+                $val = array();
+                foreach ($row as $v){
+                    $val[] = "value = '$v'";
+                }
+                $n = 0;
             }
-            $n = 0;
-        }
-        else {
-        echo "<tr>";
-            foreach ($row as $c => $v){
-                if ($c != "id")
-                    echo "<td>$v</td>";
-                else echo "<td><a href='demo_admin.php?view=Admin&edit=$v'>Edit</td>";
+            else {
+            echo "<tr>";
+                foreach ($row as $c => $v){
+                    if ($c != "id")
+                        echo "<td>$v</td>";
+                    else echo "<td><a href='demo_admin.php?view=Admin&edit=$v'>Edit</td>";
+                }
             }
         }
-        
         echo "</tr>";
     ?>
     <tr class='input'>
