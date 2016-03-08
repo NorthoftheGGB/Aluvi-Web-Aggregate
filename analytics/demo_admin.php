@@ -12,7 +12,7 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
 ?>
 <form method='post' action='demo_analytics.php?view=Recommendations'>
 <input type='hidden' name='action' value='add user' />
-<h2></h2>
+<h2>Admins</h2>
 <table style='width:30%'>
     <tr>
         <th>Name</th>
