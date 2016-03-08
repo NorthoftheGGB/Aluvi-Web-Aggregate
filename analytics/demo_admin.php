@@ -54,7 +54,7 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
 <form method='post' action='demo_analytics.php?view=Admin'>
 <input type='hidden' name='action' value='add vanpool' />
 <h2>Vanpools</h2>
-<table style='width:30%'>
+<table style='width:100%'>
     <tr>
         <th>Leader Name</th>
         <th>Email</th>
