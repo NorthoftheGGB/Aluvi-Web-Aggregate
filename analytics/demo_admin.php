@@ -83,8 +83,8 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
         <td><input style='width:100%' type='text' placeholder='Leader Email' name='email'/></td>
         <td><input style='width:100%' type='text' placeholder='Pickup Location' name='address'/></td>
         <td><input style='width:100%' type='text' placeholder='Departs Location' name='departs_location'/></td>
-        <td><input style='width:100%' type='text' placeholder='Arrives Work' name='address'/></td>
-        <td><input style='width:100%' type='text' placeholder='Departs Work' name='address'/></td>
+        <td><input style='width:100%' type='text' placeholder='Arrives Work' name='arrives_work'/></td>
+        <td><input style='width:100%' type='text' placeholder='Departs Work' name='departs_work'/></td>
     </tr>
 </table>
 <br/>
