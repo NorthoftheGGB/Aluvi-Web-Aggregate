@@ -10,7 +10,7 @@ else if ($_POST['action'] == 'add vanpool'){
 $admin_results = mysqli_query($users_con, "select name, email from admin");
 $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, location_title, departs_location, arrives_work, departs_work from vanpool_pickup");
 ?>
-<form method='post' action='demo_analytics.php?view=Recommendations'>
+<form method='post' action='demo_analytics.php?view=Admin'>
 <input type='hidden' name='action' value='add user' />
 <h2>Admins</h2>
 <table style='width:30%'>
