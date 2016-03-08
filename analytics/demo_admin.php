@@ -1,8 +1,7 @@
 <?php
-echo "<!-- $_POST[action]-->";
 if ($_POST['action'] == 'add user'){
     $name = mysqli_real_escape_string($users_con, $_POST['name']);
-    mysqli_query($users_con, $Q = "insert into admin (name, email) values ('$name', '$_POST[email])'");
+    mysqli_query($users_con, $Q = "insert into admin (name, email) values ('$name', '$_POST[email]')");
     echo "<!--$Q-->";
 }
 else if ($_POST['action'] == 'add vanpool'){
