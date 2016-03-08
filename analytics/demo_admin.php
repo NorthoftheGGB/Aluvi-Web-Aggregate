@@ -23,7 +23,7 @@ else if ($_POST['action'] == 'add vanpool'){
             $lat = $res['geometry']['location']['lat'];
             $lng = $res['geometry']['location']['lng'];
             if ($_POST['edit_id']){
-                mysqli_query($users_con, 'delete from vanpool_pickup where id = $_POST[edit_id]');
+                mysqli_query($users_con, "delete from vanpool_pickup where id = $_POST[edit_id]");
                 $extra1 = ', id';
                 $extra2 = ', '.$_POST['edit_id'];
             }
