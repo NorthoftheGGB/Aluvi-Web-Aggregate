@@ -3,7 +3,6 @@ require('vendor/autoload.php');
 $context = $_GET['context'];
 require('database.php');
 
-
 $link_key = $_GET['token'];
 $result = mysqli_query($users_con, $q = "select * from users where link_key = '$link_key'");
 if(mysqli_num_rows($result) == 0){
@@ -31,8 +30,8 @@ if(mysqli_num_rows($result) == 0){
 		header("Expires: 0"); // Proxies.
 		$options = mysqli_fetch_assoc(mysqli_query($users_con, "select * from transit_options"));
 		$margin = 500;
-		foreach ($options as $o){
-			if ($o)
+		for ($i = 0; $i < 5; ++$i){
+			if ($options[$i])
 				$margin -= 100;
 		}
 		require('transportation_preferences.php');
