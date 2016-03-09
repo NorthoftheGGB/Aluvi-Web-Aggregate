@@ -7,18 +7,13 @@ if ($_POST['action'] == 'update options'){
     $commuter_shuttle = 0 + $_POST['commuter_shuttle'];
     $times = 0 + $_POST['times'];
     $driver = 0 + $_POST['driver'];
-    mysqli_query($users_con, "update transit_options set carpool = $carpool, vanpool = $vanpool,
+    mysqli_query($users_con, $q = "update transit_options set carpool = $carpool, vanpool = $vanpool,
                  bicycle = $bicycle, public_transportation = $public_transportation, commuter_shuttle = $commuter_shuttle, times = $times, driver=$driver
                  where office = $office");
+    echo "<!--$q-->";
 }
 if ($_POST['action'] == 'add vanpool'){
     $json = json_decode(file_get_contents($url = "https://maps.googleapis.com/maps/api/geocode/json?address=".str_replace(' ', '+', $_POST['address'])), true);
-    echo "<!--
-    $url
-    ";
-    
-    var_dump($json);
-    echo "-->";
     if (count($json['results']) == 1){
         $res = $json['results'][0];
         foreach ($res['address_components'] as $x){
