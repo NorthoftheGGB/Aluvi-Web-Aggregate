@@ -1,3 +1,23 @@
+<?php
+$errmsg = "Please select at least one transportation option";
+$conditions = array();
+$types_conditions = array();
+if ($options['carpool']) $types_conditions[] = "form.elements['transportation_type_carpool'].disabled";
+if ($options['vanpool']) $types_conditions[] = "form.elements['transportation_type_vanpool'].disabled";
+if ($options['bicycle']) $types_conditions[] = "form.elements['transportation_type_bicycle'].disabled";
+if ($options['commuter_shuttle']) $types_conditions[] = "form.elements['transportation_type_commuter_bus'].disabled";
+if ($options['public_transportation']) $types_conditions[] = "form.elements['transportation_type_public_transportation'].disabled";
+$conditions[] = "(".implode(' && ', $types_conditions). ")";
+if ($options['time']){
+	$conditions[] = "(form.elements['carpool_times_morning'].value == '' || form.elements['carpool_times_evening'].value == '')";
+	$errmsg .= ($options['driver'] ? ',' : ' and') . " your commute times";
+}
+if ($options['driver']){
+	$conditions[] = "(!form.elements['transportation_type_carpool'].disabled && form.elements['carpool_options'].value == '') || (!form.elements['transportation_type_vanpool'].disabled && form.elements['vanpool_options'].value == '')";
+	$errmsg .= ", and driving preferences";
+}
+$conditions = implode(' || ', $conditions);
+?>
 <html>
 <head>
 <title>Aluvi</title>
@@ -20,26 +40,7 @@ function toggle_visibility(id) {
 		e_input.disabled = true;
 	}
 }
-<?php
-$errmsg = "Please select at least one transportation option";
-$conditions = array();
-$types_condition = array();
-if ($options['carpool']) $types_conditions[] = "form.elements['transportation_type_carpool'].disabled";
-if ($options['vanpool']) $types_conditions[] = "form.elements['transportation_type_vanpool'].disabled";
-if ($options['bicycle']) $types_conditions[] = "form.elements['transportation_type_bicycle'].disabled";
-if ($options['commuter_shuttle']) $types_conditions = "form.elements['transportation_type_commuter_bus'].disabled";
-if ($options['public_transportation']) $types_conditions = "form.elements['transportation_type_public_transportation'].disabled";
-$conditions[] = "(".implode(' && ', $types_condition). ")";
-if ($options['time']){
-	$conditions[] = "(form.elements['carpool_times_morning'].value == '' || form.elements['carpool_times_evening'].value == '')";
-	$errmsg .= ($options['driver'] ? ',' : ' and') . " your commute times";
-}
-if ($options['driver']){
-	$conditions[] = "(!form.elements['transportation_type_carpool'].disabled && form.elements['carpool_options'].value == '') || (!form.elements['transportation_type_vanpool'].disabled && form.elements['vanpool_options'].value == '')";
-	$errmsg .= ", and driving preferences";
-}
-$conditions = implode(' || ', $conditions);
-?>
+
 function validate_form(){
 	var form = document.forms[0];
 	if (<?php echo $conditions?>){
