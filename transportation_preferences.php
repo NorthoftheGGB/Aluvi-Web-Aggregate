@@ -155,7 +155,7 @@ echo "<input type='hidden' name='context' value='$context'>
 <?php } else echo "<div class='option' style='width:300px'>&nbsp;</div>" ?>
 <center style='width:1000px;' class="times_select">
 <div style='width:800px'>
-<p style='float:left; margin-left:40px; margin-right:10px;'>
+<p style='float:left; margin-left:130px; margin-right:10px;'>
 When I'd like to arrive at work (AM):&nbsp;&nbsp;<br>
 <select name="carpool_times_morning">
 	<option value="">--Select Time--</option>
