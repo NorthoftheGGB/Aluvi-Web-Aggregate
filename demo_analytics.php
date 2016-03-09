@@ -11,7 +11,7 @@ foreach ($office_results as $r){
 	$selected = $office == $r['id'] ? 'selected' : '';
 	if ($_GET['view'])
 		$url .= '&view='.$_GET['view'];
-	$office_options .= "<option onselect='window.location=\"$url\"'>$r[name]</option>";
+	$office_options .= "<option><a href='$url'>$r[name]</a></option>";
 }
 ?>
 <html>
