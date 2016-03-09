@@ -36,8 +36,10 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
 <form method='post' action='demo_analytics.php?view=Options'>
 <input type='hidden' name='action' value='update options' />
 <h2>Transportation Options</h2>
+<label>
 <input type='checkbox' name='Carpool' value='Carpool'/>
-
+Carpool
+</label>
 </form>
 <form method='post' action='demo_analytics.php?view=Options'>
 <input type='hidden' name='action' value='add vanpool' />
