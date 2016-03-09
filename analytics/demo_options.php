@@ -8,7 +8,8 @@ if ($_POST['action'] == 'update options'){
     $times = 0 + $_POST['times'];
     $driver = 0 + $_POST['driver'];
     mysqli_query($users_con, "update transit_options set carpool = $carpool, vanpool = $vanpool,
-                 bicycle = $bicycle, public_transportation = $public_transportation, commuter_shuttle = $commuter_shuttle, times = $times, driver=$driver");
+                 bicycle = $bicycle, public_transportation = $public_transportation, commuter_shuttle = $commuter_shuttle, times = $times, driver=$driver
+                 where office = $office");
 }
 if ($_POST['action'] == 'add vanpool'){
     $json = json_decode(file_get_contents($url = "https://maps.googleapis.com/maps/api/geocode/json?address=".str_replace(' ', '+', $_POST['address'])), true);
@@ -46,7 +47,7 @@ $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, l
 $transit_options = mysqli_fetch_array(mysqli_query($users_con, "select * from transit_options"), MYSQLI_NUM);
 $ti = 0;
 ?>
-<form method='post' action='demo_analytics.php?view=Options'>
+<form method='post' action='<?php echo $main_url?>&view=Options'>
 <input type='hidden' name='action' value='update options' />
 <h2>Transportation Options</h2>
 <label>
@@ -85,7 +86,7 @@ Driver/Rider
 <br /><br />
 <input type='submit' value='Update' />
 </form>
-<form method='post' action='demo_analytics.php?view=Options'>
+<form method='post' action='<?php echo $main_url?>&view=Options'>
 <input type='hidden' name='action' value='add vanpool' />
 <?php if ($id = $_GET['edit']) echo "<input type='hidden' name='edit_id' value='$id' />" ?>
 <h2>Vanpools</h2>
@@ -132,7 +133,7 @@ Driver/Rider
 <br/>
 <?php if ($id) { ?>
 <input type='submit' value='Update' />
-<a href='demo_analytics.php?view=Options'><input type='button' value='Cancel' /></a>
+<a href='<?php echo $main_url?>&view=Options'><input type='button' value='Cancel' /></a>
 <?php } else { ?>
 <input type='submit' value='Add Vanpool To Map' /> &nbsp;&nbsp; <span style='color:red'><?php echo $error ?> </span>
 <?php } ?>
