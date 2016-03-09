@@ -29,7 +29,7 @@ if(mysqli_num_rows($result) == 0){
 		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
 		header("Pragma: no-cache"); // HTTP 1.0.
 		header("Expires: 0"); // Proxies.
-		$options = mysqli_fetch_array(mysqli_query($users_con, "select * from transit_options"));
+		$options = mysqli_fetch_assoc(mysqli_query($users_con, "select * from transit_options"));
 		$margin = 500;
 		foreach ($options as $o){
 			if ($o)
