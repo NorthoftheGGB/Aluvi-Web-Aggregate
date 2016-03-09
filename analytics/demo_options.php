@@ -5,7 +5,10 @@ if ($_POST['action'] == 'update options'){
     $bicycle = 0 + $_POST['bicycle'];
     $public_transportation = 0 + $_POST['public_transportation'];
     $commuter_shuttle = 0 + $_POST['commuter_shuttle'];
-    mysqli_query($users_con, "update transit_options set carpool = $carpool, vanpool = $vanpool, bicycle = $bicycle, public_transportation = $public_transportation, commuter_shuttle = $commuter_shuttle");
+    $times = 0 + $_POST['times'];
+    $driver = 0 + $_POST['driver'];
+    mysqli_query($users_con, "update transit_options set carpool = $carpool, vanpool = $vanpool,
+                 bicycle = $bicycle, public_transportation = $public_transportation, commuter_shuttle = $commuter_shuttle, times = $times, driver=$driver");
 }
 if ($_POST['action'] == 'add vanpool'){
     $json = json_decode(file_get_contents($url = "https://maps.googleapis.com/maps/api/geocode/json?address=".str_replace(' ', '+', $_POST['address'])), true);
@@ -69,6 +72,15 @@ Bicycle
 <label>
 <input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Commuter Shuttle
+</label>
+<br />
+<label>
+<input type='checkbox' name='times' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
+Commute Times
+</label>
+<label>
+<input type='checkbox' name='driver' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
+Driver/Rider
 </label>
 <br /><br />
 <input type='submit' value='Update' />
