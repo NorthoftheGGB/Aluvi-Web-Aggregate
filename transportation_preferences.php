@@ -87,7 +87,7 @@ if ($options['carpool']) {
 	<option value="both">Drive and Ride</option>
 	<option value="rider">Ride Only</option>
 </select>
-<?php } ?>
+<?php } else echo "<div style='height:37px'>&nbsp;</div>" ?>
 
 </p>
 <p>
@@ -113,7 +113,7 @@ if ($options['carpool']) {
 	<option value="both">Drive and Ride</option>
 	<option value="rider">Ride Only</option>
 </select>
-<?php } ?>
+<?php } else echo "<div style='height:37px'>&nbsp;</div>" ?>
 </p>
 <p>
 	<div id="transportation_type_vanpool" class="transportation_type" onclick="toggle_visibility('transportation_type_vanpool');" style="display: block;">
