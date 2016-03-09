@@ -58,10 +58,12 @@ Please select the transportation options you are interested in: <br></p>
 <div class="description" id="choices">
 
 <form action="update_preferences.php" method="POST">
-<?php if ($context == 'fico') echo "<div class='option' style='width:300px'>&nbsp;</div>";
+<?php echo "<div class='option' style='width:${margin}px'>&nbsp;</div>";
 echo "<input type='hidden' name='context' value='$context'>
 <input type='hidden' name='userid' value='$user[id]' />";
+if ($options['carpool']) {
 ?>
+
 <div class="option">
 <!--<p>Carpool-->
 <p>
@@ -83,6 +85,7 @@ echo "<input type='hidden' name='context' value='$context'>
 
 </div>
 
+<?php } if ($options['vanpool']) { ?>
 
 <div class="option">
 <!--<p>Vanpool-->
@@ -106,7 +109,7 @@ echo "<input type='hidden' name='context' value='$context'>
 
 
 
-<?php if ($context !='fico') { ?>
+<?php  } if ($options['bicycle']) { ?>
 
 <div class="option">
 <!--<p>Bicycle-->
@@ -120,7 +123,7 @@ echo "<input type='hidden' name='context' value='$context'>
 	<input type="hidden" id="transportation_type_bicycle_input" name="transportation_type_bicycle" value="selected" disabled="true"/>
 </div>
 
-
+<?php } if ($options['public_transportation']) { ?>}
 
 <div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
@@ -137,7 +140,7 @@ echo "<input type='hidden' name='context' value='$context'>
 
 
 
-
+<?php } if ($options['commuter_shuttle']) { ?>
 
 <div class="option" id="shuttleBox">
 <!--<p>Commuter Bus-->
@@ -152,7 +155,7 @@ echo "<input type='hidden' name='context' value='$context'>
 </p>
 </div>
 
-<?php } else echo "<div class='option' style='width:300px'>&nbsp;</div>" ?>
+<?php }  echo "<div class='option' style='width:${margin}px'>&nbsp;</div>" ?>
 <center style='width:1000px; margin-bottom:80px' class="times_select">
 <div style='width:800px'>
 <p style='float:left; margin-left:130px; margin-right:10px;'>
