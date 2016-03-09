@@ -20,17 +20,30 @@ function toggle_visibility(id) {
 		e_input.disabled = true;
 	}
 }
-
+<?php
+$errmsg = "Please select at least one transportation option";
+$conditions = array();
+$types_condition = array();
+if ($options['carpool']) $types_conditions[] = "form.elements['transportation_type_carpool'].disabled";
+if ($options['vanpool']) $types_conditions[] = "form.elements['transportation_type_vanpool'].disabled";
+if ($options['bicycle']) $types_conditions[] = "form.elements['transportation_type_bicycle'].disabled";
+if ($options['commuter_shuttle']) $types_conditions = "form.elements['transportation_type_commuter_bus'].disabled";
+if ($options['public_transportation']) $types_conditions = "form.elements['transportation_type_public_transportation'].disabled";
+$conditions[] = "(".implode(' && ', $types_condition). ")";
+if ($options['time']){
+	$conditions[] = "(form.elements['carpool_times_morning'].value == '' || form.elements['carpool_times_evening'].value == '')";
+	$errmsg .= ($options['driver'] ? ',' : ' and') . " your commute times";
+}
+if ($options['driver']){
+	$conditions[] = "(!form.elements['transportation_type_carpool'].disabled && form.elements['carpool_options'].value == '') || (!form.elements['transportation_type_vanpool'].disabled && form.elements['vanpool_options'].value == '')";
+	$errmsg .= ", and driving preferences";
+}
+$conditions = implode(' || ', $conditions);
+?>
 function validate_form(){
 	var form = document.forms[0];
-	if ((form.elements['transportation_type_carpool'].disabled && form.elements['transportation_type_vanpool'].disabled
-	     <?php if ($context == 'demo') echo "&& form.elements['transportation_type_bicycle'].disabled
-	     && form.elements['transportation_type_commuter_bus'].disabled && form.elements['transportation_type_public_transportation'].disabled" ?>) ||
-	    form.elements['carpool_times_morning'].value == '' ||
-	    form.elements['carpool_times_evening'].value == '' ||
-	    (!form.elements['transportation_type_carpool'].disabled && form.elements['carpool_options'].value == '') ||
-	    (!form.elements['transportation_type_vanpool'].disabled && form.elements['vanpool_options'].value == '') ){
-	document.getElementById('error').innerHTML = '<br/><br/>Please select at least one transportation option, your commute times, and driving preferences.';
+	if (<?php echo $conditions?>){
+	document.getElementById('error').innerHTML = '<br/><br/><?php echo $errmsg?>.';
 	return false;
 	}
 return true;
@@ -67,11 +80,14 @@ if ($options['carpool']) {
 <div class="option">
 <!--<p>Carpool-->
 <p>
+<?php if ($options['driver'])  { ?>
 <select name="carpool_options">
 	<option value="">--Select Option--</option>
 	<option value="both">Drive and Ride</option>
 	<option value="rider">Ride Only</option>
 </select>
+<?php } ?>
+
 </p>
 <p>
 	<div id="transportation_type_carpool" class="transportation_type" onclick="toggle_visibility('transportation_type_carpool');" style="display: block;">
@@ -90,11 +106,13 @@ if ($options['carpool']) {
 <div class="option">
 <!--<p>Vanpool-->
 <p>
+<?php if ($options['driver'])  { ?>
 <select name="vanpool_options">
 	<option value="">--Select Option--</option>
 	<option value="both">Drive and Ride</option>
 	<option value="rider">Ride Only</option>
 </select>
+<?php } ?>
 </p>
 <p>
 	<div id="transportation_type_vanpool" class="transportation_type" onclick="toggle_visibility('transportation_type_vanpool');" style="display: block;">
