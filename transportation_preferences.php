@@ -80,46 +80,7 @@ echo "<input type='hidden' name='context' value='$context'>
 	</div>
 	<input type="hidden" id="transportation_type_carpool_input" name="transportation_type_carpool" value="selected" disabled="true"/>
 </p>
-<center style='width:1000px; position:absolute;' class="times_select">
-<div style='width:800px'>
-<p style='float:left; margin-left:40px; margin-right:10px;'>
-When I'd like to arrive at work (AM):&nbsp;&nbsp;<br>
-<select name="carpool_times_morning">
-	<option value="">--Select Time--</option>
-	<option value="5:30">5:30</option>
-	<option value="6:00">6:00</option>
-	<option value="6:30">6:30</option>
-	<option value="7:00">7:00</option>
-	<option value="7:30">7:30</option>
-	<option value="8:00">8:00</option>
-	<option value="8:30">8:30</option>
-	<option value="9:00">9:00</option>
-	<option value="9:30">9:30</option>
-	<option value="10:00">10:00</option>
-</select>
-</p>
-<p style='float:left'>
-When I usually head home (PM):<br>
-<select name="carpool_times_evening">
-	<option value="">--Select Time--</option>
-	<option value="4:00">2:00</option>
-	<option value="4:30">2:30</option>
-	<option value="5:00">3:00</option>
-	<option value="5:30">3:30</option>
-	<option value="4:00">4:00</option>
-	<option value="4:30">4:30</option>
-	<option value="5:00">5:00</option>
-	<option value="5:30">5:30</option>
-	<option value="6:00">6:00</option>
-	<option value="6:30">6:30</option>
-	<option value="7:00">7:00</option>
-	<option value="7:30">7:30</option>
-	<option value="8:00">8:00</option>
-</select>
-</p>
-</div>
-<div id='error' style='clear:both; width:500px; text-align:left;'></div>
-</center>
+
 </div>
 
 
@@ -192,7 +153,46 @@ When I usually head home (PM):<br>
 </div>
 
 <?php } else echo "<div class='option' style='width:300px'>&nbsp;</div>" ?>
-
+<center style='width:1000px;' class="times_select">
+<div style='width:800px'>
+<p style='float:left; margin-left:40px; margin-right:10px;'>
+When I'd like to arrive at work (AM):&nbsp;&nbsp;<br>
+<select name="carpool_times_morning">
+	<option value="">--Select Time--</option>
+	<option value="5:30">5:30</option>
+	<option value="6:00">6:00</option>
+	<option value="6:30">6:30</option>
+	<option value="7:00">7:00</option>
+	<option value="7:30">7:30</option>
+	<option value="8:00">8:00</option>
+	<option value="8:30">8:30</option>
+	<option value="9:00">9:00</option>
+	<option value="9:30">9:30</option>
+	<option value="10:00">10:00</option>
+</select>
+</p>
+<p style='float:left'>
+When I usually head home (PM):<br>
+<select name="carpool_times_evening">
+	<option value="">--Select Time--</option>
+	<option value="4:00">2:00</option>
+	<option value="4:30">2:30</option>
+	<option value="5:00">3:00</option>
+	<option value="5:30">3:30</option>
+	<option value="4:00">4:00</option>
+	<option value="4:30">4:30</option>
+	<option value="5:00">5:00</option>
+	<option value="5:30">5:30</option>
+	<option value="6:00">6:00</option>
+	<option value="6:30">6:30</option>
+	<option value="7:00">7:00</option>
+	<option value="7:30">7:30</option>
+	<option value="8:00">8:00</option>
+</select>
+</p>
+</div>
+<div id='error' style='clear:both; width:500px; text-align:left;'></div>
+</center>
 <input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
 
 </form>
