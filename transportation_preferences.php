@@ -175,7 +175,7 @@ if ($options['carpool']) {
 </div>
 
 <?php }  if ($margin) echo "<div class='option' style='width:${margin}px'>&nbsp;</div>" ?>
-<center style='width:1000px; margin-bottom:80px' class="times_select">
+<center style='width:1000px; margin-bottom:50px' class="times_select">
 <div style='width:800px'>
 <p style='float:left; margin-left:130px; margin-right:10px;'>
 When I'd like to arrive at work (AM):&nbsp;&nbsp;<br>
