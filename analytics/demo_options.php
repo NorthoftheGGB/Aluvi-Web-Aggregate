@@ -1,5 +1,5 @@
 <?php
-if ($_POST['action']){
+if ($_POST['action'] == 'add vanpool'){
     $json = json_decode(file_get_contents($url = "https://maps.googleapis.com/maps/api/geocode/json?address=".str_replace(' ', '+', $_POST['address'])), true);
     echo "<!--
     $url
@@ -33,6 +33,14 @@ if ($_POST['action']){
 }
 $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, id from vanpool_pickup");
 ?>
+<form method='post' action='demo_analytics.php?view=Options'>
+<input type='hidden' name='action' value='update options' />
+<h2>Transportation Options</h2>
+<label>
+    Carpool
+    <input type='radio' name='Carpool' />
+</label>
+</form>
 <form method='post' action='demo_analytics.php?view=Options'>
 <input type='hidden' name='action' value='add vanpool' />
 <?php if ($id = $_GET['edit']) echo "<input type='hidden' name='edit_id' value='$id' />" ?>
