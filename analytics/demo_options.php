@@ -57,21 +57,22 @@ Vanpool
 </label>
 &nbsp;&nbsp;
 <label>
-<input type='checkbox' name='bicycle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
-Bicycle
-</label>
-&nbsp;&nbsp;
 <input type='checkbox' name='public_transportation' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Public Transportation
 </label>
 &nbsp;&nbsp;
+<label>
+<input type='checkbox' name='bicycle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
+Bicycle
+</label>
+&nbsp;&nbsp;
+<label>
 <input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Commuter Shuttle
 </label>
 <br /><br />
 <input type='submit' value='Update' />
 </form>
-<br /><br />
 <form method='post' action='demo_analytics.php?view=Options'>
 <input type='hidden' name='action' value='add vanpool' />
 <?php if ($id = $_GET['edit']) echo "<input type='hidden' name='edit_id' value='$id' />" ?>
