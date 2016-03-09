@@ -32,7 +32,8 @@ if(mysqli_num_rows($result) == 0){
 		$options = mysqli_fetch_array(mysqli_query($users_con, "select * from transit_options"));
 		$margin = 500;
 		foreach ($options as $o){
-			$margin -= 100;
+			if ($o)
+				$margin -= 100;
 		}
 		require('transportation_preferences.php');
 //	}
