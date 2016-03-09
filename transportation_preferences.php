@@ -213,7 +213,7 @@ When I usually head home (PM):<br>
 </select>
 </p>
 </div>
-<div id='error' style='clear:both; width:500px; text-align:left;'></div>
+<div id='error' style='clear:both; width:500px; text-align:left; position:absolute;'></div>
 </center>
 <input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
 
