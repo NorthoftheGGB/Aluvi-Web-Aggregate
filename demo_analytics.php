@@ -3,14 +3,15 @@ $context="demo";
 $office = $_GET['office'];
 if (!$office)
 	$office = 1;
-$main_url = "demo_analytics.php?office=$_GET[office]";
+$main_url = "demo_analytics.php?office=$office";
 include "database.php";
 $office_results = mysqli_query($users_con, "select * from offices");
 foreach ($office_results as $r){
 	$url = "demo_analytics.php?office=$r[id]";
+	$selected = $office = $r['id'] ? 'selected' : '';
 	if ($_GET['view'])
 		$url .= '&view='.$_GET['view'];
-	$office_options[] = "<option onclick='javascript:window.location=\"$url\"'>$r[name]</option>";
+	$office_options .= "<option onclick='javascript:window.location=\"$url\"'>$r[name]</option>";
 }
 ?>
 <html>
@@ -48,7 +49,7 @@ foreach ($office_results as $r){
 	<body>
 		<div class='tabs'>
 			<select>
-				<option></option>
+				<?php echo $office_options ?>
 			</select>
 			<?php foreach(array("Survey", "Recommendations",  "Usage", "Users", "Sustainability", "Options", "Admin") as $tab){
 				if ($tab == $_GET['view']) $selected = "class='selected'";
