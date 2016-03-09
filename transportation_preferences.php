@@ -8,7 +8,7 @@ if ($options['bicycle']) $types_conditions[] = "form.elements['transportation_ty
 if ($options['commuter_shuttle']) $types_conditions[] = "form.elements['transportation_type_commuter_bus'].disabled";
 if ($options['public_transportation']) $types_conditions[] = "form.elements['transportation_type_public_transportation'].disabled";
 $conditions[] = "(".implode(' && ', $types_conditions). ")";
-if ($options['time']){
+if ($options['times']){
 	$conditions[] = "(form.elements['carpool_times_morning'].value == '' || form.elements['carpool_times_evening'].value == '')";
 	$errmsg .= ($options['driver'] ? ',' : ' and') . " your commute times";
 }
