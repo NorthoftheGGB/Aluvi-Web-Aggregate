@@ -1,4 +1,12 @@
 <?php
+if ($_POST['action'] == 'update options'){
+    $carpool = 0 + $_POST['carpool'];
+    $vanpool = 0 + $_POST['vanpool'];
+    $bicycle = 0 + $_POST['bicycle'];
+    $public_transportation = 0 + $_POST['public_transportation'];
+    $commuter_shuttle = 0 + $_POST['commuter_shuttle'];
+    mysqli_query($users_con, "update transit_options set carpool = $carpool, vanpool = $vanpool, bicycle = $bicycle, public_transportation = $public_transportation, commuter_shuttle = $commuter_shuttle");
+}
 if ($_POST['action'] == 'add vanpool'){
     $json = json_decode(file_get_contents($url = "https://maps.googleapis.com/maps/api/geocode/json?address=".str_replace(' ', '+', $_POST['address'])), true);
     echo "<!--
@@ -60,7 +68,10 @@ Public Transportation
 <input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Commuter Shuttle
 </label>
+<br /><br />
+<input type='submit' value='Update' />
 </form>
+<br /><br />
 <form method='post' action='demo_analytics.php?view=Options'>
 <input type='hidden' name='action' value='add vanpool' />
 <?php if ($id = $_GET['edit']) echo "<input type='hidden' name='edit_id' value='$id' />" ?>
