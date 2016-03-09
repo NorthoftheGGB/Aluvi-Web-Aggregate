@@ -11,7 +11,7 @@ foreach ($office_results as $r){
 	$selected = $office == $r['id'] ? 'selected' : '';
 	if ($_GET['view'])
 		$url .= '&view='.$_GET['view'];
-	$office_options .= "<option value='$url'>$r[name]</option>";
+	$office_options .= "<option value='$url' $selected>$r[name]</option>";
 }
 ?>
 <html>
