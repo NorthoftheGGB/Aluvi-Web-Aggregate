@@ -8,7 +8,7 @@ include "database.php";
 $office_results = mysqli_query($users_con, "select * from offices");
 foreach ($office_results as $r){
 	$url = "demo_analytics.php?office=$r[id]";
-	$selected = $office = $r['id'] ? 'selected' : '';
+	$selected = $office == $r['id'] ? 'selected' : '';
 	if ($_GET['view'])
 		$url .= '&view='.$_GET['view'];
 	$office_options .= "<option onclick='javascript:window.location=\"$url\"'>$r[name]</option>";
