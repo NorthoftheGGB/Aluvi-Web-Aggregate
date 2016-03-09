@@ -32,7 +32,7 @@ if ($_POST['action'] == 'add vanpool'){
     else $error = 'Location Not Found';
 }
 $vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, id from vanpool_pickup");
-$transit_options = mysqli_fetch_array(mysqli_query($users_con, "select * from transit_options"), mysqli_num);
+$transit_options = mysqli_fetch_array(mysqli_query($users_con, "select * from transit_options"), MYSQLI_NUM);
 $ti = 0;
 ?>
 <form method='post' action='demo_analytics.php?view=Options'>
