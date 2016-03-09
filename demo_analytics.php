@@ -11,7 +11,7 @@ foreach ($office_results as $r){
 	$selected = $office == $r['id'] ? 'selected' : '';
 	if ($_GET['view'])
 		$url .= '&view='.$_GET['view'];
-	$office_options .= "<option><a href='$url'>$r[name]</a></option>";
+	$office_options .= "<option value='$url'>$r[name]</option>";
 }
 ?>
 <html>
@@ -48,7 +48,7 @@ foreach ($office_results as $r){
 	</head>
 	<body>
 		<div class='tabs'>
-			<select>
+			<select onchange='window.location = $(this).val()'>
 				<?php echo $office_options ?>
 			</select>
 			<?php foreach(array("Survey", "Recommendations",  "Usage", "Users", "Sustainability", "Options", "Admin") as $tab){
