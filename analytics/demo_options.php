@@ -30,16 +30,16 @@ if ($_POST['action'] == 'add vanpool'){
                 $extra1 = ', id';
                 $extra2 = ', '.$_POST['edit_id'];
             }
-            mysqli_query($users_con, $q = "insert into vanpool_pickup (leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, lat, lng, zip$extra1)
-                 values ('$_POST[name]', '$_POST[email]', '$_POST[address]', '$_POST[departs_location]', '$_POST[arrives_work]', '$_POST[departs_work]', $lat, $lng, '$zip'$extra2 )");
+            mysqli_query($users_con, $q = "insert into vanpool_pickup (office, leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, lat, lng, zip$extra1)
+                 values ($office, '$_POST[name]', '$_POST[email]', '$_POST[address]', '$_POST[departs_location]', '$_POST[arrives_work]', '$_POST[departs_work]', $lat, $lng, '$zip'$extra2 )");
             
         }
         else $error = 'Location Not Found';
     }
     else $error = 'Location Not Found';
 }
-$vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, id from vanpool_pickup");
-$transit_options = mysqli_fetch_array(mysqli_query($users_con, "select * from transit_options"), MYSQLI_NUM);
+$vanpool_results = mysqli_query($users_con, "select leader_name, leader_email, location_title, departs_location, arrives_work, departs_work, id from vanpool_pickup where office = $office");
+$transit_options = mysqli_fetch_array(mysqli_query($users_con, "select * from transit_options where office = $office"), MYSQLI_NUM);
 $ti = 0;
 ?>
 <form method='post' action='<?php echo $main_url?>&view=Options'>
