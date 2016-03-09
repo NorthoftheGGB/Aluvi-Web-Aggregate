@@ -39,25 +39,25 @@ $ti = 0;
 <input type='hidden' name='action' value='update options' />
 <h2>Transportation Options</h2>
 <label>
-<input type='checkbox' name='carpool' value='1' <?php echo $transit_options[$ti++] ? "selected" : "" ?>/>
+<input type='checkbox' name='carpool' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Carpool
 </label>
 &nbsp;&nbsp;
 <label>
-<input type='checkbox' name='vanpool' value='1' <?php echo $transit_options[$ti++] ? "selected" : "" ?>/>
+<input type='checkbox' name='vanpool' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Vanpool
 </label>
 &nbsp;&nbsp;
 <label>
-<input type='checkbox' name='bicycle' value='1' <?php echo $transit_options[$ti++] ? "selected" : "" ?>/>
+<input type='checkbox' name='bicycle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Bicycle
 </label>
 &nbsp;&nbsp;
-<input type='checkbox' name='public_transportation' value='1' <?php echo $transit_options[$ti++] ? "selected" : "" ?>/>
+<input type='checkbox' name='public_transportation' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Public Transportation
 </label>
 &nbsp;&nbsp;
-<input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "selected" : "" ?>/>
+<input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Commuter Shuttle
 </label>
 </form>
