@@ -58,7 +58,7 @@ Please select the transportation options you are interested in: <br></p>
 <div class="description" id="choices">
 
 <form action="update_preferences.php" method="POST">
-<?php echo "<div class='option' style='width:${margin}px'>&nbsp;</div>";
+<?php if ($margin) echo "<div class='option' style='width:${margin}px'>&nbsp;</div>";
 echo "<input type='hidden' name='context' value='$context'>
 <input type='hidden' name='userid' value='$user[id]' />";
 if ($options['carpool']) {
@@ -155,7 +155,7 @@ if ($options['carpool']) {
 </p>
 </div>
 
-<?php }  echo "<div class='option' style='width:${margin}px'>&nbsp;</div>" ?>
+<?php }  if ($margin) echo "<div class='option' style='width:${margin}px'>&nbsp;</div>" ?>
 <center style='width:1000px; margin-bottom:80px' class="times_select">
 <div style='width:800px'>
 <p style='float:left; margin-left:130px; margin-right:10px;'>
