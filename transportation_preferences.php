@@ -123,7 +123,7 @@ if ($options['carpool']) {
 	<input type="hidden" id="transportation_type_bicycle_input" name="transportation_type_bicycle" value="selected" disabled="true"/>
 </div>
 
-<?php } if ($options['public_transportation']) { ?>}
+<?php } if ($options['public_transportation']) { ?>
 
 <div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
