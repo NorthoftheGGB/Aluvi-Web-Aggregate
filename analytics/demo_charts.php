@@ -119,6 +119,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 			?>
 		</select>
 		<input type='submit' value='Show' />
+		Total Sign Ups: <?php echo $users['number'] ?>
 		</div>
 	</form>
 	<div class="chart" id="column1" style="width: 420px; height: 250px;"></div>
