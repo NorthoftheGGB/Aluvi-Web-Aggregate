@@ -86,9 +86,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
     </style>
   </head>
   <body onload="showCities($('#cntysel').val()); showZipcodes($('#ctysel').val());">
-	<div style='font-size:20px; width:700px; '>
-		<span style='margin-left:300px'>Total Sign Ups: <?php echo $users['number'] ?></span>
-	</div>
+	
 	<br/><br/><br/>
 	<div style='width:1060px; margin:auto'>
 	<form method = 'get' action = 'demo_charts.php'>
@@ -119,7 +117,8 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 			?>
 		</select>
 		<input type='submit' value='Show' />
-		Total Sign Ups: <?php echo $users['number'] ?>
+		&nbsp;&nbsp&nbsp;
+		<b>Total Sign Ups: <?php echo $users['number'] ?></b>
 		</div>
 	</form>
 	<div class="chart" id="column1" style="width: 420px; height: 250px;"></div>
