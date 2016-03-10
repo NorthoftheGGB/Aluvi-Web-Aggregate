@@ -114,7 +114,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 			<option value='all'>All Zip Codes</option>
 			<?php foreach ($zipcodes as $z){
 				$selected = $z['code'] == $_GET['zipcode'] ? 'selected' : '';
-				echo "<option value='$z[code]' class='zipopt city_$z[city]'>$z[code]</option>";
+				echo "<option value='$z[code]' $selected class='zipopt city_$z[city]'>$z[code]</option>";
 				}
 			?>
 		</select>
