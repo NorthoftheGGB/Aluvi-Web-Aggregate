@@ -6,7 +6,7 @@ if ($_POST['action']){
 
 $admin_results = mysqli_query($users_con, "select name, email from admin");
 ?>
-<form method='post' action='demo_analytics.php?view=Admin'>
+<form method='post' action='<?php echo $main_url?>&view=Admin'>
 <input type='hidden' name='action' value='add user' />
 <h2>Admins</h2>
 <table style='width:30%'>

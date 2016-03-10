@@ -1,11 +1,13 @@
 <?php
 $context = "demo";
+$office = $_GET['office'];
 include "../database.php";
 include "make_charts.php";
 //geographical data
 $result = mysqli_query($con, "select u.zip, c.name city_name, c.id as city_id, cn.name county_name, cn.id as county_id
 		       from demo_users.users u join demo_users.preferences p on p.user_id = u.id
-		       join zipcode_locations zl on zl.zip = u.zip join cities c on c.id = zl.city join counties cn on cn.id = c.county group by u.zip
+		       join zipcode_locations zl on zl.zip = u.zip join cities c on c.id = zl.city join counties cn on cn.id = c.county
+		       where u.office = $office group by u.zip
 		       order by cn.name, c.name, u.zip");
 while ($row = mysqli_fetch_array($result)){
 	$zipcodes[] = array("code" => $row['zip'], "city" => $row['city_id']);
@@ -24,10 +26,11 @@ if ($_GET['county'] && $_GET['county'] != 'all'){
 	x on x.id = user_id";
 }
 
-$q1 = "select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_transportation) as `Public Transportation` from preferences $filter";
-$tq1 = "select distinct(carpool_times_morning) as time from preferences $filter order by time";
-$tq2 = "select distinct(carpool_times_evening) as time from preferences $filter order by time";
-$uq = "select count(*) as number from preferences $filter";
+$q1 = "select sum(carpool) as Carpool, sum(vanpool) as Vanpool, sum(public_transportation) as `Public Transportation` from preferences $filter
+join users u on u.id=user_id where office=$office";
+$tq1 = "select distinct(carpool_times_morning) as time from preferences $filter join users u on u.id=user_id where office=$office order by time";
+$tq2 = "select distinct(carpool_times_evening) as time from preferences $filter join users u on u.id=user_id where office=$office order by time";
+$uq = "select count(*) as number from preferences $filter join users u on u.id=user_id where office=$office ";
 echo "<!--
 $q1
 -->";

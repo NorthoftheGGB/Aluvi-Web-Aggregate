@@ -1,12 +1,13 @@
 <?php
 $context = "demo";
+$office = $_GET['office'];
 include "../database.php";
 if ($_GET['type']){
 	$where = "and $_GET[type]";
 }
 //heatmap
 $result = mysqli_query($users_con, "select lat, lng from glassdoor.zipcode_locations z join users u on u.zip = z.zip
-					  join preferences p on u.id = p.user_id $where");
+					  join preferences p on u.id = p.user_id $where where office = $office");
 while ($row = mysqli_fetch_assoc($result)) {
 	$heatmap_data[] = "new google.maps.LatLng($row[lat], $row[lng])";
 }

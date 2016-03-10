@@ -58,8 +58,8 @@ foreach ($office_results as $r){
 				}?>
 		</div>
 		<?php if (!$_GET['view'] || $_GET['view'] == 'Survey')  { ?>
-		<iframe style="width:100%; height:400px" frameborder='0' src='analytics/demo_charts.php'></iframe>
-		<iframe style="width:100%; height:450px" frameborder='0' src='analytics/demo_heatmap.php'></iframe>
+		<iframe style="width:100%; height:400px" frameborder='0' src='analytics/demo_charts.php?office=<?php echo $office ?>'></iframe>
+		<iframe style="width:100%; height:450px" frameborder='0' src='analytics/demo_heatmap.php?office=<?php echo $office ?>'></iframe>
 		<?php } else if (in_array($_GET['view'], array('Users', "Recommendations", "Admin", "Options"))) {
 			$view = strtolower($_GET['view']);
 			include "analytics/demo_$view.php";
