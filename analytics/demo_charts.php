@@ -91,7 +91,8 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	</div>
 	<br/><br/><br/>
 	<div style='width:1060px; margin:auto'>
-	<form method = 'get' action = 'demo_charts.php?office=<?php echo $office?>'>
+	<form method = 'get' action = 'demo_charts.php'>
+		<input type='hidden' name='office' value='<?php echo $office ?>' />
 		<div style='margin-left:70px;'>
 		<select name='county' id='cntysel' onchange='showCities(this.value)'>
 			<option value='all'>All Counties</option>

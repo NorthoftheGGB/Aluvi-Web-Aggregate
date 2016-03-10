@@ -52,7 +52,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </head>
   <body>
 	<div style='width:800px; margin:auto;'>
-		<form method='get' action='demo_heatmap.php?office=<?php echo $office?>'>
+		<form method='get' action='demo_heatmap.php'>
+			<input type='hidden' name='office' value='<?php echo $office ?>' />
 			<select name='type'>
 				<option value=''>All Transportation Types</option>
 				<option value='carpool' <?php if($_GET['type'] == 'carpool') echo 'selected' ?>>Carpool</option>
