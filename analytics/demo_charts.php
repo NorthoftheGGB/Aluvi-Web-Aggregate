@@ -68,15 +68,18 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	<?php addChart('pie2',  'PieChart', 'Departure Times', $data3) ?>
         
       }
-      function showCities(county){
+      function showCities(county, init){
 	$('.cityopt').hide();
-	$('#citysel').val('all');
+	if (!init)
+		$('#citysel').val('all');
 	$('.county_'+county).show();
       }
-      function showZipcodes(city){
+      function showZipcodes(city, init){
 	$('.zipopt').hide();
-	$('#citysel').val('all');
-	$('#zipsel').val('all');
+	if (!init){
+		$('#citysel').val('all');
+		$('#zipsel').val('all');
+	}
 	$('.city_'+city).show();
       }
     </script>        
@@ -85,14 +88,14 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	.cityopt, .zipopt {display:none;}
     </style>
   </head>
-  <body onload="showCities($('#cntysel').val()); showZipcodes($('#ctysel').val());">
+  <body onload="showCities($('#cntysel').val(), true); showZipcodes($('#citysel').val(), true);">
 	
-	<br/><br/><br/>
+	<br/>
 	<div style='width:1060px; margin:auto'>
 	<form method = 'get' action = 'demo_charts.php'>
 		<input type='hidden' name='office' value='<?php echo $office ?>' />
 		<div style='margin-left:70px;'>
-		<select name='county' id='cntysel' onchange='showCities(this.value)'>
+		<select name='county' id='cntysel' onchange='showCities(this.value, false)'>
 			<option value='all'>All Counties</option>
 			<?php foreach ($counties as $c){
 				$selected = $c['id'] == $_GET['county'] ? 'selected' : '';
@@ -100,7 +103,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 				}
 			?>
 		</select>
-		<select name='city' id='ctysel' onchange='showZipcodes(this.value)'>
+		<select name='city' id='ctysel' onchange='showZipcodes(this.value, false)'>
 			<option value='all'>All Cities</option>
 			<?php foreach ($cities as $c){
 				$selected = $c['id'] == $_GET['city'] ? 'selected' : '';
