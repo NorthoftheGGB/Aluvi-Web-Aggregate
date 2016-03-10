@@ -29,9 +29,12 @@ foreach ($office_results as $r){
 			td, th {
 				padding:2px;
 			}
-			.col4 {
+			.col5 {
 				float:left;
-				width:23%;
+				width:19%;
+			}
+			.col5 h2 {
+				font-size:20px;
 			}
 			.zipItem{
 				font-weight:bold;
