@@ -40,6 +40,7 @@ src: url(../resources/Bryant-Medium.ttf);
 
 body{
 font-family:"Bryant", sans-serif;
+background-color:#c6eeec;
 }
 a, input[type=button], input[type=submit]{
 	-moz-box-shadow: 0px 4px 0px 0px #338288;
@@ -58,7 +59,6 @@ font-weight:bold;
 font-size:14px;
 padding:3px 7px;
 text-decoration:none;
-background-color:#c6eeec;
 }
 a:hover {
 	background-color:transparent;
