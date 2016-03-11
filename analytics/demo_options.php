@@ -14,6 +14,7 @@ if ($_POST['action'] == 'update options'){
 }
 if ($_POST['action'] == 'add vanpool'){
     $json = json_decode(file_get_contents($url = "https://maps.googleapis.com/maps/api/geocode/json?address=".str_replace(' ', '+', $_POST['address'])), true);
+    echo "<!--$json-->";
     if (count($json['results']) == 1){
         $res = $json['results'][0];
         foreach ($res['address_components'] as $x){
