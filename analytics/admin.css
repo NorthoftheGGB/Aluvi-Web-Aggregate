@@ -49,7 +49,7 @@ a, input[type=button], input[type=submit]{
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-border:1px solid #ffffff;
+border:1px solid #aaaaaa;
 display:inline-block;
 cursor:pointer;
 color:#5b6566;
@@ -61,6 +61,6 @@ text-decoration:none;
 }
 a:hover {
 	background-color:transparent;
-color:white;
+color:black;
 border:1px solid #338288;
 }
