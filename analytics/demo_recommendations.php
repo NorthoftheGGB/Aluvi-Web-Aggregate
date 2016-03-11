@@ -60,7 +60,7 @@ $bike_results = mysqli_query($users_con, "select name, zip from users u join pre
 <?php
   $zip = 0;
   $results = false;
-  while ($row=mysqli_fetch_array($bicycle_results)){
+  while ($row=mysqli_fetch_array($bike_results)){
     $results = true;
     if ($row['zip'] != $zip ){
         echo "<div class='zipItem'>$row[zip]</div>";
