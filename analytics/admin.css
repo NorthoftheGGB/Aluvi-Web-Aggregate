@@ -28,12 +28,12 @@ td, th {
 }
 @font-face {
 	font-family: "Bryant";
-src: url(resources/Bryant-Regular.ttf);
+src: url(../resources/Bryant-Regular.ttf);
 }
 
 @font-face {
 	font-family: "Bryant";
-src: url(resources/Bryant-Medium.ttf);
+src: url(../resources/Bryant-Medium.ttf);
      font-weight:bold;
 }
 
