@@ -70,7 +70,12 @@ cursor:pointer;
 color:#5b6566;
 font-family:"Bryant";
 font-weight:bold;
-font-size:18px;
-padding:12px 38px;
+font-size:14px;
+padding:3px 7px;
 text-decoration:none;
+}
+a:hover {
+	background-color:transparent;
+color:white;
+border:1px solid #338288;
 }
