@@ -1,7 +1,7 @@
 .tabs {margin-bottom:2em; text-align:center; width:100%}
 .tabs a, .tabs select {margin-right:25px;}
 table, th, td {
-         border: 1px solid black;
+         border: 1px solid white;
 }
 table {
         border-collapse:collapse;
