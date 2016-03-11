@@ -21,12 +21,15 @@ foreach ($office_results as $r){
 
 	</head>
 	<body>
-		<center><img src='AluviGreen.jpg' /></center>
-		<br />
-		<div class='tabs'>
+		<center>
+			<img src='AluviGreen.jpg' /><br/>
 			<select onchange='window.location = $(this).val()'>
 				<?php echo $office_options ?>
 			</select>
+		</center>
+		<br />
+		<div class='tabs'>
+			
 			<?php foreach(array("Survey", "Recommendations",  "Usage", "Users", "Sustainability", "Options", "Admin") as $tab){
 				if ($tab == $_GET['view']) $selected = "class='selected'";
 					else $selected = "";
@@ -34,7 +37,7 @@ foreach ($office_results as $r){
 				}?>
 		</div>
 		<?php if (!$_GET['view'] || $_GET['view'] == 'Survey')  { ?>
-		<iframe style="width:100%; height:400px" frameborder='0' src='analytics/demo_charts.php?office=<?php echo $office ?>'></iframe>
+		<iframe style="width:100%; height:340px" frameborder='0' src='analytics/demo_charts.php?office=<?php echo $office ?>'></iframe>
 		<iframe style="width:100%; height:450px" frameborder='0' src='analytics/demo_heatmap.php?office=<?php echo $office ?>'></iframe>
 		<?php } else if (in_array($_GET['view'], array('Users', "Recommendations", "Admin", "Options"))) {
 			$view = strtolower($_GET['view']);
