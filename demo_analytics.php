@@ -16,36 +16,7 @@ foreach ($office_results as $r){
 ?>
 <html>
 	<head>
-		<style>
-			.tabs {margin-bottom:2em; text-align:center; width:100%}
-			.tabs a, .tabs select {margin-right:25px;}
-			table, th, td {
-				 border: 1px solid black;
-			}
-			table {
-				border-collapse:collapse;
-
-			}
-			td, th {
-				padding:2px;
-			}
-			.col5 {
-				float:left;
-				width:19%;
-			}
-			.col5 h2 {
-				font-size:20px;
-			}
-			.zipItem{
-				font-weight:bold;
-			}
-			.nameItem{
-				margin-left:1em;	
-			}
-			.input td{
-				padding:0;
-			}
-		</style>
+		<link href="analytics/admin.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="analytics/jquery-1.9.1.js"></script>	
 
 	</head>

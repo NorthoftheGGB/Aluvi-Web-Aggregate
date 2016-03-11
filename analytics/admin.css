@@ -1,0 +1,57 @@
+.tabs {margin-bottom:2em; text-align:center; width:100%}
+.tabs a, .tabs select {margin-right:25px;}
+table, th, td {
+         border: 1px solid black;
+}
+table {
+        border-collapse:collapse;
+
+}
+td, th {
+        padding:2px;
+}
+.col5 {
+        float:left;
+        width:19%;
+}
+.col5 h2 {
+        font-size:20px;
+}
+.zipItem{
+        font-weight:bold;
+}
+.nameItem{
+        margin-left:1em;	
+}
+.input td{
+        padding:0;
+}
+@font-face {
+	font-family: "Bryant";
+src: url(resources/Bryant-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Bryant";
+src: url(resources/Bryant-Medium.ttf);
+     font-weight:bold;
+}
+
+
+body{
+margin:0;
+padding:0;
+background: #07a0a7;
+background: -moz-linear-gradient(top, #07a0a7 0%, #02aa83 99%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#07a0a7), color-stop(99%,#02aa83));
+background: -webkit-linear-gradient(top, #07a0a7 0%,#02aa83 99%);
+background: -o-linear-gradient(top, #07a0a7 0%,#02aa83 99%);
+background: -ms-linear-gradient(top, #07a0a7 0%,#02aa83 99%);
+background: linear-gradient(to bottom, #07a0a7 0%,#02aa83 99%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#07a0a7', endColorstr='#02aa83',GradientType=0 );
+background-attachment: fixed;*/
+background:white;
+width:100%;
+min-width:970px;
+font-family:"Bryant", sans-serif;
+}
