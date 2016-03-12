@@ -8,7 +8,7 @@ $bike_results = mysqli_query($users_con, "select name, zip from users u join pre
 ?>
 <div style="width:1060px; margin:auto">
 <div class='col5'>
-    <h2>Public Transportation</h2>
+    <h2>Public Trans</h2>
 <?php
   $zip = 0;
   $results = false;
@@ -55,22 +55,7 @@ $bike_results = mysqli_query($users_con, "select name, zip from users u join pre
   if (!$results) echo "<i>No Results</i>";
 ?>   
 </div>
-<div class='col5'>
-    <h2>Bicycle</h2>
-<?php
-  $zip = 0;
-  $results = false;
-  while ($row=mysqli_fetch_array($bike_results)){
-    $results = true;
-    if ($row['zip'] != $zip ){
-        echo "<div class='zipItem'>$row[zip]</div>";
-        $zip = $row['zip'];
-    }
-    echo "<div class='nameItem'>$row[name]</div>";
-  }
-  if (!$results) echo "<i>No Results</i>";
-?>   
-</div>
+
 <div class='col5'>
     <h2>Commuter Shuttle</h2>
 <?php
@@ -86,5 +71,21 @@ $bike_results = mysqli_query($users_con, "select name, zip from users u join pre
   }
   if (!$results) echo "<i>No Results</i>";
 ?>    
+</div>
+<div class='col5'>
+    <h2>Bicycle</h2>
+<?php
+  $zip = 0;
+  $results = false;
+  while ($row=mysqli_fetch_array($bike_results)){
+    $results = true;
+    if ($row['zip'] != $zip ){
+        echo "<div class='zipItem'>$row[zip]</div>";
+        $zip = $row['zip'];
+    }
+    echo "<div class='nameItem'>$row[name]</div>";
+  }
+  if (!$results) echo "<i>No Results</i>";
+?>   
 </div>
 </div>
