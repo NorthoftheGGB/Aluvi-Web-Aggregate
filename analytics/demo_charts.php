@@ -86,6 +86,22 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
     <style>
 	.chart {float:left;}
 	.cityopt, .zipopt {display:none;}
+	@font-face {
+	font-family: "Bryant";
+	src: url(../resources/Bryant-Regular.ttf);
+	}
+	
+	@font-face {
+		font-family: "Bryant";
+	src: url(../resources/Bryant-Medium.ttf);
+	     font-weight:bold;
+	}
+	
+	
+	body{
+	font-family:"Bryant", sans-serif;
+	background-color:#c6eeec;
+	}
     </style>
   </head>
   <body onload="showCities($('#cntysel').val(), true); showZipcodes($('#citysel').val(), true);">
@@ -121,7 +137,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 		</select>
 		<input type='submit' value='Show' />
 		&nbsp;&nbsp&nbsp;
-		<b>Total Sign Ups: <?php echo $users['number'] ?></b>
+		<b style='margin-left:400px'>Total Sign Ups: <?php echo $users['number'] ?></b>
 		</div>
 	</form>
 	<div class="chart" id="column1" style="width: 420px; height: 250px;"></div>
