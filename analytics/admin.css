@@ -70,3 +70,16 @@ a:hover {
 color:black;
 border:1px solid #338288;
 }
+#logo {
+background: #07a0a7;
+background: -moz-linear-gradient(top, #07a0a7 0%, #02aa83 99%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#07a0a7), color-stop(99%,#02aa83));
+background: -webkit-linear-gradient(top, #07a0a7 0%,#02aa83 99%);
+background: -o-linear-gradient(top, #07a0a7 0%,#02aa83 99%);
+background: -ms-linear-gradient(top, #07a0a7 0%,#02aa83 99%);
+background: linear-gradient(to bottom, #07a0a7 0%,#02aa83 99%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#07a0a7', endColorstr='#02aa83',GradientType=0 );
+background-attachment: fixed;*/
+background:white;
+width:100%;
+}

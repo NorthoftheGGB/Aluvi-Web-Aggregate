@@ -21,8 +21,8 @@ foreach ($office_results as $r){
 
 	</head>
 	<body>
-		<center>
-			<img src='AluviGreen.jpg' /><br/><br/>
+		<center id="logo">
+			<img src='AluviWhite.png' /><br/><br/>
 			<select onchange='window.location = $(this).val()'>
 				<?php echo $office_options ?>
 			</select>
