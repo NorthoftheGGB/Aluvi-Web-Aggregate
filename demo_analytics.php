@@ -46,7 +46,7 @@ foreach ($office_results as $r){
 			$view = strtolower($_GET['view']);
 			include "analytics/demo_$view.php";
 		}
-		else echo "(Under Construction)"
+		else echo "<center><b>Coming Soon</b></center>";
 		?>
 	</body>
 </html>
