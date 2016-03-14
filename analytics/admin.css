@@ -83,3 +83,6 @@ background-attachment: fixed;*/
 background:white;
 width:100%;
 }
+#logo img {
+         height: 90px;
+}
