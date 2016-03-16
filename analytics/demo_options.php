@@ -53,27 +53,22 @@ $ti = 0;
 <input type='checkbox' name='carpool' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Carpool
 </label><br />
-&nbsp;&nbsp;
 <label>
 <input type='checkbox' name='vanpool' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Vanpool
 </label><br />
-&nbsp;&nbsp;
 <label>
 <input type='checkbox' name='public_transportation' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Public Transportation
 </label><br />
-&nbsp;&nbsp;
 <label>
 <input type='checkbox' name='bicycle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Bicycle
 </label><br />
-&nbsp;&nbsp;
 <label>
 <input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Commuter Shuttle
 </label><br />
-<br />
 <label>
 <input type='checkbox' name='times' value='1' <?php echo $transit_options[$ti++] ? "checked" : "" ?>/>
 Commute Times
