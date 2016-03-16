@@ -72,6 +72,7 @@ a:hover {
 color:black;
 border:1px solid #338288;
 }
+/*
 #logo {
 background: #07a0a7;
 background: -moz-linear-gradient(top, #07a0a7 0%, #02aa83 99%);
@@ -81,10 +82,11 @@ background: -o-linear-gradient(top, #07a0a7 0%,#02aa83 99%);
 background: -ms-linear-gradient(top, #07a0a7 0%,#02aa83 99%);
 background: linear-gradient(to bottom, #07a0a7 0%,#02aa83 99%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#07a0a7', endColorstr='#02aa83',GradientType=0 );
-background-attachment: fixed;*/
+background-attachment: fixed;
 background:white;
 width:100%;
 }
+*/
 #logo img {
          height: 90px;
 }
