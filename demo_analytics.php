@@ -22,7 +22,7 @@ foreach ($office_results as $r){
 	</head>
 	<body>
 		<center id="logo">
-			<br/><img src='AluviWhite.png' /><br/><br/>
+			<br/><img src='AluviGreen.jpg' /><br/><br/>
 			
 		</center>
 		<div style="margin:10px">
