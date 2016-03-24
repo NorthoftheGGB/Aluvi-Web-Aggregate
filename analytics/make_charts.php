@@ -13,7 +13,6 @@ echo
 	  $data_fmt
         ]);
         options = {
-	  backgroundColor: '#c6eeec',
           title: '$title'$options
         };
         chart = new google.visualization.$type(document.getElementById('$element'));

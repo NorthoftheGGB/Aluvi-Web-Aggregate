@@ -41,7 +41,6 @@ src: url(../resources/Bryant-Medium.ttf);
 
 body{
 font-family:"Bryant", sans-serif;
-background-color:#c6eeec;
 margin: 0;
 }
 a, input[type=button], input[type=submit]{
