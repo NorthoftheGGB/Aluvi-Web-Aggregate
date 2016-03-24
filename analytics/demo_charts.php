@@ -100,7 +100,6 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 	
 	body{
 	font-family:"Bryant", sans-serif;
-	background-color:#c6eeec;
 	}
     </style>
   </head>
