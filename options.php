@@ -12,6 +12,7 @@ switch ($context) {
         $mainpage_blurb = "Discover alternative transportation options based on your commute preferences and help the HR and facilities team(s) develop incentives around new modes of transportation";    
         $offices = array();
         $logo_width = 321;
+        echo "I'm a chameleon, babe.";
         break;
     case "cityofsanrafael":
     case "sanrafael":
