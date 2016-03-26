@@ -1,5 +1,7 @@
 <?php
 $nametitle = ucwords($context);
+$transit_options = array('carpool', 'vanpool', 'bicycle', 'walking', 'public_transportation', 'commuter_bus');
+
 switch ($context) {
     case "fico":
         $mainpage_blurb = "Enter the following details to find <br>commute options in your area!";    
@@ -9,7 +11,6 @@ switch ($context) {
     case "verifone":
         $mainpage_blurb = "Discover alternative transportation options based on your commute preferences and help the HR and facilities team(s) develop incentives around new modes of transportation";    
         $offices = array();
-        $transit_options = array('carpool', 'vanpool', 'bicycle', 'walking', 'public_transportation', 'commuter_bus');
         break;
     case "cityofsanrafael":
     case "sanrafael":
@@ -17,13 +18,12 @@ switch ($context) {
         $nametitle = "San Rafael";
         $context = "sanrafael";
         $offices = array();
-        $transit_options = array('carpool', 'vanpool', 'bicycle', 'walking', 'public_transportation', 'commuter_bus');
         break;
     case "biomarin":
         $nametitle = "BioMarin";
         $mainpage_blurb = "Discover alternative transportation options based on your commute preferences and help the HR and facilities team(s) develop incentives around new modes of transportation";    
         $offices = array();
-        $transit_options = array('carpool', 'vanpool', 'bicycle', 'walking', 'public_transportation', 'commuter_bus');
+        $logo_width = 321;
         break;
 }
 

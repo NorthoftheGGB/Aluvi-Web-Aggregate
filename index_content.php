@@ -5,8 +5,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
 <link href="style.css" rel="stylesheet" />
-<link href="<?php echo $context ?>.css" rel="stylesheet" />
-
+<style>
+    .logo{
+        width:<?php echo $logo_width ?>px;
+        height:144px;
+        background-image:url("<?php echo $context ?>.png");
+        margin: 50px auto;
+}
+</style>
 </head>
 
 <body>
