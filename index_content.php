@@ -37,7 +37,7 @@
 
 <form id="form" action="access.php" method="POST">
 
-<input type="hidden" name="context" value="fico" />
+<input type="hidden" name="context" value="<?php echo $context ?>" />
 <input type="text" name="name" placeholder="NAME" />
 <br>
 <input type="text" name="email" placeholder="ENTER YOUR WORK EMAIL" />
