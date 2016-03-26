@@ -18,12 +18,14 @@ switch ($context) {
         $mainpage_blurb = "Discover alternative transportation options based on your commute preferences and help the HR and facilities team(s) develop incentives around new modes of transportation";    
         $nametitle = "San Rafael";
         $context = "sanrafael";
-        $offices = array();
+        $offices = array("San Rafael City Hall");
+        $logo_width = 144;
         break;
     case "biomarin":
         $nametitle = "BioMarin";
         $mainpage_blurb = "Discover alternative transportation options based on your commute preferences and help the HR and facilities team(s) develop incentives around new modes of transportation";    
         $offices = array("San Rafael", "Novato (Bel Marin Keys)", "Novato (Wood Hollow Drive)", "Brisbane");
+        $logo_width = 506;
         break;
 }
 
