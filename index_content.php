@@ -46,8 +46,12 @@
 <br>
 <select name="office" class="bigSelect">
     <option value="">Select Office Location</option>
-    <option value="San Rafael">San Rafael</option>
-    <option value="San Jose">San Jose</option>
+    <?php
+    for ($x = 0; $x < count($offices); ++$x){
+        $selected = ($x == 1 ? 'selected' : '' );
+        echo "<option value='$offices[$x]' $selected>$offices[$x]</option>";
+    }
+    ?>
 </select>
 <br>
 <br>
