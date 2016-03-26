@@ -1,5 +1,6 @@
 <?php
 $context = $_POST['context'];
+include "options.php";
 require('vendor/autoload.php');
 require('database.php');
 $email = $_REQUEST['email'];
@@ -18,7 +19,7 @@ setcookie('aluvi_token', $cookie_key, time() + 30*60);
 $link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
 $results = mysqli_query($users_con, $q = "select * from users where email = '$email'");
-if ($context == 'fico'){
+if ($context != 'demo'){
 	$extra1 = ",office";
 	$extra2 = ",'$_POST[office]'";
 	$extra3= ",office='$_POST[office]'";
@@ -44,7 +45,7 @@ $url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key&cont
 
 
 // send email
-$subject = 'Aluvi Transportation Options Access';
+$subject = "$nametitle's Transportation Options Access";
 	$boom = explode(' ', $name);
 	$firstname = $boom[0];
 	$body = "Hi $firstname,
@@ -70,7 +71,7 @@ if(!$mail->Send()) {
 	$error = '';
 }
 }
-else $error = "Please enter your Fico email address";
+else $error = "Please enter your $nametitle_long email address";
 // serve page
 ?>
 
@@ -97,7 +98,7 @@ else $error = "Please enter your Fico email address";
 if (!$error) {
 ?>
 <p>Hi <?php echo $name; ?>,
-<p>Thank you for entering your information for <?php echo ($context == 'fico' ? 'FICO' : 'Aluvi')?>'s transportation options.
+<p>Thank you for entering your information for <?php echo $nametitle ?>'s transportation options.
 <p>Please check your email as we have generated a customized link for you to access the site.
 <p> - The Aluvi Team
 <?php } ?>
