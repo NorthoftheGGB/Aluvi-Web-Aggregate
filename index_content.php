@@ -48,7 +48,7 @@
     <option value="">Select Office Location</option>
     <?php
     for ($x = 0; $x < count($offices); ++$x){
-        $selected = ($x == 1 ? 'selected' : '' );
+        $selected = ($x == 0 ? 'selected' : '' );
         echo "<option value='$offices[$x]' $selected>$offices[$x]</option>";
     }
     ?>
