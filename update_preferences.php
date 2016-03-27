@@ -1,6 +1,7 @@
 <?php
 $context = $_POST['context'];
 require('vendor/autoload.php');
+include "options.php";
 require('database.php');
 //??
 $cookie_key = $_COOKIE['aluvi_token'];

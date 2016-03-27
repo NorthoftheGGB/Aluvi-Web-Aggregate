@@ -26,9 +26,8 @@
 	
 	<div class="resultsContainer">
 		<div class="result">
-		<br/>
+		
 		<p class="resultDescription">
-		<br />
 		Thank you for providing your commute preferences. We'll be forming new transportation modes and potential incentives in the near future. Once we have, you will be notified.
 		</p>
 		</div>
