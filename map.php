@@ -50,7 +50,16 @@
 // Data Structure
 
 var zipcode =<?php echo $zip ?>;
+var officeIcon = L.icon({
+        iconUrl: "resources/work_marker.png",
+        iconSize: [62, 60],
+        iconAnchor: [30, 62],
+        popupAnchor: [-7, -65],
+	title: "Glassdoor",
+	description: "You know it well."
 
+
+});
 
 </script>
 
@@ -107,7 +116,7 @@ zipCodeCentroid = [zipCodeCentroid.lat, zipCodeCentroid.lng];
 
 
 
-L.marker([<?php echo $office_coordinates ?>] ,{icon: ficoIcon, title: '', description:''}).addTo(map);
+L.marker([<?php echo $office_coordinates ?>] ,{icon: officeIcon, title: '', description:''}).addTo(map);
 
 </script>
 
