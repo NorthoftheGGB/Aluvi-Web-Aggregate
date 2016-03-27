@@ -12,12 +12,13 @@ switch ($context) {
     case "fico":
         $mainpage_blurb = "Enter the following details to find <br>commute options in your area!";    
         $offices = array("San Rafael", "San Jose");
-        $transit_options = array('carpool', 'vanpool', 'bicycle', 'public_transportation', 'commuter_bus');
+        $office_coordinates = array("38.0192988,-122.5357758", "37.3685081,-121.9208503");
         break;
     case "verifone":
         $mainpage_blurb = "Discover alternative transportation options based on your<br> commute preferences and help the HR and facilities team(s) <br> develop incentives around new modes of transportation";    
         $offices = array("San Jose");
         $logo_width = 321;
+        $office_coordinates = array("37.9748082,-122.5340055");
         break;
     case "cityofsanrafael":
     case "sanrafael":

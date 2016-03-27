@@ -5,6 +5,7 @@ $types_conditions = array();
 if ($options['carpool']) $types_conditions[] = "form.elements['transportation_type_carpool'].disabled";
 if ($options['vanpool']) $types_conditions[] = "form.elements['transportation_type_vanpool'].disabled";
 if ($options['bicycle']) $types_conditions[] = "form.elements['transportation_type_bicycle'].disabled";
+if ($options['walking']) $types_conditions[] = "form.elements['transportation_type_walking'].disabled";
 if ($options['commuter_shuttle']) $types_conditions[] = "form.elements['transportation_type_commuter_bus'].disabled";
 if ($options['public_transportation']) $types_conditions[] = "form.elements['transportation_type_public_transportation'].disabled";
 $conditions[] = "(".implode(' && ', $types_conditions). ")";
@@ -134,15 +135,15 @@ if ($options['driver'])  { ?>
 <?php  } if ($transit_options[$i] == 'bicycle' && $options['bicycle']) { ?>
 
 <div class="option">
-<!--<p>Bicycle-->
+<!--<p>Walking-->
 <p>
-	<div id="transportation_type_bicycle" class="transportation_type" onclick="toggle_visibility('transportation_type_bicycle');" style="display: block;">
-	Bicycle<!--not selected-->
+	<div id="transportation_type_walking" class="transportation_type" onclick="toggle_visibility('transportation_type_walking');" style="display: block;">
+	Walking<!--not selected-->
 	</div>
-	<div id="transportation_type_bicycle_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_bicycle');" style="display: none;"> 
-	Bicycle
+	<div id="transportation_type_walking_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_walking');" style="display: none;"> 
+	Walking
 	</div>
-	<input type="hidden" id="transportation_type_bicycle_input" name="transportation_type_bicycle" value="selected" disabled="true"/>
+	<input type="hidden" id="transportation_type_walking_input" name="transportation_type_walking" value="selected" disabled="true"/>
 </div>
 
 <?php } if ($transit_options[$i] == 'walking' && $options['walking']) { ?>
