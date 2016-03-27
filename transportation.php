@@ -2,7 +2,7 @@
 require('vendor/autoload.php');
 $context = $_GET['context'];
 require('database.php');
-
+include "options.php";
 $link_key = $_GET['token'];
 $result = mysqli_query($users_con, $q = "select * from users where link_key = '$link_key'");
 if(mysqli_num_rows($result) == 0){
