@@ -14,7 +14,8 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
 if ($context != 'demo')
-$office_coordinates = $office_coordinates[$row['office']];
+$office_coordinates = $office_coordinates[$row['office'] -1];
+
 mysqli_query($users_con, 'delete from preferences where user_id='.$row['id']);
 $stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, walking, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;
