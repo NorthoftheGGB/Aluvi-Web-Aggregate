@@ -18,7 +18,7 @@ switch ($context) {
         $mainpage_blurb = "Discover alternative transportation options based on your<br> commute preferences and help the HR and facilities team(s) <br> develop incentives around new modes of transportation";    
         $offices = array("San Jose");
         $logo_width = 321;
-        
+        $office_coordinates = array("");
         break;
     case "cityofsanrafael":
     case "sanrafael":
@@ -37,6 +37,7 @@ switch ($context) {
         $offices = array("San Rafael", "Novato (Bel Marin Keys)", "Novato (Wood Hollow Drive)", "Brisbane");
         $logo_width = 506;
         $company_email = 'bmrn.com';
+        $office_coordinates = array("");
         break;
 }
 

@@ -23,8 +23,11 @@
 
 
 <div class="container2">
+<div class="result">
+<p class="resultDescription">
 Thank you for providing your commute preferences. We’ll be forming new transportation modes and potential incentives in the near future. Once we have, you will be notified.
-
+</p>
+</div>
 <!--
 <div class="result">
 	                <h2 class="resultType">Glassdoor's Location!</h2>              
