@@ -18,7 +18,7 @@ if ($context != 'demo')
 $office_coordinates = $office_coordinates[$row['office'] -1];
 
 mysqli_query($users_con, 'delete from preferences where user_id='.$row['id']);
-$stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, walking, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?,   ?, ?, ? , ?, ?, ?)');
+$stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, vanpool, bicycle, walking, public_transportation, commuter_bus, carpool_option, vanpool_option, carpool_times_morning, carpool_times_evening) values ( ?, ?, ?, ?, ?, ?, ?, ? , ?, ?, ?)');
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;
 $vanpool = isset($_POST['transportation_type_vanpool']) ? 1 : 0; 
 $bicycle = isset($_POST['transportation_type_bicycle']) ? 1 : 0;
