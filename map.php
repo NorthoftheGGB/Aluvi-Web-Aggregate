@@ -60,6 +60,9 @@ var officeIcon = L.icon({
 
 
 });
+var polygon_options = {
+    color: '#7e1fda'
+};
 
 </script>
 
