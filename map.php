@@ -35,7 +35,8 @@ Thank you for providing your commute preferences. We’ll be forming new transport
 <br/>
 -->
 </div>
-	</div>
+
+	
 
 	<div class="mapContainer">
 		<div id="map">
@@ -43,7 +44,6 @@ Thank you for providing your commute preferences. We’ll be forming new transport
 	</div>
 
 
-</div>
 
 
 
