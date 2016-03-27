@@ -22,7 +22,8 @@ $conditions = implode(' || ', $conditions);
 <head>
 <title>Aluvi</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link href="style.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet" />
+<?php include "custom_css.php" ?>
 <link href="<?php echo $context ?>.css" rel="stylesheet">
 <script type="text/javascript">
 <!--
