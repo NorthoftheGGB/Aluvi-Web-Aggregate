@@ -219,7 +219,7 @@ height:100px;
 }
 
 
-#transportation_type_vanpool, #transportation_type_carpool, #transportation_type_bicycle, #transportation_type_public_transportation, #transportation_type_commuter_bus{
+#transportation_type_vanpool, #transportation_type_carpool, #transportation_type_bicycle, #transportation_type_walking, #transportation_type_public_transportation, #transportation_type_commuter_bus{
         -moz-box-shadow: 0px 4px 0px 0px #338288;
         -webkit-box-shadow: 0px 4px 0px 0px #338288;
         box-shadow: 0px 4px 0px 0px #338288;
@@ -238,12 +238,12 @@ text-decoration:none;
 width:123px;
 }
 
-#transportation_type_vanpool:active, #transportation_type_carpool:active, #transportation_type_bicycle:active, #transportation_type_public_transportation:active, #transportation_type_commuter_bus:active {
+#transportation_type_vanpool:active, #transportation_type_carpool:active, #transportation_type_bicycle:active, #transportation_type_walking:active, #transportation_type_public_transportation:active, #transportation_type_commuter_bus:active {
 position:relative;
 top:1px;
 }
 
-#transportation_type_vanpool_selected, #transportation_type_carpool_selected, #transportation_type_bicycle_selected, #transportation_type_public_transportation_selected, #transportation_type_commuter_bus_selected{
+#transportation_type_vanpool_selected, #transportation_type_carpool_selected, #transportation_type_bicycle_selected, #transportation_type_walking_selected, #transportation_type_public_transportation_selected, #transportation_type_commuter_bus_selected{
         background-color:transparent;
 color:white;
 border:1px solid #338288;
@@ -263,7 +263,7 @@ width:123px;
 }
 
 
-#transportation_type_bicycle_selected, #transportation_type_public_transportation_selected, #transportation_type_commuter_bus_selected, #transportation_type_bicycle, #transportation_type_public_transportation, #transportation_type_commuter_bus{
+#transportation_type_bicycle_selected, #transportation_type_walking_selected, #transportation_type_public_transportation_selected, #transportation_type_commuter_bus_selected, #transportation_type_bicycle, #transportation_type_public_transportation, #transportation_type_commuter_bus{
     margin-top: 37px;
 }
 
