@@ -12,4 +12,7 @@
 .times_select{
     width:1200px;
 }
+#choices{
+    width:1200px;
+}
 </style>
