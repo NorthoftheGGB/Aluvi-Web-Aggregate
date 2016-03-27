@@ -58,7 +58,10 @@ padding:0;
 color:#07A0A7;
 }
 
-
+.times_select {
+width:1000px;
+margin-bottom:50px
+}
 
 #map{
 width:100%;
