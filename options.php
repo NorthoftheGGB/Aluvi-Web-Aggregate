@@ -37,7 +37,7 @@ switch ($context) {
         $offices = array("San Rafael", "Novato (Bel Marin Keys)", "Novato (Wood Hollow Drive)", "Brisbane");
         $logo_width = 506;
         $company_email = 'bmrn.com';
-        $office_coordinates = array("");
+        $office_coordinates = array("37.9701771,-122.5278526", "38.1251487,-122.5715787", "38.0720811,-122.5380328", "37.6741399,-122.3878994");
         break;
 }
 
