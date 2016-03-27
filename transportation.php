@@ -29,8 +29,8 @@ if(mysqli_num_rows($result) == 0){
 		header("Pragma: no-cache"); // HTTP 1.0.
 		header("Expires: 0"); // Proxies.
 		$options = mysqli_fetch_array(mysqli_query($users_con, "select * from transit_options"));
-		$margin = 500;
-		for ($i = 0; $i < 5; ++$i){
+		$margin = count($transit_options) * 100;
+		for ($i = 0; $i < count($transit_options); ++$i){
 			if ($options[$i])
 				$margin -= 100;
 		}

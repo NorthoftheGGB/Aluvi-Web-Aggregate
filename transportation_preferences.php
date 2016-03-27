@@ -75,13 +75,15 @@ Please select the transportation options you are interested in: <br></p>
 <?php if ($margin) echo "<div class='option' style='width:${margin}px'>&nbsp;</div>";
 echo "<input type='hidden' name='context' value='$context'>
 <input type='hidden' name='userid' value='$user[id]' />";
-if ($options['carpool']) {
+for ($i = 0; $i < count($transit_options); ++ $i) {
+if ($transit_options[$i] == 'carpool' && $options['carpool']) {
 ?>
 
 <div class="option">
 <!--<p>Carpool-->
 <p>
-<?php if ($options['driver'])  { ?>
+<?php
+if ($options['driver'])  { ?>
 <select name="carpool_options">
 	<option value="">--Select Option--</option>
 	<option value="both">Drive and Ride</option>
@@ -102,7 +104,7 @@ if ($options['carpool']) {
 
 </div>
 
-<?php } if ($options['vanpool']) { ?>
+<?php } if ($transit_options[$i] ==  'vanpool' && $options['vanpool']) { ?>
 
 <div class="option">
 <!--<p>Vanpool-->
@@ -128,7 +130,7 @@ if ($options['carpool']) {
 
 
 
-<?php  } if ($options['bicycle']) { ?>
+<?php  } if ($transit_options[$i] == 'bicycle' && $options['bicycle']) { ?>
 
 <div class="option">
 <!--<p>Bicycle-->
@@ -142,7 +144,21 @@ if ($options['carpool']) {
 	<input type="hidden" id="transportation_type_bicycle_input" name="transportation_type_bicycle" value="selected" disabled="true"/>
 </div>
 
-<?php } if ($options['public_transportation']) { ?>
+<?php } if ($transit_options[$i] == 'walking' && $options['walking']) { ?>
+
+<div class="option">
+<!--<p>Bicycle-->
+<p>
+	<div id="transportation_type_bicycle" class="transportation_type" onclick="toggle_visibility('transportation_type_bicycle');" style="display: block;">
+	Bicycle<!--not selected-->
+	</div>
+	<div id="transportation_type_bicycle_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_bicycle');" style="display: none;"> 
+	Bicycle
+	</div>
+	<input type="hidden" id="transportation_type_bicycle_input" name="transportation_type_bicycle" value="selected" disabled="true"/>
+</div>
+
+<?php } if ($transit_options[$i] == 'public_transportation' && $options['public_transportation']) { ?>
 
 <div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
@@ -159,7 +175,7 @@ if ($options['carpool']) {
 
 
 
-<?php } if ($options['commuter_shuttle']) { ?>
+<?php } if ($transit_options[$i] == 'commuter_shuttle' && $options['commuter_shuttle']) { ?>
 
 <div class="option" id="shuttleBox">
 <!--<p>Commuter Bus-->
@@ -174,7 +190,9 @@ if ($options['carpool']) {
 </p>
 </div>
 
-<?php }  if ($margin) echo "<div class='option' style='width:${margin}px'>&nbsp;</div>" ?>
+<?php }
+}
+if ($margin) echo "<div class='option' style='width:${margin}px'>&nbsp;</div>" ?>
 <center style='width:1000px; margin-bottom:50px' class="times_select">
 <div style='width:800px'>
 <?php if ($options['times']) { ?>
@@ -198,10 +216,10 @@ When I'd like to arrive at work (AM):&nbsp;&nbsp;<br>
 When I usually head home (PM):<br>
 <select name="carpool_times_evening">
 	<option value="">--Select Time--</option>
-	<option value="4:00">2:00</option>
-	<option value="4:30">2:30</option>
-	<option value="5:00">3:00</option>
-	<option value="5:30">3:30</option>
+	<option value="2:00">2:00</option>
+	<option value="2:30">2:30</option>
+	<option value="3:00">3:00</option>
+	<option value="3:30">3:30</option>
 	<option value="4:00">4:00</option>
 	<option value="4:30">4:30</option>
 	<option value="5:00">5:00</option>

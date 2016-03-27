@@ -5,14 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
 <link href="style.css" rel="stylesheet" />
-<style>
-    .logo{
-        width:<?php echo $logo_width ?>px;
-        height:144px;
-        background-image:url("<?php echo $context ?>.png");
-        margin: 50px auto;
-}
-</style>
+<?php include "custom_css.php" ?>
 </head>
 
 <body>
@@ -48,8 +41,9 @@
     <option value="">Select Office Location</option>
     <?php
     for ($x = 0; $x < count($offices); ++$x){
+        $num = $x + 1;
         $selected = ($x == 0 ? 'selected' : '' );
-        echo "<option value='$offices[$x]' $selected>$offices[$x]</option>";
+        echo "<option value='$num' $selected>$offices[$x]</option>";
     }
     ?>
 </select>
