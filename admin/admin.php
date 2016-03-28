@@ -24,6 +24,7 @@ $admin_results = mysqli_query($users_con, "select name, context from admin");
         echo "<td>$row[context]</td>";
         echo "<td>*******</td>";
         echo "</tr>";
+        }
     ?>
     <tr class='input'>
         <td><input style='width:100%' type='text' placeholder='Username' name='name'/></td>
