@@ -6,7 +6,7 @@ if ($_POST){
     $N = mysqli_query($users_con, $Q = "insert into admin.users (name, password, salt, context) values ('$name', '$password', '$salt', '$context')") or die ($Q);
 }
 
-$admin_results = mysqli_query($users_con, "select name, context from users.admin");
+$admin_results = mysqli_query($users_con, "select name, context from admin.users");
 ?>
 <form method='post' action='<?php echo $main_url?>&view=Admin'>
 <input type='hidden' name='action' value='add user' />
