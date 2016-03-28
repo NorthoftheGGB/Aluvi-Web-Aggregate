@@ -6,7 +6,7 @@ if ($_POST){
     $N = mysqli_query($users_con, $Q = "insert into admin.users (name, password, salt, context) values ('$name', '$password', '$salt', '$context')") or die ($Q);
 }
 
-$admin_results = mysqli_query($users_con, "select name, context from admin");
+$admin_results = mysqli_query($users_con, "select name, context from users.admin");
 ?>
 <form method='post' action='<?php echo $main_url?>&view=Admin'>
 <input type='hidden' name='action' value='add user' />
@@ -29,7 +29,7 @@ $admin_results = mysqli_query($users_con, "select name, context from admin");
     <tr class='input'>
         <td><input style='width:100%' type='text' placeholder='Username' name='name'/></td>
         <td><input style='width:100%' type='password' placeholder='Password' name='password'/></td>
-        <td><input style='width:100%' type='text' placeholder='Company' name='company'/></td>
+        <td><input style='width:100%' type='text' placeholder='Company' name='context'/></td>
         
     </tr>
 </table>
