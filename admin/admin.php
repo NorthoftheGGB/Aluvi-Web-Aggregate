@@ -3,7 +3,7 @@ if ($_POST){
     $name = mysqli_real_escape_string($users_con, $_POST['name']);
     $salt = substr(hash('sha512',uniqid(rand(), true).$key.microtime()), 15);
     $password = hash('sha512', $salt.$_POST['password']);
-    mysqli_query($users_con, $Q = "insert into admin.users (name, password, salt, context) values ('$name', '$password', '$salt', '$context')");
+    $N = mysqli_query($users_con, $Q = "insert into admin.users (name, password, salt, context) values ('$name', '$password', '$salt', '$context')") or die ($Q);
 }
 
 $admin_results = mysqli_query($users_con, "select name, context from admin");
