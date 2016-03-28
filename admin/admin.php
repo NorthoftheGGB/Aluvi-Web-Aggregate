@@ -1,5 +1,5 @@
 <?php
-if ($_POST['action']){
+if ($_POST){
     $name = mysqli_real_escape_string($users_con, $_POST['name']);
     $salt = substr(hash('sha512',uniqid(rand(), true).$key.microtime()), 15);
     $password = hash('sha512', $salt.$_POST['password']);
@@ -28,8 +28,9 @@ $admin_results = mysqli_query($users_con, "select name, context from admin");
     ?>
     <tr class='input'>
         <td><input style='width:100%' type='text' placeholder='Username' name='name'/></td>
-        <td><input style='width:100%' type='text' placeholder='Password' name='password'/></td>
-        <td><input style='width:100%' type='text' placeholder='Password' name='company'/></td>
+        <td><input style='width:100%' type='password' placeholder='Password' name='password'/></td>
+        <td><input style='width:100%' type='text' placeholder='Company' name='company'/></td>
+        
     </tr>
 </table>
 <br/>
