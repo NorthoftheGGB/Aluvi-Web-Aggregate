@@ -97,7 +97,7 @@ Driver/Rider
         <th>Departs Location</th>
         <th>Arrives Work</th>
         <th>Departs Work</th>
-        <th>&nbsp;</th>
+        <?php if ($super) echo "<th>&nbsp;</th>" ?>
     </tr>
     <?php
         while ($row = mysqli_fetch_assoc($vanpool_results)){
@@ -113,7 +113,7 @@ Driver/Rider
                 foreach ($row as $c => $v){
                     if ($c != "id")
                         echo "<td>$v</td>";
-                    else echo "<td><a href='demo_analytics.php?view=Options&edit=$v'>Edit</td>";
+                    else if ($super) echo "<td><a href='demo_analytics.php?view=Options&edit=$v'>Edit</td>";
                 }
             }
         }
