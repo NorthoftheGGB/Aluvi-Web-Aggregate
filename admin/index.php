@@ -36,7 +36,7 @@ foreach ($offices as $i => $o){
 			<div class='tabs'>
 				
 				<?php foreach(array("Survey", "Recommendations",  "Usage", "Users", "Sustainability", "Options", "Admin") as $tab){
-					if ($tab == "Admin" && !$super)
+					if (($tab == "Admin" || $tab == "Options") && !$super)
 						break;
 					if ($tab == $_GET['view']) $selected = "class='selected'";
 						else $selected = "";
@@ -50,7 +50,6 @@ foreach ($offices as $i => $o){
 				$view = strtolower($_REQUEST['view']);
 				include "$view.php";
 			}
-			else echo "<center><b>Coming Soon</b></center>";
 			?>
 		</div>
 	</body>
