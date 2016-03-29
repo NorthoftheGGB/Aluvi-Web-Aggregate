@@ -9,7 +9,7 @@ $walking_results = mysqli_query($users_con, "select name, zip from users u join 
 ?>
 <div style="width:1060px; margin:auto">
 <div class='col5'>
-    <h2>Walking</h2>
+    <h2>Walk</h2>
 <?php
   $zip = 0;
   $results = false;
