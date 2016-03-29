@@ -42,7 +42,6 @@
     <?php
     for ($x = 0; $x < count($offices); ++$x){
         $num = $x + 1;
-        $selected = ($x == 0 ? 'selected' : '' );
         echo "<option value='$num' $selected>$offices[$x]</option>";
     }
     ?>

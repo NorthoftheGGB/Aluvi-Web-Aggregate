@@ -3,12 +3,32 @@ $context = $_POST['context'];
 include "options.php";
 require('vendor/autoload.php');
 require('database.php');
+$error = "";
 $email = $_REQUEST['email'];
 $name = ($_REQUEST['name']);
-$split_email = explode('@', $email);
-if ($context == "demo" || $email == "olypuppetfest@gmail.com" || $split_email[1] == "$context.com" || $split_email[1] == "aluviapp.com"){
-$sqlname = mysqli_real_escape_string($users_con, $_REQUEST['name']);
 $zip = $_REQUEST['zip'];
+$office = $_POST['office'];
+$split_email = explode('@', $email);
+if (!$name)
+$error = "Please enter your name. ";
+else {
+	$names = explode(' ', $name);
+	if (count($names) == 1){
+		$error = "Please enter both first and last name. ";
+	}
+}
+if (!($context == "demo" || $email == "olypuppetfest@gmail.com" || $split_email[1] == "$context.com" || $split_email[1] == "aluviapp.com")){
+	$error .= "Please enter your $nametitle_long email address. ";
+}
+if (!$zip){
+	$error .= "Please enter your home zip code. ";
+}
+if (!$office)
+	$error .= 'Please select your office. ';
+
+if (!$error){
+$sqlname = mysqli_real_escape_string($users_con, $_REQUEST['name']);
+
 
 $factory = new RandomLib\Factory;
 $generator = $factory->getMediumStrengthGenerator();
@@ -46,8 +66,7 @@ $url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key&cont
 
 // send email
 $subject = "$nametitle's Transportation Options Access";
-	$boom = explode(' ', $name);
-	$firstname = $boom[0];
+	$firstname = $names[0];
 	$body = "Hi $firstname,
 	
 Follow this link to access your transportation options $url";
@@ -71,7 +90,7 @@ if(!$mail->Send()) {
 	$error = '';
 }
 }
-else $error = "Please enter your $nametitle_long email address";
+
 // serve page
 ?>
 
