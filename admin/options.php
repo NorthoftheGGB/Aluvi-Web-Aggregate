@@ -50,35 +50,35 @@ $ti = 0;
 <input type='hidden' name='action' value='update options' />
 <h2>Transportation Options</h2>
 <label>
-<input type='checkbox' name='carpool' value='1' <?php echo $transit_options[$ti++] ? "checked" : ""; echo $super ? "" : "disabled" ?>/>
+<input type='checkbox' name='carpool' value='1' <?php echo $transit_options[$ti++] ? "checked " : ""; echo $super ? "" : "disabled" ?>/>
 Carpool
 </label><br />
 <label>
-<input type='checkbox' name='vanpool' value='1' <?php echo $transit_options[$ti++] ? "checked" : ""; echo $super ? "" : "disabled"  ?>/>
+<input type='checkbox' name='vanpool' value='1' <?php echo $transit_options[$ti++] ? "checked " : ""; echo $super ? "" : "disabled"  ?>/>
 Vanpool
 </label><br />
 <label>
-<input type='checkbox' name='public_transportation' value='1' <?php echo $transit_options[$ti++] ? "checked" : ""; echo $super ? "" : "disabled"  ?>/>
+<input type='checkbox' name='public_transportation' value='1' <?php echo $transit_options[$ti++] ? "checked " : ""; echo $super ? "" : "disabled"  ?>/>
 Public Transportation
 </label><br />
 <label>
-<input type='checkbox' name='bicycle' value='1' <?php echo $transit_options[$ti++] ? "checked" : ""; echo $super ? "" : "disabled"  ?>/>
+<input type='checkbox' name='bicycle' value='1' <?php echo $transit_options[$ti++] ? "checked " : ""; echo $super ? "" : "disabled"  ?>/>
 Bicycle
 </label><br />
 <label>
-<input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked" : ""; echo $super ? "" : "disabled"  ?>/>
+<input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked " : ""; echo $super ? "" : "disabled"  ?>/>
 Walk
 </label><br />
 <label>
-<input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked" : ""; echo $super ? "" : "disabled"  ?>/>
+<input type='checkbox' name='commuter_shuttle' value='1' <?php echo $transit_options[$ti++] ? "checked " : ""; echo $super ? "" : "disabled"  ?>/>
 Commuter Shuttle
 </label><br />
 <label>
-<input type='checkbox' name='times' value='1' <?php echo $transit_options[$ti++] ? "checked" : ""; echo $super ? "" : "disabled"  ?>/>
+<input type='checkbox' name='times' value='1' <?php echo $transit_options[$ti++] ? "checked " : ""; echo $super ? "" : "disabled"  ?>/>
 Commute Times
 </label><br />
 <label>
-<input type='checkbox' name='driver' value='1' <?php echo $transit_options[$ti++] ? "checked" : ""; echo $super ? "" : "disabled"  ?>/>
+<input type='checkbox' name='driver' value='1' <?php echo $transit_options[$ti++] ? "checked " : ""; echo $super ? "" : "disabled"  ?>/>
 Driver/Rider
 </label>
 <br /><br />
@@ -87,7 +87,7 @@ Driver/Rider
 <form method='post' action='<?php echo $main_url?>&view=Options'>
 <input type='hidden' name='action' value='add vanpool' />
 <?php if ($id = $_GET['edit']) echo "<input type='hidden' name='edit_id' value='$id' />" ?>
-<?php if ($super || mysqli_num_results($vanpool_results) > 0) { ?>
+<?php if ($super || mysqli_num_rows($vanpool_results) > 0) { ?>
 <h2>Vanpools</h2>
 <table style='width:100%'>
     <tr>
