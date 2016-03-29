@@ -1,5 +1,5 @@
 <?php
-//include "auth.php";
+include "auth.php";
 $office = $_REQUEST['office'];
 if (!$office)
 	$office = 1;
