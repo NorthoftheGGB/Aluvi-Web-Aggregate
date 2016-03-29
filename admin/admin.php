@@ -29,13 +29,14 @@ $admin_results = mysqli_query($users_con, "select name, id from admin.users wher
     <tr>
         <th>Username</th>
         <th>Password</th>
+        <th></th>
     </tr>
     <?php
         while ($row = mysqli_fetch_assoc($admin_results)){
         echo "<tr>";       
         echo "<td>$row[name]</td>";
         echo "<td>*******</td>";
-        echo "<td><a href='javascript:deletePrompt($row[id], $row[name])'>Delete</a></td>";
+        echo "<td><a href='javascript:deletePrompt($row[id], \"$row[name]\")'>Delete</a></td>";
         echo "</tr>";
         }
     ?>
