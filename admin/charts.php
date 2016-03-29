@@ -1,5 +1,5 @@
 <?php
-$context = $_SESSION["context"];
+include "auth.php";
 if ($context == 'saas')
 	$context = 'demo';
 $office = $_GET['office'];
