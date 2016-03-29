@@ -1,7 +1,6 @@
 <?php
 include "auth.php";
-if ($context == 'saas')
-	$context = 'demo';
+include "../options.php";
 $office = $_GET['office'];
 include "../database.php";
 if ($_GET['type']){

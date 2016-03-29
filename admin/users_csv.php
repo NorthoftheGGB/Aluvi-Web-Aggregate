@@ -1,8 +1,7 @@
 <?php
 $office = $_GET['office'];
 include "auth.php";
-if ($context == 'saas')
-	$context = 'demo';
+include "../options.php";
 include "../database.php";
 $query = "select date_format(added, '%m/%d/%Y')as added, name, email, carpool_times_morning, carpool_times_evening, case when carpool then 'yes' else 'no' end, case when vanpool then 'yes' else 'no' end, case when public_transportation then 'yes' else 'no' end
 from users u join preferences p on u.id = user_id where office = $office order by added";
