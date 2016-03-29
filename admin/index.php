@@ -43,11 +43,11 @@ foreach ($offices as $i => $o){
 					echo "<a href='$main_url&view=$tab' $selected>$tab</a>";
 					}?>
 			</div>
-			<?php if (!$_GET['view'] || $_GET['view'] == 'Survey')  { ?>
+			<?php if (!$_REQUEST['view'] || $_REQUEST['view'] == 'Survey')  { ?>
 			<iframe style="width:100%; height:340px" frameborder='0' src='charts.php?office=<?php echo $office ?>'></iframe>
 			<iframe style="width:100%; height:450px" frameborder='0' src='heatmap.php?office=<?php echo $office ?>'></iframe>
-			<?php } else if (in_array($_GET['view'], array('Users', "Recommendations", "Admin", "Options"))) {
-				$view = strtolower($_GET['view']);
+			<?php } else if (in_array($_REQUEST['view'], array('Users', "Recommendations", "Admin", "Options"))) {
+				$view = strtolower($_REQUEST['view']);
 				include "$view.php";
 			}
 			else echo "<center><b>Coming Soon</b></center>";
