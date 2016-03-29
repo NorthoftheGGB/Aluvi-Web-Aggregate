@@ -7,7 +7,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
 
 ?>
 <div style='margin:auto; font-size:20px; width:700px; '>
-		<span style='margin-right:400px'>Total Sign Ups: <?php echo $users['number'] ?></span>
+		<span style='margin-right:400px'><u>Total Sign Ups: <?php echo $users['number'] ?></u></span>
 		<a href='users_csv.php?office=<?php echo $office ?>'>Download CSV</a>
 </div>
 <br/><br/>
