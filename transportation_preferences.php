@@ -89,6 +89,7 @@ if ($options['driver'])  { ?>
 <select name="carpool_options">
 	<option value="">--Select Option--</option>
 	<option value="both">Drive and Ride</option>
+	<option value="driver">Drive Only</option>
 	<option value="rider">Ride Only</option>
 </select>
 <?php } else echo "<div style='height:17px'>&nbsp;</div>" ?>
@@ -115,6 +116,7 @@ if ($options['driver'])  { ?>
 <select name="vanpool_options">
 	<option value="">--Select Option--</option>
 	<option value="both">Drive and Ride</option>
+	<option value="driver">Drive Only</option>
 	<option value="rider">Ride Only</option>
 </select>
 <?php } else echo "<div style='height:17px'>&nbsp;</div>" ?>
