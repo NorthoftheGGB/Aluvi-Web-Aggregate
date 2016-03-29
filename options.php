@@ -13,6 +13,7 @@ switch ($context) {
     case "fico":
         $mainpage_blurb = "Discover alternative transportation options based on your commute preferences<br> and assist the team with developing incentives around new transportation modes.";    
         $offices = array("San Rafael", "San Jose");
+        $logo_width = 293;
         $office_coordinates = array("38.0192988,-122.5357758", "37.3685081,-121.9208503");
         break;
     case "verifone":
