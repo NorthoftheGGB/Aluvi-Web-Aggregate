@@ -1,12 +1,12 @@
 <?php
-if ($_POST){
+if ($_POST['new_password']){
     $name = mysqli_real_escape_string($users_con, $_POST['name']);
     $salt = substr(hash('sha512',uniqid(rand(), true).$key.microtime()), 15);
-    $password = hash('sha512', $salt.$_POST['password']);
+    $password = hash('sha512', $salt.$_POST['new_password']);
     $N = mysqli_query($users_con, $Q = "insert into admin.users (name, password, salt, context) values ('$name', '$password', '$salt', '$context')") or die ($Q);
 }
 
-$admin_results = mysqli_query($users_con, "select name, context from admin.users");
+$admin_results = mysqli_query($users_con, "select name from admin.users where context = $context");
 ?>
 <form method='post' action='<?php echo $main_url?>&view=Admin'>
 <input type='hidden' name='action' value='add user' />
@@ -15,21 +15,18 @@ $admin_results = mysqli_query($users_con, "select name, context from admin.users
     <tr>
         <th>Username</th>
         <th>Password</th>
-        <th>Company</th>
     </tr>
     <?php
         while ($row = mysqli_fetch_assoc($admin_results)){
         echo "<tr>";       
         echo "<td>$row[name]</td>";
-        echo "<td>$row[context]</td>";
         echo "<td>*******</td>";
         echo "</tr>";
         }
     ?>
     <tr class='input'>
         <td><input style='width:100%' type='text' placeholder='Username' name='name'/></td>
-        <td><input style='width:100%' type='password' placeholder='Password' name='password'/></td>
-        <td><input style='width:100%' type='text' placeholder='Company' name='context'/></td>
+        <td><input style='width:100%' type='password' placeholder='Password' name='new_password'/></td>
         
     </tr>
 </table>

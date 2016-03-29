@@ -6,7 +6,7 @@ switch ($context) {
     case "demo":
         $nametitle_long = $nametitle = 'Aluvi';
         $mainpage_blurb = "Enter the following details to find <br>commute options in your area!";    
-        $offices = array("San Rafael", "San Jose");
+        $offices = array("Santa Rosa", "San Francisco");
         $transit_options = array('carpool', 'vanpool', 'bicycle', 'walking', 'public_transportation', 'commuter_shuttle');
         break;
     case "fico":

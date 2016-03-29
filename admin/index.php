@@ -1,17 +1,18 @@
 <?php
-$context="demo";
-$office = $_GET['office'];
+include "auth.php";
+$office = $_REQUEST['office'];
 if (!$office)
 	$office = 1;
 $main_url = "index.php?office=$office";
 include "../database.php";
-$office_results = mysqli_query($users_con, "select * from offices");
-foreach ($office_results as $r){
-	$url = "index.php?office=$r[id]";
-	$selected = $office == $r['id'] ? 'selected' : '';
-	if ($_GET['view'])
-		$url .= '&view='.$_GET['view'];
-	$office_options .= "<option value='$url' $selected>$r[name]</option>";
+include "../options.php";
+foreach ($offices as $i => $o){
+	$n = $i + 1;
+	$url = "index.php?office=$n";
+	$selected = $office == $n ? 'selected' : '';
+	if ($_REQUEST['view'])
+		$url .= '&view='.$_REQUEST['view'];
+	$office_options .= "<option value='$url' $selected>$o</option>";
 }
 ?>
 <html>
