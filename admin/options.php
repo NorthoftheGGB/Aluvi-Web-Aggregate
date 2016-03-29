@@ -82,7 +82,7 @@ Commute Times
 Driver/Rider
 </label>
 <br /><br />
-<input type='submit' value='Update' />
+<?php if ($super) echo "<input type='submit' value='Update' />" ?>
 </form>
 <form method='post' action='<?php echo $main_url?>&view=Options'>
 <input type='hidden' name='action' value='add vanpool' />
