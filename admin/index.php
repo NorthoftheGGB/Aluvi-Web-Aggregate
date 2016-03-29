@@ -36,6 +36,8 @@ foreach ($offices as $i => $o){
 			<div class='tabs'>
 				
 				<?php foreach(array("Survey", "Recommendations",  "Usage", "Users", "Sustainability", "Options", "Admin") as $tab){
+					if ($tab == "Admin" && !$super)
+						break;
 					if ($tab == $_GET['view']) $selected = "class='selected'";
 						else $selected = "";
 					echo "<a href='$main_url&view=$tab' $selected>$tab</a>";

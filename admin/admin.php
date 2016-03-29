@@ -1,4 +1,6 @@
 <?php
+if (!$super)
+echo "<center><b>Access Denied</b></center>";
 if ($_POST['new_password']){
     $name = mysqli_real_escape_string($users_con, $_POST['name']);
     $salt = substr(hash('sha512',uniqid(rand(), true).microtime()), 0, 15);
