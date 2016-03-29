@@ -6,7 +6,7 @@
 		<center id="logo">
 			<br/><img src='../AluviGradient.png' /><br/><br/>	
 		</center>
-                <div style='width:1200px; margin:auto;'>
+                <div style='width:300px; margin:auto;'>
                 <form method='post' action='index.php'>
                     <p style='color:red'><?php echo $error ?>&nbsp;</p>
                     <input type='hidden' name='office' value='<?php echo $_GET["office"] ?>' />
