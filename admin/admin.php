@@ -1,7 +1,8 @@
 <?php
-if (!$super)
-echo "<center><b>Access Denied</b></center>";
-exit;
+if (!$super){
+    echo "<center><b>Access Denied</b></center>";
+    exit;
+}
 if ($delid = $_GET['delete']){
     mysqli_query($users_con, "delete from admin where id = $delid");
 }
