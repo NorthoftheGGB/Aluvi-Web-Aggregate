@@ -1,5 +1,7 @@
 <?php
-$context = "demo";
+$context = $_SESSION["context"];
+if ($context == 'saas')
+	$context = 'demo';
 $office = $_GET['office'];
 include "../database.php";
 if ($_GET['type']){
