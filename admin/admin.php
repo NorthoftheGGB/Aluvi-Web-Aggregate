@@ -1,7 +1,7 @@
 <?php
 if ($_POST['new_password']){
     $name = mysqli_real_escape_string($users_con, $_POST['name']);
-    $salt = substr(hash('sha512',uniqid(rand(), true).$key.microtime()), 15);
+    $salt = substr(hash('sha512',uniqid(rand(), true).$key.microtime()), 0, 15);
     $password = hash('sha512', $salt.$_POST['new_password']);
     echo $salt.$_POST['new_password'];
     $N = mysqli_query($users_con, $Q = "insert into admin.users (name, password, salt, context) values ('$name', '$password', '$salt', '$context')") or die ($Q);
