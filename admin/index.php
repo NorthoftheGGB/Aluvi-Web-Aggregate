@@ -4,8 +4,8 @@ $office = $_REQUEST['office'];
 if (!$office)
 	$office = 1;
 $main_url = "index.php?office=$office";
-include "../database.php";
 include "../options.php";
+include "../database.php";
 foreach ($offices as $i => $o){
 	$n = $i + 1;
 	$url = "index.php?office=$n";

@@ -4,6 +4,8 @@ $transit_options = array('walking', 'bicycle', 'public_transportation', 'carpool
 $company_email = "$context.com";
 switch ($context) {
     case "demo":
+    case "saas":
+        $context = "demo";
         $nametitle_long = $nametitle = 'Aluvi';
         $mainpage_blurb = "Enter the following details to find <br>commute options in your area!";    
         $offices = array("Santa Rosa", "San Francisco");
