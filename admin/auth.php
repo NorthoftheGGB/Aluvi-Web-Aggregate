@@ -12,7 +12,7 @@ if ($_POST['username']) {
     while ($row = mysqli_fetch_assoc($result)){
         $password = hash('sha512', $row['salt'].$_POST['password']);
         echo $row['salt']."<br/>";
-        echo $row['password'];
+        echo $_POST['password'];
         if ($password == $row['password']){
             $_SESSION['context'] = $row['context'];
             break;
