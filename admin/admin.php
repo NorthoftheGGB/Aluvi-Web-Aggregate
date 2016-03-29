@@ -4,7 +4,8 @@ if (!$super){
     exit;
 }
 if ($delid = $_GET['delete']){
-    mysqli_query($users_con, "delete from users.admin where id = $delid");
+    mysqli_query($users_con, $q = "delete from admin.users where id = $delid");
+    //echo "<!--$q-->";
 }
 if ($_POST['new_password']){
     $name = mysqli_real_escape_string($users_con, $_POST['name']);
