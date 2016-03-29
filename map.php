@@ -28,7 +28,7 @@
 		<div class="result">
 		
 		<p class="resultDescription">
-		Thank you for providing your commute preferences. We’ll be forming new transportation modes and potential incentives in the near future. Once these have been developed and implemented, we will notify you via email.
+		Thank you for providing your commute preferences. We'll be forming new transportation modes and potential incentives in the near future. Once these have been developed and implemented, we will notify you via email.
 		</p>
 		</div>
 
