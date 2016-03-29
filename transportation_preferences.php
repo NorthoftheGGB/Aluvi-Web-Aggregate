@@ -134,21 +134,21 @@ if ($options['driver'])  { ?>
 
 
 
-<?php  } if ($transit_options[$i] == 'bicycle' && $options['bicycle']) { ?>
+<?php  } if ($transit_options[$i] == 'walking' && $options['walking']) { ?>
 
 <div class="option">
 <!--<p>Walking-->
 <p>
 	<div id="transportation_type_walking" class="transportation_type" onclick="toggle_visibility('transportation_type_walking');" style="display: block;">
-	Walking<!--not selected-->
+	Walk<!--not selected-->
 	</div>
 	<div id="transportation_type_walking_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_walking');" style="display: none;"> 
-	Walking
+	Walk
 	</div>
 	<input type="hidden" id="transportation_type_walking_input" name="transportation_type_walking" value="selected" disabled="true"/>
 </div>
 
-<?php } if ($transit_options[$i] == 'walking' && $options['walking']) { ?>
+<?php } if ($transit_options[$i] == 'bicycle' && $options['bicycle']) { ?>
 
 <div class="option">
 <!--<p>Bicycle-->

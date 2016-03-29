@@ -1,6 +1,6 @@
 <?php
 $nametitle_long = $nametitle = ucwords($context);
-$transit_options = array('walking', 'bicycle', 'public_transportation', 'carpool', 'vanpool', 'commuter_shuttle',);
+$transit_options = array('bicycle', 'walking', 'public_transportation', 'carpool', 'vanpool', 'commuter_shuttle',);
 $company_email = "$context.com";
 switch ($context) {
     case "demo":
@@ -9,10 +9,9 @@ switch ($context) {
         $nametitle_long = $nametitle = 'Aluvi';
         $mainpage_blurb = "Enter the following details to find <br>commute options in your area!";    
         $offices = array("Santa Rosa", "San Francisco");
-        $transit_options = array('carpool', 'vanpool', 'bicycle', 'walking', 'public_transportation', 'commuter_shuttle');
         break;
     case "fico":
-        $mainpage_blurb = "Enter the following details to find <br>commute options in your area!";    
+        $mainpage_blurb = "Discover alternative transportation options based on your commute preferences<br> and assist the team with developing incentives around new transportation modes.";    
         $offices = array("San Rafael", "San Jose");
         $office_coordinates = array("38.0192988,-122.5357758", "37.3685081,-121.9208503");
         break;
