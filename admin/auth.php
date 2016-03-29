@@ -11,8 +11,8 @@ if ($_POST['username']) {
     $result = mysqli_query($admin_con, "select * from users where name='$_POST[username]'");
     while ($row = mysqli_fetch_assoc($result)){
         $password = hash('sha512', $row['salt'].$_POST['password']);
-        echo $row['salt'];
-        echo $password;
+        echo $row['salt']."<br/>";
+        echo $row['password'];
         if ($password == $row['password']){
             $_SESSION['context'] = $row['context'];
             break;
