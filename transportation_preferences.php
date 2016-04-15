@@ -166,6 +166,15 @@ if ($options['driver'])  { ?>
 
 <div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
+<?php if ($public_options)  { ?>
+<select name="public_options">
+	<?php
+	foreach ($public_options as $o){
+		echo "<option value='$o'>$o</option>";
+	}
+	?>
+</select>
+<?php } ?>
 <p>
 	<div id="transportation_type_public_transportation" class="transportation_type" onclick="toggle_visibility('transportation_type_public_transportation');" style="display: block;">
 	Public Transportation<!--not selected-->
@@ -206,7 +215,7 @@ if ($options['driver'])  { ?>
 	</div>
 	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
 	<br>
-	<div style = "position:absolute">
+	<div style = "position:absolute; text-align:left; width:190px; ">
 		(I'd be interested in public transit, but only if there's a last mile shuttle to the office.)
 	</div>
 </p>
