@@ -19,6 +19,8 @@ switch ($context) {
     case "verifone":
         $mainpage_blurb = "Discover alternative transportation options based on your commute preferences<br> and assist the team with developing incentives around new transportation modes.";    
         $offices = array("San Jose");
+        $transit_options[5] = "lastmile_shuttle";
+        $public_options = array("ACE", "VTA Bus", "VTA Rail", "VTA Rail + Bus", "CALTrain");
         $logo_width = 321;
         $office_coordinates = array("37.3898649,-121.9356721");
         break;

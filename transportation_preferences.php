@@ -6,7 +6,7 @@ if ($options['carpool']) $types_conditions[] = "form.elements['transportation_ty
 if ($options['vanpool']) $types_conditions[] = "form.elements['transportation_type_vanpool'].disabled";
 if ($options['bicycle']) $types_conditions[] = "form.elements['transportation_type_bicycle'].disabled";
 if ($options['walking']) $types_conditions[] = "form.elements['transportation_type_walking'].disabled";
-if ($options['commuter_shuttle']) $types_conditions[] = "form.elements['transportation_type_commuter_bus'].disabled";
+if ($options['commuter_shuttle'] || $options["lastmile_shuttle"]) $types_conditions[] = "form.elements['transportation_type_commuter_bus'].disabled";
 if ($options['public_transportation']) $types_conditions[] = "form.elements['transportation_type_public_transportation'].disabled";
 $conditions[] = "(".implode(' && ', $types_conditions). ")";
 if ($options['times']){
@@ -191,6 +191,24 @@ if ($options['driver'])  { ?>
 	Commuter Shuttle
 	</div>
 	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
+</p>
+</div>
+<?php } if ($transit_options[$i] == 'lastmile_shuttle' && $options['commuter_shuttle']) { ?>
+
+<div class="option" id="shuttleBox">
+<!--<p>Commuter Bus-->
+<p>
+	<div id="transportation_type_commuter_bus" class="transportation_type" onclick="toggle_visibility('transportation_type_commuter_bus');" style="display: block;">
+	Last Mile Shuttle<!--not selected-->
+	</div>
+	<div id="transportation_type_commuter_bus_selected" class="transportation_type" onclick="toggle_visibility('transportation_type_commuter_bus');" style="display: none;"> 
+	Last Mile Shuttle
+	</div>
+	<input type="hidden" id="transportation_type_commuter_bus_input" name="transportation_type_commuter_bus" value="selected" disabled="true"/>
+	<br>
+	<div style = "position:absolute">
+		(I'd be interested in public transit, but only if there's a last mile shuttle to the office.)
+	</div>
 </p>
 </div>
 
