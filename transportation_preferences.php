@@ -167,13 +167,16 @@ if ($options['driver'])  { ?>
 <div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
 <?php if ($public_options)  { ?>
+<p>
 <select name="public_options">
+	<option value="">--Select Option--</option>
 	<?php
 	foreach ($public_options as $o){
 		echo "<option value='$o'>$o</option>";
 	}
 	?>
 </select>
+</p>
 <?php } ?>
 <p>
 	<div id="transportation_type_public_transportation" class="transportation_type" onclick="toggle_visibility('transportation_type_public_transportation');" style="display: block;">
