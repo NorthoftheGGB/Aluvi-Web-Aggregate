@@ -21,10 +21,11 @@ $stmt = mysqli_prepare($users_con, 'insert into preferences (user_id, carpool, v
 $carpool = isset($_POST['transportation_type_carpool']) ? 1 : 0;
 $vanpool = isset($_POST['transportation_type_vanpool']) ? 1 : 0; 
 $bicycle = isset($_POST['transportation_type_bicycle']) ? 1 : 0;
-$walking = isset($_POST['transportation_type_walking']) ? 1 : 0; 
+$walking = isset($_POST['transportation_type_walking']) ? 1 : 0;
+if (!$public_options = $_POST['public_options']) $public_options = "";
 $public_transportation = isset($_POST['transportation_type_public_transportation']) ? 1 : 0;
 $commuter_bus =  isset($_POST['transportation_type_commuter_bus']) ? 1 : 0;
-mysqli_stmt_bind_param($stmt, 'iiiiiiissssss', $row['id'],  $carpool, $vanpool, $bicycle, $walking, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $_POST['public_options'], $t1 = $_POST['carpool_times_morning'], $t2 = $_POST['carpool_times_evening']);
+mysqli_stmt_bind_param($stmt, 'iiiiiiissssss', $row['id'],  $carpool, $vanpool, $bicycle, $walking, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $public_options, $t1 = $_POST['carpool_times_morning'], $t2 = $_POST['carpool_times_evening']);
 mysqli_stmt_execute($stmt);
 if ($context == 'demo'){
 	include "map_demo.html";
