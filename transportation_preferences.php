@@ -176,8 +176,8 @@ if ($options['driver'])  { ?>
 	}
 	?>
 </select>
-</p>
 <?php }  else echo "<div style='height:17px'>&nbsp;</div>" ?>
+</p>
 <p>
 	<div id="transportation_type_public_transportation" class="transportation_type" onclick="toggle_visibility('transportation_type_public_transportation');" style="display: block;">
 	Public Transportation<!--not selected-->
