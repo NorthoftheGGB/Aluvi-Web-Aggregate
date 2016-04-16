@@ -166,8 +166,9 @@ if ($options['driver'])  { ?>
 
 <div class="option" id="publicTransitBox">
 <!--<p>Public Transportation-->
-<?php if ($public_options)  { ?>
 <p>
+<?php if ($public_options)  { ?>
+
 <select name="public_options">
 	<option value="">--Select Option--</option>
 	<?php
