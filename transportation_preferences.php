@@ -268,13 +268,13 @@ When I usually head home (PM):<br>
 </p>
 <?php } ?>
 </div>
+<br/>
 <?php if ($comments_box) { ?>
-<div style='width:600px; text-align:left'>
+<div style='width:250px; text-align:left'>
 	Comments: <br/>
-	<textarea name="comments" style="width:100px; height:3em"></textarea>
+	<textarea name="comments" style="width:100%; height:3em"></textarea>
 </div>
 <?php } ?>
-<div 
 <div id='error' style='clear:both; width:500px; text-align:left; height:2em;'></div>
 </center>
 <input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
