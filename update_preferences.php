@@ -29,7 +29,7 @@ mysqli_stmt_bind_param($stmt, 'iiiiiiisssss', $row['id'],  $carpool, $vanpool, $
 mysqli_stmt_execute($stmt);
 if ($comments_box){
 	$comments = mysqli_real_escape_string($users_con, $_POST['comments']);
-	mysqli_query($users_con, $q = "update preferences set comments = '$comments' where userid = $row[id]");
+	mysqli_query($users_con, $q = "update preferences set comments = '$comments' where user_id = $row[id]");
 echo $q;
 }
 if ($context == 'demo'){
