@@ -46,7 +46,7 @@ function toggle_visibility(id) {
 function validate_form(){
 	var form = document.forms[0];
 	if (<?php echo $conditions?>){
-	document.getElementById('error').innerHTML = '<br/><br/><?php echo $errmsg?>.';
+	document.getElementById('error').innerHTML = '<br/><?php echo $errmsg?>.';
 	return false;
 	}
 return true;
@@ -275,7 +275,7 @@ When I usually head home (PM):<br>
 	<textarea name="comments" style="width:100%; height:5em"></textarea>
 </div>
 <?php } ?>
-<div id='error' style='clear:both; width:500px; text-align:left; height:2em;'></div>
+<div id='error' style='clear:both; width:500px; text-align:left; height:1em;'></div>
 </center>
 <input type="submit" value="Next" class="submit" onClick="return validate_form();"/>
 
