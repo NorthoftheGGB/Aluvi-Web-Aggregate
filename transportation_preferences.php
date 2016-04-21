@@ -271,8 +271,8 @@ When I usually head home (PM):<br>
 <br/>
 <?php if ($comments_box) { ?>
 <div style='width:250px; text-align:left'>
-	Comments: <br/>
-	<textarea name="comments" style="width:100%; height:3em"></textarea>
+	Comments: <br/><br/>
+	<textarea name="comments" style="width:100%; height:5em"></textarea>
 </div>
 <?php } ?>
 <div id='error' style='clear:both; width:500px; text-align:left; height:2em;'></div>
