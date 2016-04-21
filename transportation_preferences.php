@@ -268,10 +268,10 @@ When I usually head home (PM):<br>
 </p>
 <?php } ?>
 </div>
-<br/>
+<br/><br/>
 <?php if ($comments_box) { ?>
 <div style='width:250px; text-align:left'>
-	Comments: <br/><br/>
+	Comments:<br/> 
 	<textarea name="comments" style="width:100%; height:5em"></textarea>
 </div>
 <?php } ?>
