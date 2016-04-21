@@ -27,6 +27,10 @@ $public_transportation = isset($_POST['transportation_type_public_transportation
 $commuter_bus =  isset($_POST['transportation_type_commuter_bus']) ? 1 : 0;
 mysqli_stmt_bind_param($stmt, 'iiiiiiisssss', $row['id'],  $carpool, $vanpool, $bicycle, $walking, $public_transportation, $commuter_bus, $_POST['carpool_options'], $_POST['vanpool_options'], $public_options, $t1 = $_POST['carpool_times_morning'], $t2 = $_POST['carpool_times_evening']);
 mysqli_stmt_execute($stmt);
+if ($comments_box){
+	$comments = mysqli_real_escape_string($users_con, $_POST['comments']);
+	mysqli_query($users_con, "update preferences set comments = '$comments' where userid = $row[id]");
+}
 if ($context == 'demo'){
 	include "map_demo.html";
 	exit;

@@ -21,6 +21,7 @@ switch ($context) {
         $offices = array("San Jose");
         $transit_options[5] = "lastmile_shuttle";
         $public_options = array("ACE Train + VTA", "AC Transit + VTA", "VTA Bus", "VTA Rail", "VTA Rail + Bus", "CALTrain + VTA");
+        $comments_box = true;
         $logo_width = 321;
         $office_coordinates = array("37.3898649,-121.9356721");
         break;
