@@ -30,7 +30,7 @@ mysqli_stmt_execute($stmt);
 if ($comments_box){
 	$comments = mysqli_real_escape_string($users_con, $_POST['comments']);
 	mysqli_query($users_con, $q = "update preferences set comments = '$comments' where user_id = $row[id]");
-echo $q;
+
 }
 if ($context == 'demo'){
 	include "map_demo.html";
