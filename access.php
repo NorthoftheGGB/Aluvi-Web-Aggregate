@@ -17,7 +17,7 @@ else {
 		$error = "Please enter both first and last name. ";
 	}
 }
-if (!($context == "demo" || $email == "olypuppetfest@gmail.com" || $split_email[1] == $company_email || $split_email[1] == "aluviapp.com")){
+if (!($context == "demo" || $context == "verifone" || $email == "olypuppetfest@gmail.com" || $split_email[1] == $company_email || $split_email[1] == "aluviapp.com")){
 	$error .= "Please enter your $nametitle_long email address. ";
 }
 if (!$zip){
