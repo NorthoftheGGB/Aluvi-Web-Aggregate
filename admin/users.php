@@ -7,7 +7,7 @@ if ($comments_box){
 		$comments1 = ",comments";
 		$comments2 = "<th>Comments</th>";
 }
-$query = "select date_format(added, '%m/%d/%Y')as added, name, email, carpool_times_morning, carpool_times_evening, case when walking then 'yes' else 'no' end, case when bicycle then 'yes' else 'no' end, case when public_transportation then $public_yes else 'no' end, case when carpool then carpool_option else 'no' end, case when vanpool then vanpool_option else 'no' end, case when commuter_bus then 'yes' else 'no' end $comments1 from users u join preferences p on u.id = user_id where office = $office order by added";
+$query = "select date_format(added, '%m/%d/%Y')as added, name, email, zip, carpool_times_morning, carpool_times_evening, case when walking then 'yes' else 'no' end, case when bicycle then 'yes' else 'no' end, case when public_transportation then $public_yes else 'no' end, case when carpool then carpool_option else 'no' end, case when vanpool then vanpool_option else 'no' end, case when commuter_bus then 'yes' else 'no' end $comments1 from users u join preferences p on u.id = user_id where office = $office order by added";
 $result = mysqli_query($users_con, $query);
 $uq = "select count(*) as number from preferences join users u on u.id = user_id where office = $office";
 $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
@@ -23,6 +23,7 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
     <th>Added</th>
     <th>Name</th>
     <th>Email</th>
+    <th>Zipcode</th>
     <th>Arrives</th>
     <th>Departs</th>
     <th>Walking</th>
