@@ -53,7 +53,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </head>
   <body>
 	<div style='width:800px; margin:auto;'>
-		<form method='get' action='demo_heatmap.php'>
+		<form method='get' action='heatmap.php'>
 			<input type='hidden' name='office' value='<?php echo $office ?>' />
 			<select name='type'>
 				<option value=''>All Transportation Types</option>
