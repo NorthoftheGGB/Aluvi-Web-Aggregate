@@ -6,7 +6,7 @@ include "../database.php";
 include "make_charts.php";
 //geographical data
 $result = mysqli_query($con, "select u.zip, c.name city_name, c.id as city_id, cn.name county_name, cn.id as county_id
-		       from demo_users.users u join demo_users.preferences p on p.user_id = u.id
+		       from ${context}_users.users u join ${context}_users.preferences p on p.user_id = u.id
 		       join zipcode_locations zl on zl.zip = u.zip join cities c on c.id = zl.city join counties cn on cn.id = c.county
 		       where u.office = $office group by u.zip
 		       order by cn.name, c.name, u.zip");
