@@ -72,13 +72,13 @@ $users = mysqli_fetch_assoc(mysqli_query($users_con, $uq));
       function showCities(county, init){
 	$('.cityopt').hide();
 	if (!init)
-		$('#citysel').val('all');
+		$('#ctysel').val('all');
 	$('.county_'+county).show();
       }
       function showZipcodes(city, init){
 	$('.zipopt').hide();
 	if (!init){
-		$('#citysel').val('all');
+		$('#ctysel').val('all');
 		$('#zipsel').val('all');
 	}
 	$('.city_'+city).show();
