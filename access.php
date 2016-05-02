@@ -34,7 +34,7 @@ $factory = new RandomLib\Factory;
 $generator = $factory->getMediumStrengthGenerator();
 
 $cookie_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-setcookie('aluvi_token', $cookie_key, time() + 30*60);
+//setcookie('aluvi_token', $cookie_key, time() + 30*60);
 
 $link_key = $generator->generateString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
@@ -56,11 +56,7 @@ if ($e = mysqli_error($users_con)){
 	exit();
 }
 
-/*
-if ($_COOKIE['aluvi_token'] != $cookie_key){
-	die ("hmmm...");
-}
-*/
+
 $url = "http://{$_SERVER['SERVER_NAME']}/transportation.php?token=$link_key&context=$context";
 
 
