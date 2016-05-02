@@ -3,14 +3,14 @@ $context = $_POST['context'];
 require('vendor/autoload.php');
 include "options.php";
 require('database.php');
-//??
+/*
 $cookie_key = $_COOKIE['aluvi_token'];
 $result = mysqli_query($users_con, $q = "select * from users where cookie_key = '$cookie_key'");
 if(mysqli_num_rows($result) == 0){
 	require 'expired_link.php';
 	exit;
 }
-
+*/
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $userzip = $row['zip'];
 $userid = $row['id'];
