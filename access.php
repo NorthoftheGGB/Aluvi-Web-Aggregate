@@ -4,7 +4,7 @@ include "options.php";
 require('vendor/autoload.php');
 require('database.php');
 $error = "";
-$email = $_REQUEST['email'];
+$email = strtolower($_REQUEST['email']);
 $name = ($_REQUEST['name']);
 $zip = $_REQUEST['zip'];
 $office = $_POST['office'];
